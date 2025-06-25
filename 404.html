@@ -49,29 +49,40 @@
          <!-- Preloader Start -->
          <div id="preloader" class="preloader">
             <div class="animation-preloader">
-                <div class="spinner">                
+                <div class="position-relative">
+                    <div class="spinner"></div>
+                    <img src="assets/img/logo/logo.png" alt="logo-img" class="position-absolute top-50 start-50 translate-middle">
                 </div>
                 <div class="txt-loading">
-                    <span data-text-preloader="N" class="letters-loading">
-                        N
+                    <span data-text-preloader="R" class="letters-loading">
+                        R
                     </span>
                     <span data-text-preloader="E" class="letters-loading">
                         E
                     </span>
-                    <span data-text-preloader="X" class="letters-loading">
-                        X
-                    </span>
                     <span data-text-preloader="A" class="letters-loading">
                         A
                     </span>
-                    <span data-text-preloader="V" class="letters-loading">
-                        V
+                    <span data-text-preloader="D" class="letters-loading">
+                        D
                     </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
+                    <span data-text-preloader="Y" class="letters-loading">
+                        Y
+                    </span>
+                    <span data-text-preloader=" " class="letters-loading">
+                         
+                    </span>
+                    <span data-text-preloader="N" class="letters-loading">
+                        N
+                    </span>
+                    <span data-text-preloader="O" class="letters-loading">
+                        O
+                    </span>
+                    <span data-text-preloader="W" class="letters-loading">
+                        W
                     </span>
                 </div>
-                <p class="text-center">Loading</p>
+                <p class="text-center">Junk Removal</p>
             </div>
             <div class="loader">
                 <div class="row">
@@ -113,26 +124,19 @@
                             </div>
                         </div>
                         <p class="text d-none d-xl-block">
-                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
+                            Clearing space, reducing stress — one load at a time.
                         </p>
                         <div class="mobile-menu fix mb-3"></div>
                         <div class="offcanvas__contact">
                             <h4>Contact Info</h4>
                             <ul>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
-                                    </div>
-                                </li>
+                                
                                 <li class="d-flex align-items-center">
                                     <div class="offcanvas__contact-icon mr-15">
                                         <i class="fal fa-envelope"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a href="mailto:info@azent.com"><span class="mailto:info@example.com">info@example.com</span></a>
+                                        <a href="mailto:morenoalder98@gmail.com">morenoalder98@gmail.com</a>
                                     </div>
                                 </li>
                                 <li class="d-flex align-items-center">
@@ -140,7 +144,7 @@
                                         <i class="fal fa-clock"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
+                                        <a target="_blank" href="#">Mon-Fri, 9am - 5pm</a>
                                     </div>
                                 </li>
                                 <li class="d-flex align-items-center">
@@ -148,7 +152,7 @@
                                         <i class="far fa-phone"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a href="tel:+11002345909">+11002345909</a>
+                                        <a href="tel:+19163901005">+19163901005</a>
                                     </div>
                                 </li>
                             </ul>
@@ -160,8 +164,7 @@
                             <div class="social-icon d-flex align-items-center">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -295,7 +298,7 @@
                         </div>
                     </div>
                     <div class="header-right d-flex justify-content-end align-items-center">
-                        <a href="#0" class="search-trigger search-icon"><i class="fal fa-search"></i></a>
+                        
                         <div class="header-button">
                             <a href="contact.html" class="theme-btn">
                                 <span>
@@ -316,7 +319,7 @@
         </header>
 
         <!-- Bradcrumb Section Start -->
-        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/img/breadcrumb/404-breadcrumb.jpg');">
+        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/breadcrumb/404-breadcrumb.jpg');">
             <div class="container">
                 <div class="page-heading error-items">
                     <h1 class="wow fadeInUp" data-wow-delay=".2s">404</h1>
@@ -348,6 +351,11 @@
         <!--<< Wow Animation Js >>-->
         <script src="assets/js/wow.min.js"></script>
         <!--<< Main.js >>-->
-    <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
+
+        <!-- Web Components -->
+        <script src="/components/preloader.js" type="module"></script> 
+        <script src="/components/header2.js" type="module"></script> 
+        <script src="/components/footer.js" type="module"></script>
     </body>
 </html>

@@ -1228,7 +1228,7 @@ span {
 .cta-contact-section {
   position: relative;
 }
-.cta-contact-section::before {
+.cta-contact-section:not(.hide-before)::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -1541,6 +1541,14 @@ span {
     width: 100%;
     height: 100%;
   }
+}
+
+.feature-content, .feature-content h2, .feature-content h3{
+  color: var(--white) !important;
+}
+
+.feature-content h2{
+  color: var(--theme) !important;
 }
 
 .feature-wrapper {
@@ -1961,26 +1969,7 @@ span {
 
 .header-section-2 {
   position: relative;
-  margin-bottom: 20px;
-}
-.header-section-2::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background-color: var(--theme);
-  width: 18%;
-  z-index: 9;
-  clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
-}
-@media (max-width: 1899px) {
-  .header-section-2::before {
-    display: none;
-  }
+  margin-bottom: 10px;
 }
 
 .header-top-section {
@@ -2095,7 +2084,6 @@ span {
 }
 
 .header-1 {
-  margin-left: 315px;
   position: relative;
 }
 @media (max-width: 1899px) {
@@ -2103,21 +2091,10 @@ span {
     margin-left: 0;
   }
 }
-.header-1 .main-logo {
-  position: absolute;
-  top: 0;
-  left: -215px;
-  z-index: 9;
-}
-@media (max-width: 1899px) {
-  .header-1 .main-logo {
-    display: none;
-  }
-}
 .header-1 .container-fluid {
-  padding: 0 66px;
+  padding: 0 20px;
 }
-@media (max-width: 1399px) {
+@media (min-width: 576px) {
   .header-1 .container-fluid {
     padding: 0 50px;
   }
@@ -2125,6 +2102,11 @@ span {
 @media (max-width: 1899px) {
   .header-1 .header-main .logo {
     display: block !important;
+  }
+}
+@media (max-width: 576px) {
+  .header-1 .header-main .logo .header-logo img {
+    width: 3rem !important;
   }
 }
 @media screen and (max-width: 1025px) {
@@ -2276,8 +2258,7 @@ span {
   font-size: 16px;
   font-weight: 600;
   color: var(--header);
-  line-height: 38px;
-  padding: 0px 0px 0px 32px;
+  line-height: 1.2rem;
   width: 100%;
 }
 .header-main .main-menu ul li .submenu li a::before {
@@ -2291,7 +2272,7 @@ span {
   transition: all 0.4s ease-in-out;
 }
 .header-main .main-menu ul li .submenu li a:hover {
-  color: var(--white) !important;
+  /* color: var(--white) !important; */
 }
 .header-main .main-menu ul li .submenu li:last-child a {
   border: none;
@@ -2342,7 +2323,7 @@ span {
 }
 .header-main .main-menu ul li .has-homemenu .homemenu-items {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 30px;
   justify-content: space-between;
 }
@@ -2531,7 +2512,6 @@ span {
 
 .offcanvas__wrapper {
   position: relative;
-  height: 100%;
   padding: 30px 30px;
 }
 .offcanvas__wrapper .offcanvas__content .text {
@@ -2552,7 +2532,7 @@ span {
   color: var(--white);
 }
 .offcanvas__wrapper .offcanvas__content .offcanvas__contact {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 .offcanvas__wrapper .offcanvas__content .offcanvas__contact ul {
   margin-top: 20px;
@@ -3268,7 +3248,7 @@ span {
   background-position: bottom center;
   overflow: hidden;
   z-index: 9;
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
 }
 @media (max-width: 1399px) {
   .hero-1 {
@@ -4904,9 +4884,16 @@ input.main-search-input::placeholder {
   background-color: var(--white);
   box-shadow: var(--box-shadow);
   position: relative;
+  height: 100%;
 }
 .service-box-items.style-2 {
   margin-top: 30px;
+}
+.service-box-items .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 .service-box-items .content h3 {
   margin-bottom: 15px;
@@ -5146,13 +5133,12 @@ input.main-search-input::placeholder {
   margin-bottom: 30px;
 }
 .service-details-wrapper .service-details-sidebar .sidebar-widget ul li {
-  padding: 18px 20px;
-  background-color: var(--bg);
+  padding: 12px 20px;
   font-family: "Jost", sans-serif;
-  background-color: var(--white);
   transition: all 0.4s ease-in-out;
   font-size: 18px;
   font-weight: 500;
+  border-bottom: 1px solid var(--border);
 }
 .service-details-wrapper .service-details-sidebar .sidebar-widget ul li:not(:last-child) {
   margin-bottom: 10px;
@@ -5162,10 +5148,12 @@ input.main-search-input::placeholder {
   align-items: center;
   justify-content: space-between;
 }
-.service-details-wrapper .service-details-sidebar .sidebar-widget ul li:hover {
+.service-details-wrapper .service-details-sidebar .sidebar-widget ul li:hover,
+.service-details-wrapper .service-details-sidebar .sidebar-widget ul li.active {
   background-color: var(--theme);
 }
-.service-details-wrapper .service-details-sidebar .sidebar-widget ul li:hover a {
+.service-details-wrapper .service-details-sidebar .sidebar-widget ul li:hover a,
+.service-details-wrapper .service-details-sidebar .sidebar-widget ul li.active a {
   color: var(--white);
 }
 .service-details-wrapper .service-details-sidebar .sidebar-widget .contact-bg {

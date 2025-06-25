@@ -3,12 +3,17 @@
     background-color: $white;
     box-shadow: $shadow;
     position: relative;
+    height: 100%;
 
     &.style-2 {
         margin-top: 30px;
     }
 
     .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
         h3 {
             margin-bottom: 15px;
 

@@ -60,7 +60,7 @@
 .cta-contact-section {
     position: relative;
 
-    &::before {
+    &:not(.hide-before)::before {
         @include before;
         background-color: $bg-color;
         top: 35%;

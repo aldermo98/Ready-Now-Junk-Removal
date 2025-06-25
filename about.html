@@ -47,49 +47,7 @@
     <body>
 
         <!-- Preloader Start -->
-        <div id="preloader" class="preloader">
-            <div class="animation-preloader">
-                <div class="spinner">                
-                </div>
-                <div class="txt-loading">
-                    <span data-text-preloader="N" class="letters-loading">
-                        N
-                    </span>
-                    <span data-text-preloader="E" class="letters-loading">
-                        E
-                    </span>
-                    <span data-text-preloader="X" class="letters-loading">
-                        X
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                    <span data-text-preloader="V" class="letters-loading">
-                        V
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                </div>
-                <p class="text-center">Loading</p>
-            </div>
-            <div class="loader">
-                <div class="row">
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <custom-preloader></custom-preloader>
 
         <!-- Back To Top Start -->
         <button id="back-top" class="back-to-top">
@@ -100,228 +58,11 @@
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
 
-        <!-- Offcanvas Area Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/logo.png" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button>
-                                <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text d-none d-xl-block">
-                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
-                        </p>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h4>Contact Info</h4>
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-envelope"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="mailto:info@azent.com"><span class="mailto:info@example.com">info@example.com</span></a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-clock"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="far fa-phone"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="tel:+11002345909">+11002345909</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="header-button mt-4">
-                                <a href="contact.html" class="theme-btn text-center">
-                                    <span>get A Quote<i class="fa-solid fa-arrow-right-long"></i></span>
-                                </a>
-                            </div>
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
-
         <!-- Header Section Start -->
-        <header id="header-sticky" class="header-2 style-2">
-        <div class="container">
-            <div class="mega-menu-wrapper">
-                <div class="header-main">
-                    <div class="logo">
-                        <a href="index.html" class="header-logo">
-                            <img src="assets/img/logo/logo.png" alt="logo-img">
-                        </a>
-                    </div>
-                    <div class="header-left">
-                        <div class="mean__menu-wrapper">
-                            <div class="main-menu">
-                                <nav id="mobile-menu">
-                                    <ul>
-                                        <li class="has-dropdown active menu-thumb">
-                                            <a href="index.html">
-                                            Home 
-                                            </a>
-                                            <ul class="submenu has-homemenu">
-                                                <li>
-                                                    <div class="homemenu-items">
-                                                        <div class="homemenu">
-                                                            <div class="homemenu-thumb">
-                                                                <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                <div class="demo-button">
-                                                                    <a href="index.html" class="theme-btn">
-                                                                        Demo Page
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu-content text-center">
-                                                                <h4 class="homemenu-title">
-                                                                    Home 01
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <div class="homemenu-thumb mb-15">
-                                                                <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                <div class="demo-button">
-                                                                    <a href="index-2.html" class="theme-btn">
-                                                                        Demo Page
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu-content text-center">
-                                                                <h4 class="homemenu-title">
-                                                                    Home 02
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <div class="homemenu-thumb mb-15">
-                                                                <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                <div class="demo-button">
-                                                                    <a href="index-3.html" class="theme-btn">
-                                                                        Demo Page
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu-content text-center">
-                                                                <h4 class="homemenu-title">
-                                                                    Home 03
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown active d-xl-none">
-                                            <a href="team.html" class="border-none">
-                                            Home
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="index.html">Home 01</a></li>
-                                                <li><a href="index-2.html">Home 02</a></li>
-                                                <li><a href="index-3.html">Home 03</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="about.html">About Us</a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="news.html">
-                                                Pages
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="project.html">Projects</a></li>
-                                                <li><a href="project-details.html">Project Details</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                                <li><a href="faq.html">faq</a></li>
-                                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="service-details.html">
-                                                Services
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="service.html">Services</a></li>
-                                                <li><a href="service-details.html">Service Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="news.html">
-                                                Blog
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="news.html">Blog Grid</a></li>
-                                                <li><a href="news-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact Us</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header-right d-flex justify-content-end align-items-center">
-                        <a href="#0" class="search-trigger search-icon"><i class="fal fa-search"></i></a>
-                        <div class="header-button">
-                            <a href="contact.html" class="theme-btn">
-                                <span>
-                                    Get a quote
-                                    <i class="fa-regular fa-angles-right"></i>
-                                </span>
-                                </a>
-                        </div>
-                        <div class="header__hamburger d-xl-none my-auto">
-                            <div class="sidebar__toggle">
-                                <img src="assets/img/logo/bar.png" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </header>
+        <custom-header-2></custom-header-2>
 
         <!-- Footer Section Start -->
-        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/img/breadcrumb/about-breadcrumb.jpg');">
+        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('/assets/img/breadcrumb/about-breadcrumb.jpg');">
             <div class="container">
                 <div class="page-heading">
                     <h1 class="wow fadeInUp" data-wow-delay=".3s">About Us</h1>
@@ -343,12 +84,9 @@
         </div>
 
         <!-- About Section Start -->
-        <section class="about-section fix section-padding pb-0">
+        <section class="about-section fix section-padding">
             <div class="about-shape">
                 <img src="assets/img/about/about-shape.png" alt="shape-img">
-            </div>
-            <div class="about-right-shape">
-                <img src="assets/img/about/about-right.png" alt="shape-img">
             </div>
             <div class="container">
                 <div class="about-wrapper">
@@ -358,9 +96,9 @@
                     <div class="row g-4 align-items-center">
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                             <div class="about-image">
-                                <img src="assets/img/about/07.jpg" alt="img">
+                                <img src="assets/img/about/01.jpg" alt="img">
                                 <div class="about-image-2">
-                                    <img src="assets/img/about/08.jpg" alt="img">
+                                    <img src="assets/img/about/02.png" alt="img">
                                 </div>
                             </div>
                         </div>
@@ -368,26 +106,18 @@
                             <div class="about-content">
                                 <div class="section-title">
                                     <span class="wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">About Us</span>
-                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Excellence in every profession, success in every pursuit.</h2>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Why Choose Ready Now Junk Removal?</h2>
                                 </div>
                                 <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                                    Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit amet neque euismod, convallis quam eget, dignissim massa.
+                                    Hi, my name is Alder Moreno. I am a former Software Developer who career-switched into the Junk Removal industry in an effort to better connect clients with <strong>vetted</strong> and <strong>affordable</strong> junk removal services. 
+                                    All our partners are committed to <strong>fast, friendly, and responsible</strong> junk hauling. Whether you're cleaning out a garage or tackling a renovation project, our team is trained, insured, and on time — every time.
+                                </p><br>
+                                <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".6s">
+                                    If you need junk removal, we are here to help. We offer same-day service and can handle jobs of any size. Our team is dedicated to providing you with the best possible service, and we guarantee your satisfaction.
+                                </p><br>
+                                <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".6s">
+                                    If you or anyone you know provides top-tier junk removal service and think they deserve to be a partner, reach out to us using our <a href="/contact.html">contact form</a> and let us know!
                                 </p>
-                                <ul class="about-list wow fadeInUp" data-wow-delay=".3s">
-                                    <li>
-                                        <i class="fa-solid fa-circle-check"></i>
-                                        Innovative Solutions for Superior Quality
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-circle-check"></i>
-                                        Excellence Driven by Innovation
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-circle-check"></i>
-                                        Innovative Approaches to Superior Craftsmanship
-                                    </li>
-                                </ul>
-                                <a href="about.html" class="theme-btn header-bg wow fadeInUp" data-wow-delay=".5s">Discover More <i class="fa-regular fa-angles-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -400,31 +130,28 @@
             <div class="mycustom-marque style-2">
                 <div class="scrolling-wrap">
                     <div class="comm">
-                        <div class="cmn-textslide textitalick text-custom-storke">ELITE ROOF CARE</div>
+                        <div class="cmn-textslide text-custom-storke">ELITE JUNK REMOVAL</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick">ROOF CARE</div>
+                        <div class="cmn-textslide">AFFORDABLE</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick text-custom-storke">EXCELLENCE</div>
+                        <div class="cmn-textslide text-custom-storke">RELIABLE</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick text-custom-storke">SUPERIOR</div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide textitalick text-custom-storke">ELITE ROOF CARE</div>
+                        <div class="cmn-textslide">ELITE JUNK REMOVAL</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick">ROOF CARE</div>
+                        <div class="cmn-textslide text-custom-storke">AFFORDABLE</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick text-custom-storke">EXCELLENCE</div>
+                        <div class="cmn-textslide">RELIABLE</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick text-custom-storke">SUPERIOR</div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide textitalick text-custom-storke">ELITE ROOF CARE</div>
+                        <div class="cmn-textslide text-custom-storke">ELITE JUNK REMOVAL</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick">ROOF CARE</div>
+                        <div class="cmn-textslide">AFFORDABLE</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick text-custom-storke">EXCELLENCE</div>
+                        <div class="cmn-textslide text-custom-storke">RELIABLE</div>
                         <div><img src="assets/img/Asterisk2.png" alt="img"></div>
-                        <div class="cmn-textslide textitalick text-custom-storke">SUPERIOR</div>
                     </div>
                 </div>
             </div>
@@ -437,28 +164,27 @@
                     <div class="row g-4 justify-content-between align-items-center">
                         <div class="col-xl-6 col-lg-6">
                             <div class="cta-contact-content">
-                                <div class="section-title">
-                                    <span class="text-white wow fadeInUp"><img src="assets/img/icon/08.svg" alt="img">Get Free Consultancy </span>
-                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Get Free Or Call Us For Consultancy</h2>
+                               <div class="section-title">
+                                    <span class="text-white wow fadeInUp"><img src="/assets/img/icon/08.svg" alt="img">Get A Free Quote </span>
+                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Ready to declutter your life? Send us your project</h2>
                                 </div>
-                                <h3 class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s"><a href="tel:+012345678900">+0123 45678 900</a></h3>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-6">
                             <div class="contact-into-items">
-                                <form action="#" id="contact-form" method="POST">
+                                <form name="cta-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                                     <div class="row g-4">
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
-                                                <input type="text" name="name" id="name" placeholder="Full Name">
+                                                <input type="text" name="name" id="cta-name" placeholder="Full Name" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                             <div class="form-clt">
-                                                <input type="text" name="email" id="email12" placeholder="Email">
+                                                <input type="email" name="email" id="cta-email" placeholder="Email" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
+                                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
                                             <button type="submit" class="theme-btn">
                                                 Send Message <i class="fa-regular fa-angles-right"></i>
                                             </button>
@@ -494,8 +220,8 @@
                             </div>
                         </div>
                         <div class="content">
-                            <h3>Roof Planning</h3>
-                            <p>Ensure your website has a clean, modern <br> design that reflects your brand.</p>
+                            <h3>Initial Contact</h3>
+                            <p>We start looking to fill your project within 24 hours of you contacting us.</p>
                         </div>
                     </div>
                     <div class="work-process-items wow fadeInUp" data-wow-delay=".5s">
@@ -506,8 +232,8 @@
                             </div>
                         </div>
                         <div class="content">
-                            <h3>Roof Installation</h3>
-                            <p>Ensure your website has a clean, modern <br> design that reflects your brand.</p>
+                            <h3>Scheduling</h3>
+                            <p>We reach out to our network of verified and trusted partners that best fits the job at hand.</p>
                         </div>
                     </div>
                     <div class="work-process-items wow fadeInUp" data-wow-delay=".7s">
@@ -518,8 +244,8 @@
                             </div>
                         </div>
                         <div class="content">
-                            <h3>Finished Roof</h3>
-                            <p>Ensure your website has a clean, modern <br> design that reflects your brand.</p>
+                            <h3>Quality Assurance</h3>
+                            <p>We then send you before and after pictures to ensure your satisfaction.</p>
                         </div>
                     </div>
                 </div>
@@ -530,57 +256,66 @@
         <section class="team-section fix section-padding">
             <div class="container">
                 <div class="section-title text-center">
-                    <span class=" justify-content-center wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">active mEMBERS </span>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Expert Roof Service That Exceed <br> Expartations </h2>
+                    <span class=" justify-content-center wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">Our Partners </span>
+                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Expert Junk Removal That Exceeds <br> Expectations </h2>
                 </div>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="team-box-items-2">
+                <div class="row g-4">
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="team-box-items mt-0">
                             <div class="team-image">
-                                <img src="assets/img/team/05.jpg" alt="img">
+                                <img src="assets/img/team/testimonial1.jpg" alt="img" width="248">
                             </div>
                             <div class="team-content">
-                                <h3><a href="team-details.html">Michael Dean</a></h3>
-                                <span>Roof Pros</span>
+                                <h3 class="mb-3"><a href="team-details.html">Michael Dean</a></h3>
+                                <a href="https://www.junkshotapp.com/sacramento/" target="_blank" class="text-muted" rel="noopener">
+                                    Junk Pros
+                                    <i class="fa fa-external-link ms-1"></i>
+                                </a>
+                                <p>Fast, affordable junk removal services in Sacramento, focusing on eco-friendly disposal and customer satisfaction.</p>
                                 <div class="social-icon d-flex align-items-center">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="team-box-items-2">
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="team-box-items mt-0">
                             <div class="team-image">
-                                <img src="assets/img/team/06.jpg" alt="img">
+                                <img src="assets/img/team/testimonial3.jpg" alt="img" width="248">
                             </div>
                             <div class="team-content">
-                                <h3><a href="team-details.html">Brooklyn Simmons</a></h3>
-                                <span>Roof Pros</span>
+                                <h3 class="mb-3"><a href="team-details.html">Brooklyn Simmons</a></h3>
+                                <a href="https://www.junkshotapp.com/sacramento/" target="_blank" class="text-muted" rel="noopener">
+                                    Junk King
+                                    <i class="fa fa-external-link ms-1"></i>
+                                </a>
+                                <p>Reliable, full-service junk removal with a commitment to recycling and responsible disposal.</p>
                                 <div class="social-icon d-flex align-items-center">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                        <div class="team-box-items-2">
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="team-box-items mt-0">
                             <div class="team-image">
-                                <img src="assets/img/team/07.jpg" alt="img">
+                                <img src="assets/img/team/testimonial4.jpg" alt="img" width="248">
                             </div>
                             <div class="team-content">
-                                <h3><a href="team-details.html">Esther Howard</a></h3>
-                                <span>Roof Rawal</span>
+                                <h3 class="mb-3"><a href="team-details.html">Esther Howard</a></h3>
+                                <a href="https://www.junkshotapp.com/sacramento/" target="_blank" class="text-muted" rel="noopener">
+                                    Norcal Junk Removal
+                                    <i class="fa fa-external-link ms-1"></i>
+                                </a>
+                                <p>Professional junk hauling for homes and businesses, prioritizing quick service and environmental care.</p>
                                 <div class="social-icon d-flex align-items-center">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -704,151 +439,7 @@
         </section>
        
         <!-- Footer Section Start -->
-        <footer class="footer-section fix section-bg">
-            <div class="shape-1">
-                <img src="assets/img/footer/shape-1.png" alt="img">
-            </div>
-            <div class="shape-2">
-                <img src="assets/img/footer/shape-2.png" alt="img">
-            </div>
-            <div class="container">
-                <div class="footer-widgets-wrapper style-2">
-                    <div class="row">
-                        <div class="col-xl-4 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".2s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <a href="index.html">
-                                        <img src="assets/img/logo/logo.png" alt="logo-img">
-                                    </a>
-                                </div>
-                                <div class="footer-content">
-                                    <p>
-                                        Proin efficitur, mauris vel condimentum <br> pulvinar, velit orci consectetur ligula, eget <br> egestas magna mi ut arcu. 
-                                    </p>
-                                    <div class="social-icon d-flex align-items-center">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".4s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <h3>Quick Links</h3>
-                                </div>
-                                <ul class="list-items">
-                                    <li>
-                                        <a href="about.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            About Us
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="team.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Our Team
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="service.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Our Services
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Blogs
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Contact
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 ps-lg-4 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".6s">
-                            <div class="single-footer-widget">
-                            <div class="widget-head">
-                                <h3>Recent Post</h3>
-                            </div>
-                            <div class="recent-post-area">
-                                <div class="recent-post-items">
-                                    <div class="thumb">
-                                        <a href="news-details.html"><img src="assets/img/news/pp1.jpg" alt="post-img"></a>
-                                    </div>
-                                    <div class="content">
-                                        <ul class="post-date">
-                                            <li>
-                                                <i class="fa-solid fa-calendar-days me-2"></i>
-                                                Jun 30, 2024
-                                            </li>
-                                        </ul>
-                                        <h6>
-                                            <a href="news-details.html">
-                                                Correct Execution Ensures Victory.
-                                            </a>
-                                        </h6>
-                                    </div>
-                                </div>
-                                <div class="recent-post-items mb-0">
-                                    <div class="thumb">
-                                        <a href="news-details.html"><img src="assets/img/news/pp2.jpg" alt="post-img"></a>
-                                    </div>
-                                    <div class="content">
-                                        <ul class="post-date">
-                                            <li>
-                                                <i class="fa-solid fa-calendar-days me-2"></i>
-                                                Jun 30, 2024
-                                            </li>
-                                        </ul>
-                                        <h6>
-                                            <a href="news-details.html">
-                                                Correct Execution Ensures Victory.
-                                            </a>
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".8s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <h3>Newsletter</h3>
-                                </div>
-                                <div class="footer-content">
-                                   <p>
-                                        Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. 
-                                   </p>
-                                    <form action="#" id="contact-form" method="POST" class="footer-input">
-                                        <input type="email" id="email" placeholder="Your email address">
-                                        <button class="theme-btn" type="submit">
-                                            Subscribe Now
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="footer-bottom-wrapper">
-                            <p>
-                                © Copyright 2024 by <a href="index.html">Nexava</a>. All rights Reserved
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <custom-footer></custom-footer>
        
         <!--<< All JS Plugins >>-->
         <script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -871,6 +462,11 @@
         <!--<< Wow Animation Js >>-->
         <script src="assets/js/wow.min.js"></script>
         <!--<< Main.js >>-->
-    <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
+
+        <!-- Web Components -->
+        <script src="/components/preloader.js" type="module"></script> 
+        <script src="/components/header2.js" type="module"></script> 
+        <script src="/components/footer.js" type="module"></script>
     </body>
 </html>

@@ -49,49 +49,7 @@
     <body>
 
         <!-- Preloader Start -->
-        <div id="preloader" class="preloader">
-            <div class="animation-preloader">
-                <div class="spinner">                
-                </div>
-                <div class="txt-loading">
-                    <span data-text-preloader="N" class="letters-loading">
-                        N
-                    </span>
-                    <span data-text-preloader="E" class="letters-loading">
-                        E
-                    </span>
-                    <span data-text-preloader="X" class="letters-loading">
-                        X
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                    <span data-text-preloader="V" class="letters-loading">
-                        V
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                </div>
-                <p class="text-center">Loading</p>
-            </div>
-            <div class="loader">
-                <div class="row">
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <custom-preloader></custom-preloader>
 
         <!-- Back To Top Start -->
         <button id="back-top" class="back-to-top">
@@ -102,265 +60,11 @@
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
 
-        <!-- Offcanvas Area Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/logo.png" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button>
-                                <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text d-none d-xl-block">
-                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
-                        </p>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h4>Contact Info</h4>
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-envelope"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="mailto:info@azent.com"><span class="mailto:info@example.com">info@example.com</span></a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-clock"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="far fa-phone"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="tel:+11002345909">+11002345909</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="header-button mt-4">
-                                <a href="contact.html" class="theme-btn text-center">
-                                    <span>get A Quote<i class="fa-solid fa-arrow-right-long"></i></span>
-                                </a>
-                            </div>
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
-
-        <!-- Header Section Start -->
-        <header class="header-section-2">
-            <div class="header-top-section fix">
-                <div class="container-fluid">
-                    <div class="header-top-wrapper">
-                        <h6><img src="assets/img/logo/location.png" alt="">Need help?  Call us: <a href="tel:+8001234567890">(+800) 1234 5678 90</a>  or  <a href="mailto:info@example.com">info@example.com</a></h6>
-                        <div class="top-right">
-                            <div class="social-icon d-flex align-items-center">
-                                <span>Follow Us:</span>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="header-sticky" class="header-1">
-                <div class="main-logo">
-                    <a href="index.html">
-                        <img src="assets/img/logo/black-logo.svg" alt="logo-image">
-                    </a>
-                </div>
-                <div class="container-fluid">
-                    <div class="mega-menu-wrapper">
-                        <div class="header-main">
-                            <div class="logo d-none">
-                                <a href="index.html" class="header-logo">
-                                    <img src="assets/img/logo/logo.png" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="header-left">
-                                <div class="mean__menu-wrapper">
-                                    <div class="main-menu">
-                                        <nav id="mobile-menu">
-                                            <ul>
-                                                <li class="has-dropdown active menu-thumb">
-                                                    <a href="index.html">
-                                                    Home 
-                                                    </a>
-                                                    <ul class="submenu has-homemenu">
-                                                        <li>
-                                                            <div class="homemenu-items">
-                                                                <div class="homemenu">
-                                                                    <div class="homemenu-thumb">
-                                                                        <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index.html" class="theme-btn">
-                                                                                Demo Page
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 01
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-2.html" class="theme-btn">
-                                                                                Demo Page
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 02
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-3.html" class="theme-btn">
-                                                                                Demo Page
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 03
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-dropdown active d-xl-none">
-                                                    <a href="team.html" class="border-none">
-                                                    Home
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="index.html">Home 01</a></li>
-                                                        <li><a href="index-2.html">Home 02</a></li>
-                                                        <li><a href="index-3.html">Home 03</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="about.html">About Us</a>
-                                                </li>
-                                                <li class="has-dropdown">
-                                                    <a href="news.html">
-                                                        Pages
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="project.html">Projects</a></li>
-                                                        <li><a href="project-details.html">Project Details</a></li>
-                                                        <li><a href="team.html">Team</a></li>
-                                                        <li><a href="team-details.html">Team Details</a></li>
-                                                        <li><a href="faq.html">faq</a></li>
-                                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                                        <li><a href="404.html">404 Page</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="service-details.html">
-                                                        Services
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="service.html">Services</a></li>
-                                                        <li><a href="service-details.html">Service Details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="news.html">
-                                                        Blog
-                                                    </a>
-                                                    <ul class="submenu">
-                                                <li><a href="news.html">Blog Grid</a></li>
-                                                <li><a href="news-details.html">Blog Details</a></li>
-                                            </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="contact.html">Contact Us</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="header-right d-flex justify-content-end align-items-center">
-                                <a href="#0" class="search-trigger search-icon"><i class="fal fa-search"></i></a>
-                                <div class="header__hamburger d-xl-block my-auto">
-                                    <div class="sidebar__toggle">
-                                        <img src="assets/img/logo/bar.png" alt="img">
-                                    </div>
-                                </div>
-                                <div class="header-button">
-                                    <a href="contact.html" class="theme-btn">
-                                        <span>
-                                            Get a quote
-                                            <i class="fa-regular fa-angles-right"></i>
-                                        </span>
-                                     </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Search Area Start -->
-        <div class="search-wrap">
-            <div class="search-inner">
-                <i class="fas fa-times search-close" id="search-close"></i>
-                <div class="search-cell">
-                    <form method="get">
-                        <div class="search-field-holder">
-                            <input type="search" class="main-search-input" placeholder="Search...">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <!-- Header Area Start -->
+         <custom-header></custom-header>
 
         <!-- Hero Section Start -->
-        <section class="hero-section fix hero-1" style="background-image: url('assets/img/hero/01.png');">
+        <section class="hero-section fix hero-1" style="background-image: url('assets/img/hero/before_after.png');">
             <div class="hero-shape">
                 <img src="assets/img/hero/shape-img.png" alt="img">
             </div>
@@ -376,13 +80,13 @@
                 <div class="row g-4">
                     <div class="col-lg-8">
                         <div class="hero-content">
-                            <h3 class="wow fadeInUp">Innovation at work</h3>
-                            <h1 class="wow fadeInUp" data-wow-delay=".3s">Achieving Excellence via Innovation</h1>
+                            <h3 class="wow fadeInUp">Ready When You Are</h3>
+                            <h1 class="wow fadeInUp" data-wow-delay=".3s">Fast, Affordable Junk Removal</h1>
                             <p class="wow fadeInUp" data-wow-delay=".5s">
-                                I have been a loyal customer of this auto parts company for years and I cannot recommend them enough. Their extensive selection of high-quality parts and accessories.
+                                Tired of clutter taking over your space? At Ready Now Junk Removal, we offer same-day junk hauling for residential and commerical properties. We handle everything — so you don’t have to.
                             </p>
                             <div class="hero-button wow fadeInUp" data-wow-delay=".7s">
-                                <a href="about.html" class="theme-btn">Read More <i class="fa-regular fa-angles-right"></i></a>
+                                <a href="about.html" class="theme-btn">Free Estimate<i class="fa-regular fa-angles-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -405,7 +109,7 @@
                             <div class="about-image">
                                 <img src="assets/img/about/01.jpg" alt="img">
                                 <div class="about-image-2">
-                                    <img src="assets/img/about/02.jpg" alt="img">
+                                    <img src="assets/img/about/02.png" alt="img">
                                 </div>
                             </div>
                         </div>
@@ -413,26 +117,26 @@
                             <div class="about-content">
                                 <div class="section-title">
                                     <span class="wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">About Us</span>
-                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Excellence in every profession, success in every pursuit.</h2>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Why Choose Ready Now Junk Removal?</h2>
                                 </div>
                                 <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                                    Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit amet neque euismod, convallis quam eget, dignissim massa.
+                                    Locally owned and operated, Ready Now Junk Removal is committed to fast, friendly, and responsible junk hauling. Whether you're cleaning out a garage or tackling a renovation project, our team is trained, insured, and on time — every time.
                                 </p>
                                 <ul class="about-list wow fadeInUp" data-wow-delay=".3s">
                                     <li>
                                         <i class="fa-solid fa-circle-check"></i>
-                                        Innovative Solutions for Superior Quality
+                                        Same-day or next-day availability
                                     </li>
                                     <li>
                                         <i class="fa-solid fa-circle-check"></i>
-                                        Excellence Driven by Innovation
+                                        Transparent pricing with no hidden fees
                                     </li>
                                     <li>
                                         <i class="fa-solid fa-circle-check"></i>
-                                        Innovative Approaches to Superior Craftsmanship
+                                        Responsible disposal & recycling practices
                                     </li>
                                 </ul>
-                                <a href="about.html" class="theme-btn header-bg wow fadeInUp" data-wow-delay=".5s">Discover More <i class="fa-regular fa-angles-right"></i></a>
+                                <a href="about.html" class="theme-btn header-bg wow fadeInUp" data-wow-delay=".5s">Learn More About Our Story<i class="fa-regular fa-angles-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -445,39 +149,27 @@
             <div class="mycustom-marque">
                 <div class="scrolling-wrap">
                     <div class="comm">
-                        <div class="cmn-textslide text-custom-storke">ELITE ROOF CARE</div>
+                        <div class="cmn-textslide text-custom-storke">ELITE JUNK REMOVAL</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide">ROOF CARE</div>
+                        <div class="cmn-textslide">AFFORDABLE</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide text-custom-storke">EXCELLENCE</div>
-                        <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide">SUPERIOR</div>
-                        <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide text-custom-storke">QUALITY</div>
+                        <div class="cmn-textslide text-custom-storke">RELIABLE</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide text-custom-storke">ELITE ROOF CARE</div>
+                        <div class="cmn-textslide">ELITE JUNK REMOVAL</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide">ROOF CARE</div>
+                        <div class="cmn-textslide text-custom-storke">AFFORDABLE</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide text-custom-storke">EXCELLENCE</div>
-                        <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide">SUPERIOR</div>
-                        <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide text-custom-storke">QUALITY</div>
+                        <div class="cmn-textslide">RELIABLE</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
                     </div>
                     <div class="comm">
-                        <div class="cmn-textslide text-custom-storke">ELITE ROOF CARE</div>
+                        <div class="cmn-textslide text-custom-storke">ELITE JUNK REMOVAL</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide">ROOF CARE</div>
+                        <div class="cmn-textslide">AFFORDABLE</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide text-custom-storke">EXCELLENCE</div>
-                        <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide">SUPERIOR</div>
-                        <div><img src="assets/img/marquee-box.png" alt="img"></div>
-                        <div class="cmn-textslide text-custom-storke">QUALITY</div>
+                        <div class="cmn-textslide text-custom-storke">RELIABLE</div>
                         <div><img src="assets/img/marquee-box.png" alt="img"></div>
                     </div>
                 </div>
@@ -487,13 +179,15 @@
         <!-- Service Section Start -->
         <section class="service-section fix section-padding">
             <div class="container">
-                <div class="row g-4">
+                <div class="row g-4 align-items-stretch">
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                         <div class="service-box-items">
                             <div class="content">
-                                <h3><a href="service-details.html">Roof Repair</a></h3>
-                                <p>Ensure your website has a clean, modern design that reflects your brand.</p>
-                                <a href="service-details" class="link-btn">Read More <i class="fa-regular fa-angles-right"></i></a>
+                                <div>
+                                    <h3><a href="service-details.html">Garage Cleanouts</a></h3>
+                                    <p>Clear out years of junk and reclaim your garage. We handle all the heavy lifting and disposal.</p>
+                                </div>
+                                <a href="service-details" class="link-btn">Read More<i class="fa-regular fa-angles-right"></i></a>
                             </div>
                             <div class="icon">
                                 <img src="assets/img/icon/01.svg" alt="img">
@@ -503,8 +197,10 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                         <div class="service-box-items">
                             <div class="content">
-                                <h3><a href="service-details.html">Green Flashing Repair</a></h3>
-                                <p>Ensure your website has a clean, modern design that reflects your brand.</p>
+                                <div>
+                                    <h3><a href="service-details.html">Yard Waste Removal</a></h3>
+                                    <p>From fences to old buckets and storm debris, we’ll make your yard spotless.</p>
+                                </div>
                                 <a href="service-details" class="link-btn">Read More <i class="fa-regular fa-angles-right"></i></a>
                             </div>
                             <div class="icon">
@@ -515,8 +211,10 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
                         <div class="service-box-items">
                             <div class="content">
-                                <h3><a href="service-details.html">Roof Inspection</a></h3>
-                                <p>Ensure your website has a clean, modern design that reflects your brand.</p>
+                                <div>
+                                    <h3><a href="service-details.html">Estate & Eviction Cleanouts</a></h3>
+                                    <p>Sensitive, thorough, and discreet property cleanouts for landlords, realtors, and families.</p>
+                                </div>
                                 <a href="service-details" class="link-btn">Read More <i class="fa-regular fa-angles-right"></i></a>
                             </div>
                             <div class="icon">
@@ -527,8 +225,10 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
                         <div class="service-box-items">
                             <div class="content">
-                                <h3><a href="service-details.html">Roofing Services</a></h3>
-                                <p>Ensure your website has a clean, modern design that reflects your brand.</p>
+                                <div>
+                                    <h3><a href="service-details.html">Construction Debris Removal</a></h3>
+                                    <p>No need to rent a dumpster — we haul drywall, tile, lumber, and more.</p>
+                                </div>
                                 <a href="service-details" class="link-btn">Read More <i class="fa-regular fa-angles-right"></i></a>
                             </div>
                             <div class="icon">
@@ -544,31 +244,30 @@
         </section>
 
         <!-- Cta Contact Section Start -->
-        <section class="cta-contact-section fix section-padding pt-0">
+        <section class="cta-contact-section hide-before fix pt-0 z-1">
             <div class="container">
                 <div class="cta-contact-wrapper">
                     <div class="row g-4 justify-content-between align-items-center">
                         <div class="col-xl-6 col-lg-6">
                             <div class="cta-contact-content">
                                 <div class="section-title">
-                                    <span class="text-white wow fadeInUp"><img src="assets/img/icon/08.svg" alt="img">Get Free Consultancy </span>
-                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Get Free Or Call Us For Consultancy</h2>
+                                    <span class="text-white wow fadeInUp"><img src="assets/img/icon/08.svg" alt="img">Get A Free Quote </span>
+                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Ready to declutter your life? Send us your project</h2>
                                 </div>
-                                <h3 class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s"><a href="tel:+012345678900">+0123 45678 900</a></h3>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-6">
                             <div class="contact-into-items">
-                                <form action="#" id="contact-form" method="POST">
+                                <form name="cta-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                                     <div class="row g-4">
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
-                                                <input type="text" name="name" id="name" placeholder="Full Name">
+                                                <input type="text" name="name" id="cta-name" placeholder="Full Name" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                             <div class="form-clt">
-                                                <input type="text" name="email" id="email1" placeholder="Email">
+                                                <input type="email" name="email" id="cta-email" placeholder="Email" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
@@ -585,199 +284,75 @@
             </div>
         </section>
 
-        <!-- Work Process Section Start -->
-        <section class="work-process-section fix section-bg">
-            <div class="shape-image">
-                <img src="assets/img/work-process-shape.png" alt="img">
-            </div>
+        <!-- About Section Start -->
+        <section class="feature-section fix section-padding bg-cover" style="background-image: url('assets/img/about/about-bg.jpg'); padding-top: 250px; margin-top: -120px;">
             <div class="container">
-                <div class="section-title text-center">
-                    <span class="wow fadeInUp justify-content-center"><img src="assets/img/icon/07.svg" alt="img">Work Process</span>
-                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Standard Work Process</h2>
-                </div>
-                <div class="work-process-wrapper">
-                    <div class="line-shape">
-                        <img src="assets/img/line-shape.png" alt="shape-img">
-                    </div>
-                    <div class="work-process-items wow fadeInUp" data-wow-delay=".3s">
-                        <div class="icon">
-                            <img src="assets/img/icon/09.svg" alt="img">
-                            <div class="number">
-                                1
+                <div class="about-wrapper-2">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="about-image">
+                                <img src="assets/img/about/03.jpg" alt="img" class="wow fadeInUp">
+                                <div class="about-image-2 wow fadeInUp" data-wow-delay=".5s">
+                                    <img src="assets/img/about/04.jpg" alt="img">
+                                    <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
+                                        <i class="fa-solid fa-play"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="content">
-                            <h3>Roof Planning</h3>
-                            <p>Ensure your website has a clean, modern <br> design that reflects your brand.</p>
-                        </div>
-                    </div>
-                    <div class="work-process-items wow fadeInUp" data-wow-delay=".5s">
-                        <div class="icon">
-                            <img src="assets/img/icon/10.svg" alt="img">
-                            <div class="number">
-                                2
+                        <div class="col-lg-6">
+                            <div class="feature-content">
+                                <div class="section-title">
+                                    <h2>Simple, Stress-Free Junk Removal</h2>
+                                </div>
+                                <p class="wow fadeInUp mb-5" data-wow-delay=".3s">
+                                    From your first call to final sweep-up, our team handles everything. Here's how we make it easy:
+                                </p>
+                                <div class="icon-items wow fadeInUp d-flex gap-4 mb-5" data-wow-delay=".3s">
+                                    <div class="icon">
+                                        <img src="assets/img/icon/05.svg" alt="img" style="width: 60px">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Transparent Quotes</h3>
+                                        <p>You’ll know exactly what to expect with no surprise fees.</p>
+                                    </div>
+                                </div>
+                                <div class="icon-items wow fadeInUp d-flex gap-4" data-wow-delay=".5s">
+                                    <div class="icon">
+                                        <img src="assets/img/icon/06.svg" alt="img" style="width: 60px">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Full-Service Team</h3>
+                                        <p>We lift, load, clean up, and haul it all — so you don’t have to.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="content">
-                            <h3>Roof Installation</h3>
-                            <p>Ensure your website has a clean, modern <br> design that reflects your brand.</p>
-                        </div>
                     </div>
-                    <div class="work-process-items wow fadeInUp" data-wow-delay=".7s">
-                        <div class="icon">
-                            <img src="assets/img/icon/11.svg" alt="img">
-                            <div class="number">
-                                3
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h3>Finished Roof</h3>
-                            <p>Ensure your website has a clean, modern <br> design that reflects your brand.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="work-process-button section-padding pb-0">
-                    <ul class="nav">
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".2s">
-                            <a href="#Powerful" data-bs-toggle="tab" class="nav-link active">
-                                Powerful Strategy 
-                            </a>
-                        </li>
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".4s">
-                            <a href="#Leading" data-bs-toggle="tab" class="nav-link">
-                                Leading Roof 
-                            </a>
-                        </li>
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".5s">
-                            <a href="#Solutions" data-bs-toggle="tab" class="nav-link">
-                                Roof Solutions
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Feature Section Start -->
-        <section class="feature-section fix section-padding fix pt-0">
-            <div class="shape-image">
-                <img src="assets/img/work-process-shape-2.png" alt="img">
-            </div>
+        <!-- Contact Info Section Start -->
+        <section class="contact-info-section">
             <div class="container">
-                <div class="tab-content">
-                    <div id="Powerful" class="tab-pane fade show active">
-                        <div class="feature-wrapper">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="feature-image">
-                                        <img src="assets/img/feature-image.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="feature-content">
-                                        <div class="section-title">
-                                            <h2>Best Wind solution & the best Renewable Energy</h2>
-                                        </div>
-                                        <p class="wow fadeInUp" data-wow-delay=".3s">
-                                            Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit amet neque euismod, convallis quam eget, dignissim massa. Aliquam blandit risus purus, in congue nunc venenatis id.
-                                        </p>
-                                        <div class="icon-items wow fadeInUp" data-wow-delay=".3s">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/05.svg" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h3>Modified Roofing</h3>
-                                                <p>Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit <br> amet neque euismod, convallis quam eget.</p>
-                                            </div>
-                                        </div>
-                                        <div class="icon-items wow fadeInUp" data-wow-delay=".5s">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/06.svg" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h3>Roof Installation</h3>
-                                                <p>Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit <br> amet neque euismod, convallis quam eget.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="contact-info-wrapper">
+                    <div class="contact-img">
+                        <img src="assets/img/contact-info-img.png" alt="img">
                     </div>
-                    <div id="Leading" class="tab-pane fade">
-                        <div class="feature-wrapper">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-lg-6">
-                                    <div class="feature-image">
-                                        <img src="assets/img/feature-image.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="feature-content">
-                                        <div class="section-title">
-                                            <h2>Best Wind solution & the best Renewable Energy</h2>
-                                        </div>
-                                        <p>
-                                            Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit amet neque euismod, convallis quam eget, dignissim massa. Aliquam blandit risus purus, in congue nunc venenatis id.
-                                        </p>
-                                        <div class="icon-items">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/05.svg" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h3>Modified Roofing</h3>
-                                                <p>Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit <br> amet neque euismod, convallis quam eget.</p>
-                                            </div>
-                                        </div>
-                                        <div class="icon-items">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/06.svg" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h3>Roof Installation</h3>
-                                                <p>Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit <br> amet neque euismod, convallis quam eget.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="line-shape-2">
+                        <img src="assets/img/line-shape-2.png" alt="img">
                     </div>
-                    <div id="Solutions" class="tab-pane fade">
-                        <div class="feature-wrapper">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-lg-6">
-                                    <div class="feature-image">
-                                        <img src="assets/img/feature-image.jpg" alt="img">
-                                    </div>
+                    <div class="row g-4">
+                        <div class="col-sm-6"></div>
+                        <div class="col-xxl-6">
+                            <div class="contact-info-items">
+                                <div class="icon">
+                                    <i class="fa-sharp fa-regular fa-phone-volume"></i>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="feature-content">
-                                        <div class="section-title">
-                                            <h2>Best Wind solution & the best Renewable Energy</h2>
-                                        </div>
-                                        <p>
-                                            Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit amet neque euismod, convallis quam eget, dignissim massa. Aliquam blandit risus purus, in congue nunc venenatis id.
-                                        </p>
-                                        <div class="icon-items">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/05.svg" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h3>Modified Roofing</h3>
-                                                <p>Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit <br> amet neque euismod, convallis quam eget.</p>
-                                            </div>
-                                        </div>
-                                        <div class="icon-items">
-                                            <div class="icon">
-                                                <img src="assets/img/icon/06.svg" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h3>Roof Installation</h3>
-                                                <p>Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit <br> amet neque euismod, convallis quam eget.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="content">
+                                    <h3 class="wow fadeInUp">Submit A Contact Form</h3>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s"><a href="tel:+012345678900">+0123 45678 900</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -787,12 +362,12 @@
         </section>
 
         <!-- Project Section Start -->
-        <section class="project-section fix section-padding pt-0">
+        <section class="project-section fix section-padding">
             <div class="container">
                 <div class="section-title-area">
                     <div class="section-title">
-                        <span class="wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">Latest Gallery</span>
-                        <h2 class="wow fadeInUp" data-wow-delay=".3s">Your satisfaction is our top priority <br> when it comes to roofing</h2>
+                        <span class="wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">Before & After</span>
+                        <h2 class="wow fadeInUp" data-wow-delay=".3s">Our Latest Junk Removal Jobs</h2>
                     </div>
                     <a href="project.html" class="theme-btn wow fadeInUp" data-wow-delay=".3s">All Projects <i class="fa-regular fa-angles-right"></i></a>
                 </div>
@@ -953,61 +528,62 @@
                             <div class="faq-content">
                                 <div class="section-title">
                                     <span class="wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">QUESTIONS FOR US</span>
-                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Some Asked Question?</h2>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Frequently Asked Questions</h2>
                                 </div>
                                 <p class="mt-3 mt-md-0 mb-4">
-                                    Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. Nunc id massa ante. Suspendisse sit amet neque euismod.
+                                    Have questions about what we haul or how pricing works? We’ve got answers.
                                 </p>
                                 <div class="faq-accordion">
                                     <div class="accordion" id="accordion">
                                         <div class="accordion-item mb-4 wow fadeInUp" data-wow-delay=".3s">
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
-                                                <span>01.</span> How do roofing work plane?
+                                                <span>01.</span> What areas do you serve?
                                                 </button>
                                             </h5>
                                             <div id="faq1" class="accordion-collapse show" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. 
+                                                    We serve Sacramento and surrounding cities, including Roseville, Folsom, Elk Grove, and Citrus Heights.
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="accordion-item mb-4 wow fadeInUp" data-wow-delay=".5s">
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
-                                                    <span>02.</span>What are the main types of roofing systems?
+                                                    <span>02.</span>What type of junk do you remove?
                                                 </button>
                                             </h5>
                                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. 
+                                                    Furniture, yard waste, electronics, appliances, construction debris, and more.
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="accordion-item mb-4 wow fadeInUp" data-wow-delay=".7s">
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
-                                                <span>03.</span> Taking Seamless Key Performance Indicators?
+                                                <span>03.</span> How long does a typical junk removal job take?
                                                 </button>
                                             </h5>
                                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. 
+                                                    Most jobs are completed in under 2 hours, but large cleanouts may take longer. We give time estimates during your free quote.
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="accordion-item wow fadeInUp" data-wow-delay=".8s">
+                                        <div class="accordion-item mb-4 wow fadeInUp" data-wow-delay=".9s">
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
-                                                <span>04.</span> Minning Construction Project Program
+                                                <span>04.</span> How do you price your services?
                                                 </button>
                                             </h5>
                                             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. Phasellus nec odio orci. 
+                                                    Pricing is based on volume, type of material, and labor. We always give free, no-obligation quotes. Please submit your request through our <a href="/contact.html">Contact Page</a>.
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="accordion-item mb-4 wow fadeInUp" data-wow-delay="1.1s">
                                     </div>
                                 </div>
                             </div>
@@ -1028,7 +604,7 @@
                             </div>
                             <div class="content">
                                 <h2><span class="count">500</span>+</h2>
-                                <h3>Successfully Projects</h3>
+                                <h3>Jobs Completed</h3>
                             </div>
                         </div>
                     </div>
@@ -1038,8 +614,8 @@
                                 <img src="assets/img/icon/13.svg" alt="img">
                             </div>
                             <div class="content">
-                                <h2><span class="count">500</span>+</h2>
-                                <h3> Company Staffs</h3>
+                                <h2><span class="count">24-48</span>+</h2>
+                                <h3> Response Times</h3>
                             </div>
                         </div>
                     </div>
@@ -1049,8 +625,8 @@
                                 <img src="assets/img/icon/14.svg" alt="img">
                             </div>
                             <div class="content">
-                                <h2><span class="count">6,6541</span></h2>
-                                <h3>Tons of Products</h3>
+                                <h2><span class="count">100%</span></h2>
+                                <h3>Satisfaction Guarantee</h3>
                             </div>
                         </div>
                     </div>
@@ -1060,89 +636,8 @@
                                 <img src="assets/img/icon/15.svg" alt="img">
                             </div>
                             <div class="content">
-                                <h2><span class="count">10,000</span></h2>
-                                <h3>Satisfied Clients</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- News Section Start -->
-        <section class="news-section section-padding fix bg-cover" style="background-image: url('assets/img/news/news-bg.jpg');">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="justify-content-center wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">Latest Posts</span>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Articles & Blog News</h2>
-                </div>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="news-card-items">
-                            <div class="news-image">
-                                <img src="assets/img/news/01.jpg" alt="img">
-                                <div class="news-content">
-                                    <div class="post-date">
-                                        <i class="fa-light fa-calendar-days"></i> Jun 30, 2024
-                                    </div>
-                                    <h3><a href="news-details.html">Correct Execution Ensures <br> Victory.</a></h3>
-                                    <ul class="post-items">
-                                        <li>
-                                           <a href="news-details.html"> <i class="fa-regular fa-user"></i>
-                                            admin</a>
-                                        </li>
-                                        <li>
-                                            <a href="news-details.html"><i class="fa-light fa-comment"></i>
-                                                0 comments</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="news-card-items">
-                            <div class="news-image">
-                                <img src="assets/img/news/02.jpg" alt="img">
-                                <div class="news-content">
-                                    <div class="post-date">
-                                        <i class="fa-light fa-calendar-days"></i> Jun 30, 2024
-                                    </div>
-                                    <h3><a href="news-details.html">Correct Execution Ensures <br> Victory.</a></h3>
-                                    <ul class="post-items">
-                                        <li>
-                                            <a href="news-details.html"> <i class="fa-regular fa-user"></i>
-                                             admin</a>
-                                         </li>
-                                         <li>
-                                             <a href="news-details.html"><i class="fa-light fa-comment"></i>
-                                                 0 comments</a>
-                                         </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                        <div class="news-card-items">
-                            <div class="news-image">
-                                <img src="assets/img/news/03.jpg" alt="img">
-                                <div class="news-content">
-                                    <div class="post-date">
-                                        <i class="fa-light fa-calendar-days"></i> Jun 30, 2024
-                                    </div>
-                                    <h3><a href="news-details.html">Correct Execution Ensures <br> Victory.</a></h3>
-                                    <ul class="post-items">
-                                        <li>
-                                            <a href="news-details.html"> <i class="fa-regular fa-user"></i>
-                                             admin</a>
-                                         </li>
-                                         <li>
-                                             <a href="news-details.html"><i class="fa-light fa-comment"></i>
-                                                 0 comments</a>
-                                         </li>
-                                    </ul>
-                                </div>
+                                <h2><span class="count">5</span></h2>
+                                <h3>Proudly Local in Sacramento, CA</h3>
                             </div>
                         </div>
                     </div>
@@ -1163,7 +658,7 @@
                             <div class="contact-content">
                                 <div class="section-title">
                                     <span class="wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">Get in touch</span>
-                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Marketing for the digital age</h2>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">Looking for a quote or have questions?</h2>
                                 </div>
                                 <form action="#" id="contact-form" method="POST" class="mt-4 mt-md-0">
                                     <div class="row g-4">
@@ -1189,6 +684,11 @@
                                         </div>
                                         <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
+                                                <input type="file" name="media[]" id="media" multiple accept="image/*,video/*" placeholder="Upload Images or Videos" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                            <div class="form-clt">
                                                 <textarea name="message" id="message" placeholder="Your Message"></textarea>
                                             </div>
                                         </div>
@@ -1207,151 +707,7 @@
         </div>
 
         <!-- Footer Section Start -->
-        <footer class="footer-section fix section-bg">
-            <div class="shape-1">
-                <img src="assets/img/footer/shape-1.png" alt="img">
-            </div>
-            <div class="shape-2">
-                <img src="assets/img/footer/shape-2.png" alt="img">
-            </div>
-            <div class="container">
-                <div class="footer-widgets-wrapper style-2">
-                    <div class="row">
-                        <div class="col-xl-4 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".2s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <a href="index.html">
-                                        <img src="assets/img/logo/logo.png" alt="logo-img">
-                                    </a>
-                                </div>
-                                <div class="footer-content">
-                                    <p>
-                                        Proin efficitur, mauris vel condimentum <br> pulvinar, velit orci consectetur ligula, eget <br> egestas magna mi ut arcu. 
-                                    </p>
-                                    <div class="social-icon d-flex align-items-center">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".4s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <h3>Quick Links</h3>
-                                </div>
-                                <ul class="list-items">
-                                    <li>
-                                        <a href="about.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            About Us
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="team.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Our Team
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="service.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Our Services
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Blogs
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">
-                                            <i class="fa-regular fa-arrow-right-long"></i>
-                                            Contact
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 ps-lg-4 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".6s">
-                            <div class="single-footer-widget">
-                            <div class="widget-head">
-                                <h3>Recent Post</h3>
-                            </div>
-                            <div class="recent-post-area">
-                                <div class="recent-post-items">
-                                    <div class="thumb">
-                                        <a href="news-details.html"><img src="assets/img/news/pp1.jpg" alt="post-img"></a>
-                                    </div>
-                                    <div class="content">
-                                        <ul class="post-date">
-                                            <li>
-                                                <i class="fa-solid fa-calendar-days me-2"></i>
-                                                Jun 30, 2024
-                                            </li>
-                                        </ul>
-                                        <h6>
-                                            <a href="news-details.html">
-                                                Correct Execution Ensures Victory.
-                                            </a>
-                                        </h6>
-                                    </div>
-                                </div>
-                                <div class="recent-post-items mb-0">
-                                    <div class="thumb">
-                                        <a href="news-details.html"><img src="assets/img/news/pp2.jpg" alt="post-img"></a>
-                                    </div>
-                                    <div class="content">
-                                        <ul class="post-date">
-                                            <li>
-                                                <i class="fa-solid fa-calendar-days me-2"></i>
-                                                Jun 30, 2024
-                                            </li>
-                                        </ul>
-                                        <h6>
-                                            <a href="news-details.html">
-                                                Correct Execution Ensures Victory.
-                                            </a>
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".8s">
-                            <div class="single-footer-widget">
-                                <div class="widget-head">
-                                    <h3>Newsletter</h3>
-                                </div>
-                                <div class="footer-content">
-                                   <p>
-                                        Proin efficitur, mauris vel condimentum pulvinar, velit orci consectetur ligula, eget egestas magna mi ut arcu. 
-                                   </p>
-                                   <form action="#" id="contact-form" method="POST" class="footer-input">
-                                        <input type="email" id="email" placeholder="Your email address">
-                                        <button class="theme-btn" type="submit">
-                                            Subscribe Now
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="footer-bottom-wrapper">
-                            <p>
-                                © Copyright 2024 by <a href="index.html">Nexava</a>. All rights Reserved
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <custom-footer></custom-footer>
        
         <!--<< All JS Plugins >>-->
         <script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -1375,5 +731,10 @@
         <script src="assets/js/wow.min.js"></script>
         <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
+
+        <!-- Web Components -->
+        <script src="/components/preloader.js" type="module"></script> 
+        <script src="/components/header.js" type="module"></script> 
+        <script src="/components/footer.js" type="module"></script>
     </body>
 </html>

@@ -1,18 +1,6 @@
 .header-section-2 {
 	position: relative;
-	margin-bottom: 20px;
-
-	&::before {
-		@include before;
-		background-color: $theme-color;
-		width: 18%;
-		z-index: 9;
-		clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
-
-		@include breakpoint (max-xl4){
-			display: none;
-		}
-	}
+	margin-bottom: 10px;
 }
 
 .header-top-section {
@@ -132,28 +120,16 @@
 }
 
 .header-1 {
-	margin-left: 315px;
 	position: relative;
 
 	@include breakpoint (max-xl4){
 		margin-left: 0;
 	}
 
-	.main-logo {
-		position: absolute;
-		top: 0;
-		left: -215px;
-		z-index: 9;
-
-		@include breakpoint (max-xl4){
-			display: none;
-		}
-	}
-
 	.container-fluid {
-		padding: 0 66px;
+		padding: 0 20px;
 
-		@include breakpoint (max-xxl){
+		@include breakpoint (min-sm){
 			padding: 0 50px;
 		}
 	}
@@ -594,6 +570,12 @@
 		.header-main {
 			.logo {
 				display: block !important;
+
+				.header-logo img{
+					@include breakpoint (max-sm) {
+						width: 3rem !important;
+					}	
+				}
 			}
 
 			.main-menu {
@@ -672,7 +654,6 @@
 
 .offcanvas__wrapper {
 	position: relative;
-	height: 100%;
 	padding: 30px 30px;
 
 	.offcanvas__content {
@@ -697,7 +678,7 @@
 		}
 
 		.offcanvas__contact {
-			margin-top: 20px;
+			margin: 20px 0;
 
 			ul {
 				margin-top: 20px;

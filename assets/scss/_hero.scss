@@ -7,7 +7,7 @@
     background-position: bottom center;
     overflow: hidden;
     z-index: 9;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
 
     @include breakpoint (max-xxl){
        margin: 0 30px;
