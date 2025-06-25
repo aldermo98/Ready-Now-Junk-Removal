@@ -52,7 +52,7 @@ class CustomHeader2 extends HTMLElement {
                               </li>
                           </ul>
                           <div class="header-button mt-4">
-                              <a href="contact.html" class="theme-btn text-center">
+                              <a href="/contact.html" class="theme-btn text-center">
                                   <span>get A Quote<i class="fa-solid fa-arrow-right-long"></i></span>
                               </a>
                           </div>
@@ -102,7 +102,7 @@ class CustomHeader2 extends HTMLElement {
                                                           <div class="homemenu-items">
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb">
-                                                                      <img src="/assets/img/header/home-1.jpg" alt="img">
+                                                                      <img src="/assets/img/header/furniture-removal-thumbnail.jpg" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/furniture-removal.html" class="theme-btn">
                                                                               View
@@ -117,7 +117,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/home-2.jpg" alt="img">
+                                                                      <img src="/assets/img/header/appliance-removal-thumbnail.jpg" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/appliance-removal.html" class="theme-btn">
                                                                               View
@@ -132,7 +132,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/home-3.jpg" alt="img">
+                                                                      <img src="/assets/img/header/garage-cleanouts-thumbnail.jpg" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/garage-cleanouts.html" class="theme-btn">
                                                                               View
@@ -147,7 +147,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/home-3.jpg" alt="img">
+                                                                      <img src="/assets/img/header/yard-waste-removal-thumbnail.jpg" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/yard-waste-removal.html" class="theme-btn">
                                                                               View
@@ -162,7 +162,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/home-3.jpg" alt="img">
+                                                                      <img src="/assets/img/header/construction-debris-removal-thumbnail.jpg" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/construction-debris-removal.html" class="theme-btn">
                                                                               View
@@ -219,7 +219,7 @@ class CustomHeader2 extends HTMLElement {
                                                   </ul>
                                               </li>
                                               <li>
-                                                  <a href="contact.html">Contact Us</a>
+                                                  <a href="/contact.html">Contact Us</a>
                                               </li>
                                           </ul>
                                       </nav>
@@ -234,7 +234,7 @@ class CustomHeader2 extends HTMLElement {
                                   </div>
                               </div>
                               <div class="header-button">
-                                  <a href="contact.html" class="theme-btn">
+                                  <a href="/contact.html" class="theme-btn">
                                       <span>
                                           Get a quote
                                           <i class="fa-regular fa-angles-right"></i>
