@@ -73,7 +73,7 @@ class CustomHeader extends HTMLElement {
           <div class="header-top-section fix">
               <div class="container-fluid">
                   <div class="header-top-wrapper">
-                      <h6><img src="assets/img/logo/location.png" alt="">Need help?  Call us: <a href="tel:+8001234567890">(+800) 1234 5678 90</a>  or  <a href="mailto:info@example.com">info@example.com</a></h6>
+                      <h6><img src="assets/img/logo/location.png" alt="">Need help?  Contact us <a href="/contact.html">here</a></h6>
                       <div class="top-right">
                           <div class="social-icon d-flex align-items-center">
                               <span>Follow Us:</span>
