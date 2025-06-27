@@ -1996,12 +1996,6 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 315px;
-}
-@media (max-width: 1899px) {
-  .header-top-wrapper {
-    margin-left: 0;
-  }
 }
 .header-top-wrapper.style-2 {
   margin-left: 0;
