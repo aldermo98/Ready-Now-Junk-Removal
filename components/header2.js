@@ -8,7 +8,7 @@ class CustomHeader2 extends HTMLElement {
                   <div class="offcanvas__content">
                       <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                           <div class="offcanvas__logo">
-                              <a href="index.html">
+                              <a href="/index.html">
                                   <img src="/assets/img/logo/logo.png" alt="logo-img">
                               </a>
                           </div>
@@ -39,7 +39,7 @@ class CustomHeader2 extends HTMLElement {
                                       <i class="fal fa-clock"></i>
                                   </div>
                                   <div class="offcanvas__contact-text">
-                                      <a target="_blank" href="#">Mon-Fri, 9am - 5pm</a>
+                                      Mon-Fri, 9am - 5pm
                                   </div>
                               </li>
                               <li class="d-flex align-items-center">
@@ -75,7 +75,7 @@ class CustomHeader2 extends HTMLElement {
                   <div class="mega-menu-wrapper">
                       <div class="header-main">
                           <div class="logo">
-                              <a href="index.html" class="header-logo">
+                              <a href="/index.html" class="header-logo">
                                   <img src="/assets/img/logo/logo.png" alt="logo-img">
                               </a>
                           </div>
@@ -198,7 +198,7 @@ class CustomHeader2 extends HTMLElement {
                                                   </ul>
                                               </li>
                                               <li class="has-dropdown active d-xl-none">
-                                                  <a href="team.html" class="border-none">
+                                                  <a href="/services/furniture-removal.html" class="border-none">
                                                       Services
                                                   </a>
                                                   <ul class="submenu">

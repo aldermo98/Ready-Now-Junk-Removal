@@ -8,7 +8,7 @@ class CustomHeader extends HTMLElement {
                   <div class="offcanvas__content">
                       <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                           <div class="offcanvas__logo">
-                              <a href="index.html">
+                              <a href="/index.html">
                                   <img src="assets/img/logo/logo.png" alt="logo-img">
                               </a>
                           </div>
@@ -90,7 +90,7 @@ class CustomHeader extends HTMLElement {
                   <div class="mega-menu-wrapper">
                       <div class="header-main">
                           <div class="logo">
-                              <a href="index.html" class="header-logo">
+                              <a href="/index.html" class="header-logo">
                                   <img src="assets/img/logo/logo.png" alt="logo-img">
                               </a>
                           </div>
