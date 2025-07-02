@@ -39,7 +39,7 @@ class CustomHeader2 extends HTMLElement {
                                       <i class="fal fa-clock"></i>
                                   </div>
                                   <div class="offcanvas__contact-text">
-                                      Mon-Fri, 9am - 5pm
+                                      Everyday, 8am - 6pm
                                   </div>
                               </li>
                               <li class="d-flex align-items-center">
