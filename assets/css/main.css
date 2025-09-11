@@ -2191,6 +2191,10 @@ span {
 .header-2.style-2 .header-main .main-menu ul li .has-homemenu {
   top: 130%;
 }
+
+.header-2.style-2 .header-main .logo img{
+  width: 100px;
+}
 @media (max-width: 1399px) {
   .header-2.style-2 .header-main .header-right .header-button {
     display: none;
@@ -5736,3 +5740,4 @@ input.main-search-input::placeholder {
     transform: translateX(-200%);
   }
 }/*# sourceMappingURL=main.css.map */
+
