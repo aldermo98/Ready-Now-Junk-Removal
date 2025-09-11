@@ -1956,6 +1956,15 @@ span {
 .footer-section {
   position: relative;
 }
+
+.footer-section .logo__img{
+  width: 200px;
+}
+@media (max-width: 576px) {
+  .footer-section .logo__img{
+    width: 150px;
+  }
+}
 .footer-section .shape-1 {
   position: absolute;
   bottom: 0;
@@ -1970,6 +1979,10 @@ span {
 .header-section-2 {
   position: relative;
   margin-bottom: 10px;
+}
+
+.header-1 .header-main .logo .header-logo img{
+  width: 100px;
 }
 
 .header-top-section {
@@ -2100,8 +2113,9 @@ span {
 }
 @media (max-width: 576px) {
   .header-1 .header-main .logo .header-logo img {
-    width: 3rem !important;
+    width: 5rem !important;
   }
+
 }
 @media screen and (max-width: 1025px) {
   .header-1 .header-main .main-menu ul li {
@@ -4344,6 +4358,9 @@ span {
   position: absolute;
   top: -3px;
   transform: rotateY(-90deg);
+}
+.preloader img{
+  width: 100px;
 }
 .preloader p {
   font-size: 15px;

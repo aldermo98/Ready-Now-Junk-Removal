@@ -13,7 +13,7 @@ class CustomPreloader extends HTMLElement {
             <span data-text-preloader="A" class="letters-loading">A</span>
             <span data-text-preloader="D" class="letters-loading">D</span>
             <span data-text-preloader="Y" class="letters-loading">Y</span>
-            <span data-text-preloader=" " class="letters-loading"> </span>
+            
             <span data-text-preloader="N" class="letters-loading">N</span>
             <span data-text-preloader="O" class="letters-loading">O</span>
             <span data-text-preloader="W" class="letters-loading">W</span>
