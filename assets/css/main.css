@@ -2521,6 +2521,9 @@ span {
   -o-transform: translateX(0);
   transform: translateX(0);
 }
+.offcanvas__info .logo__img{
+  width: 100px;
+}
 
 .offcanvas__wrapper {
   position: relative;
