@@ -21,7 +21,7 @@ class CustomFooter extends HTMLElement {
                             <div class="footer-content">
                                 <p>Clearing space, reducing stress — one load at a time.</p>
                                 <div class="social-icon d-flex align-items-center">
-                                    <a href="https://facebook.com/readynowjunkremoval" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/profile.php?id=61580363502616" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://x.com/readynowjunkremoval" target="_blank"><i class="fab fa-twitter"></i></a>
                                     <a href="https://instagram.com/readynowjunkremoval" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                                 </div>

@@ -57,9 +57,9 @@ class CustomHeader extends HTMLElement {
                               </a>
                           </div>
                           <div class="social-icon d-flex align-items-center">
-                              <a href="#"><i class="fab fa-facebook-f"></i></a>
-                              <a href="#"><i class="fab fa-twitter"></i></a>
-                              <a href="#"><i class="fab fa-instagram"></i></a>
+                              <a href="https://www.facebook.com/profile.php?id=61580363502616"><i class="fab fa-facebook-f"></i></a>
+                              <a href="https://www.instagram.com/readynowjunkremoval"><i class="fab fa-instagram"></i></a>
+                              <a href="https://www.tiktok.com/@ready.now.junk.removal"><i class="fab fa-tiktok"></i></a>
                           </div>
                       </div>
                   </div>
@@ -77,9 +77,9 @@ class CustomHeader extends HTMLElement {
                       <div class="top-right">
                           <div class="social-icon d-flex align-items-center">
                               <span>Follow Us:</span>
-                              <a href="#"><i class="fab fa-facebook-f"></i></a>
-                              <a href="#"><i class="fab fa-twitter"></i></a>
-                              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                              <a href="https://www.facebook.com/profile.php?id=61580363502616"><i class="fab fa-facebook-f"></i></a>
+                              <a href="https://www.instagram.com/readynowjunkremoval"><i class="fa-brands fa-instagram"></i></a>
+                              <a href="https://www.tiktok.com/@ready.now.junk.removal"><i class="fab fa-tiktok"></i></a>
                           </div>
                       </div>
                   </div>
