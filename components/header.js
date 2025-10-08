@@ -246,7 +246,7 @@ class CustomHeader extends HTMLElement {
                                   </div>
                               </div>
                               <div class="header-button">
-                                  <a href="contact.html" class="theme-btn">
+                                  <a href="/free-quote" class="theme-btn">
                                       <span>
                                           Get a quote
                                           <i class="fa-regular fa-angles-right"></i>
