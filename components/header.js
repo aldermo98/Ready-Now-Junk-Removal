@@ -31,7 +31,7 @@ class CustomHeader extends HTMLElement {
                                       <i class="fal fa-envelope"></i>
                                   </div>
                                   <div class="offcanvas__contact-text">
-                                      <a href="mailto:morenoalder98@gmail.com">morenoalder98@gmail.com</a>
+                                      <a href="mailto:info@readynowjunkremoval.com">info@readynowjunkremoval.com</a>
                                   </div>
                               </li>
                               <li class="d-flex align-items-center">
@@ -47,12 +47,12 @@ class CustomHeader extends HTMLElement {
                                       <i class="far fa-phone"></i>
                                   </div>
                                   <div class="offcanvas__contact-text">
-                                      <a href="tel:+19163901005">+19163901005</a>
+                                      <a href="tel:+19162491009">+19162491009</a>
                                   </div>
                               </li>
                           </ul>
                           <div class="header-button mt-4">
-                              <a href="contact.html" class="theme-btn text-center">
+                              <a href="/free-quote" class="theme-btn text-center">
                                   <span>get A Quote<i class="fa-solid fa-arrow-right-long"></i></span>
                               </a>
                           </div>
@@ -73,7 +73,7 @@ class CustomHeader extends HTMLElement {
           <div class="header-top-section fix">
               <div class="container-fluid">
                   <div class="header-top-wrapper">
-                      <h6><img src="assets/img/logo/location.png" alt="">Need help?  Contact us <a href="/contact.html">here</a></h6>
+                      <h6><img src="assets/img/logo/location.png" alt="">Need help?  Contact us <a href="/free-quote">here</a></h6>
                       <div class="top-right">
                           <div class="social-icon d-flex align-items-center">
                               <span>Follow Us:</span>
@@ -232,9 +232,6 @@ class CustomHeader extends HTMLElement {
                                                       <li><a href="services/storm-debris-cleanup.html">Storm Debris Cleanup</a></li>
                                                       <li><a href="services/event-and-festival-cleanup.html">Event & Festival Cleanup</a></li>
                                                   </ul>
-                                              </li>
-                                              <li>
-                                                  <a href="contact.html">Contact Us</a>
                                               </li>
                                           </ul>
                                       </nav>

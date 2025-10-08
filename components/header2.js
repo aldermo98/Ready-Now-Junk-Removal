@@ -31,7 +31,7 @@ class CustomHeader2 extends HTMLElement {
                                       <i class="fal fa-envelope"></i>
                                   </div>
                                   <div class="offcanvas__contact-text">
-                                      <a href="mailto:morenoalder98@gmail.com">morenoalder98@gmail.com</a>
+                                      <a href="mailto:info@readynowjunkremoval.com">info@readynowjunkremoval.com</a>
                                   </div>
                               </li>
                               <li class="d-flex align-items-center">
@@ -47,12 +47,12 @@ class CustomHeader2 extends HTMLElement {
                                       <i class="far fa-phone"></i>
                                   </div>
                                   <div class="offcanvas__contact-text">
-                                      <a href="tel:+19163901005">+19163901005</a>
+                                      <a href="tel:+19162491009">+19162491009</a>
                                   </div>
                               </li>
                           </ul>
                           <div class="header-button mt-4">
-                              <a href="/contact.html" class="theme-btn text-center">
+                              <a href="/free-quote" class="theme-btn text-center">
                                   <span>get A Quote<i class="fa-solid fa-arrow-right-long"></i></span>
                               </a>
                           </div>
@@ -218,9 +218,6 @@ class CustomHeader2 extends HTMLElement {
                                                       <li><a href="/services/event-and-festival-cleanup.html">Event & Festival Cleanup</a></li>
                                                   </ul>
                                               </li>
-                                              <li>
-                                                  <a href="/contact.html">Contact Us</a>
-                                              </li>
                                           </ul>
                                       </nav>
                                   </div>
@@ -234,7 +231,7 @@ class CustomHeader2 extends HTMLElement {
                                   </div>
                               </div>
                               <div class="header-button">
-                                  <a href="/contact.html" class="theme-btn">
+                                  <a href="/free-quote" class="theme-btn">
                                       <span>
                                           Get a quote
                                           <i class="fa-regular fa-angles-right"></i>
