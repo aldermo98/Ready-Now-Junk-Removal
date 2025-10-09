@@ -5,7 +5,7 @@ class CustomPreloader extends HTMLElement {
         <div class="animation-preloader">
           <div class="position-relative">
             <div class="spinner"></div>
-            <img src="/assets/img/logo/logo.png" alt="logo-img" class="position-absolute top-50 start-50 translate-middle">
+            <img src="/assets/img/logo/logo.svg" alt="logo-img" class="position-absolute top-50 start-50 translate-middle">
           </div>
           <div class="txt-loading">
             <span data-text-preloader="R" class="letters-loading">R</span>

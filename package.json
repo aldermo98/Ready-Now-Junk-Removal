@@ -1,0 +1,23 @@
+{
+  "name": "ready-now-junk-removal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldermo98/Ready-Now-Junk-Removal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aldermo98/Ready-Now-Junk-Removal/issues"
+  },
+  "homepage": "https://github.com/aldermo98/Ready-Now-Junk-Removal#readme",
+  "dependencies": {
+    "sharp": "^0.34.4"
+  }
+}
