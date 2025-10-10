@@ -3289,7 +3289,7 @@ span {
   margin-bottom: 15px;
 }
 .hero-1 .hero-content h1 {
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 30px;
 }
 @media (max-width: 1199px) {
@@ -3314,7 +3314,7 @@ span {
 }
 .hero-1 .hero-content p {
   max-width: 650px;
-  color: var(--white);
+  color: var(--black);
   line-height: 181%;
 }
 .hero-1 .hero-content .hero-button {
@@ -5727,6 +5727,16 @@ input.main-search-input::placeholder {
   }
 }
 
+.floating {
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 35px 20px rgba(0, 0, 0, 0.3));
+}
+
+span.text-theme{
+  color: var(--theme);
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -5744,3 +5754,11 @@ input.main-search-input::placeholder {
   }
 }/*# sourceMappingURL=main.css.map */
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* adjust how high it moves */
+  }
+}

@@ -102,7 +102,7 @@ class CustomHeader2 extends HTMLElement {
                                                           <div class="homemenu-items">
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb">
-                                                                      <img src="/assets/img/header/furniture-removal-thumbnail.jpg" alt="img">
+                                                                      <img src="/assets/img/header/furniture-removal-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/furniture-removal.html" class="theme-btn">
                                                                               View
@@ -117,7 +117,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/appliance-removal-thumbnail.jpg" alt="img">
+                                                                      <img src="/assets/img/header/appliance-removal-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/appliance-removal.html" class="theme-btn">
                                                                               View
@@ -132,7 +132,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/garage-cleanouts-thumbnail.jpg" alt="img">
+                                                                      <img src="/assets/img/header/garage-cleanouts-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/garage-cleanouts.html" class="theme-btn">
                                                                               View
@@ -147,7 +147,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/yard-waste-removal-thumbnail.jpg" alt="img">
+                                                                      <img src="/assets/img/header/yard-waste-removal-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/yard-waste-removal.html" class="theme-btn">
                                                                               View
@@ -162,7 +162,7 @@ class CustomHeader2 extends HTMLElement {
                                                               </div>
                                                               <div class="homemenu">
                                                                   <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/construction-debris-removal-thumbnail.jpg" alt="img">
+                                                                      <img src="/assets/img/header/construction-debris-removal-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
                                                                           <a href="/services/construction-debris-removal.html" class="theme-btn">
                                                                               View
@@ -227,7 +227,7 @@ class CustomHeader2 extends HTMLElement {
                               
                               <div class="header__hamburger d-xl-block my-auto">
                                   <div class="sidebar__toggle">
-                                      <img src="/assets/img/logo/bar.png" alt="img">
+                                      <img src="/assets/img/logo/bar.webp" alt="img">
                                   </div>
                               </div>
                               <div class="header-button">

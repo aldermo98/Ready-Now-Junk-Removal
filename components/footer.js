@@ -3,10 +3,10 @@ class CustomFooter extends HTMLElement {
     this.innerHTML = `
       <footer class="footer-section fix section-bg">
         <div class="shape-1">
-            <img src="/assets/img/footer/shape-1.png" alt="img">
+            <img src="/assets/img/footer/shape-1.webp" alt="img">
         </div>
         <div class="shape-2">
-            <img src="/assets/img/footer/shape-2.png" alt="img">
+            <img src="/assets/img/footer/shape-2.webp" alt="img">
         </div>
         <div class="container">
             <div class="footer-widgets-wrapper style-2">

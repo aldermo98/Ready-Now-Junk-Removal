@@ -3,6 +3,9 @@
     <!--<< Header Area >>-->
     <head>
         <!-- ========== Meta Tags ========== -->
+        <title>Ready Now - Junk Removal</title>
+        <link rel="shortcut icon" href="assets/img/favicon.webp">
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,34 +25,33 @@
         <meta name="twitter:image" content="/assets/img/meta-img.webp">
         <meta name="twitter:site" content="@readynowjunkremoval">
 
-        <!-- ======== Page title ============ -->
+        
 
-        <title>Ready Now - Junk Removal</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="assets/img/favicon.webp">
-        <!--<< Bootstrap min.css >>-->
+        <!-- Deferred (non-critical) -->
+        <link rel="stylesheet" href="assets/css/animate.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="assets/css/nice-select.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="assets/css/meanmenu.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="assets/css/all.min.css" media="print" onload="this.media='all'">
+        <noscript>
+            <link rel="stylesheet" href="assets/css/animate.css">
+            <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+            <link rel="stylesheet" href="assets/css/meanmenu.css">
+            <link rel="stylesheet" href="assets/css/all.min.css">
+        </noscript>
+
+        <!-- Critical (blocking) -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--<< All Min Css >>-->
-        <link rel="stylesheet" href="assets/css/all.min.css">
-        <!--<< Animate.css >>-->
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!--<< Magnific Popup.css >>-->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--<< MeanMenu.css >>-->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!--<< Swiper Bundle.css >>-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <!--<< Nice Select.css >>-->
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!--<< Color.css >>-->
-        <link rel="stylesheet" href="assets/css/color.css">
-        <!--<< Main.css >>-->
         <link rel="stylesheet" href="assets/css/main.css">
+
+        <!-- Preload hero image -->
+        <link rel="preload" as="image" href="assets/img/hero/hero.webp">
     </head>
     <body>
 
         <!-- Preloader Start -->
-        <custom-preloader></custom-preloader>
+        <!-- <custom-preloader></custom-preloader> -->
 
         <!-- Back To Top Start -->
         <button id="back-top" class="back-to-top">
@@ -61,36 +63,35 @@
         <div class="mouse-cursor cursor-inner"></div>
 
         <!-- Header Area Start -->
-         <custom-header></custom-header>
+        <custom-header></custom-header>
 
         <!-- Hero Section Start -->
-        <section class="hero-section fix hero-1" style="background-image: url('assets/img/hero/before_after.webp');">
-            <div class="hero-shape">
-                <img src="assets/img/hero/shape-img.webp" alt="img">
-            </div>
-            <div class="video-box">
-                <div class="circle-shape">
-                    <img src="assets/img/hero/circle.webp" alt="img">
+        <section class="hero-section fix hero-1 row">
+            <div class="col-lg-7">
+                <div class="hero-shape">
+                    <img src="assets/img/hero/shape-img.webp" alt="img">
                 </div>
-                <a href="https://www.tiktok.com/@ready.now.junk.removal/video/7548846889924316471" class="video-btn bg-cover" style="background-image: url('assets/img/hero/video-bg.webp');" target="_blank">
-                    <span class="video-btn__label">Play</span>
-                </a>
-            </div>
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-8">
-                        <div class="hero-content">
-                            <h3 class="wow fadeInUp">Ready When You Are</h3>
-                            <h1 class="wow fadeInUp" data-wow-delay=".3s">Fast, Affordable Junk Removal</h1>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">
-                                Tired of clutter taking over your space? At Ready Now Junk Removal, we offer same-day junk hauling for residential and commerical properties. We handle everything — so you don’t have to.
-                            </p>
-                            <div class="hero-button wow fadeInUp" data-wow-delay=".7s">
-                                <a href="/free-quote" class="theme-btn">Free Estimate<i class="fa-regular fa-angles-right"></i></a>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="hero-content">
+                                <h3 class="wow fadeInUp">Ready When You Are</h3>
+                                <h1 class="wow fadeInUp text-uppercase fw-bold" data-wow-delay=".3s">Fast, <span class="text-theme">Affordable Junk Removal</span></h1>
+                                <p class="wow fadeInUp" data-wow-delay=".5s">
+                                    Tired of clutter taking over your space? At Ready Now Junk Removal, we offer same-day junk hauling for residential and commerical properties. We handle everything — so you don’t have to.
+                                </p>
+                                <div class="hero-button wow fadeInUp" data-wow-delay=".7s">
+                                    <a href="/free-quote" class="theme-btn">Free Estimate<i class="fa-regular fa-angles-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col">
+                <div class="d-flex align-items-center justify-content-center h-100">
+                    <img src="assets/img/hero/hero.webp" style="max-width: 100%;" class="floating" width="500" fetchpriority="high" alt="hero image of junk removal pile">
+                </div>  
             </div>
         </section>
        
@@ -239,7 +240,7 @@
                 </div>
             </div>
             <div class="nexava-shape">
-                <img src="assets/img/Nexava.webp" alt="img" style="width: 100vw">
+                <img src="assets/img/Nexava.webp" alt="img" style="max-width: 100vw" width="1280">
             </div>
         </section>
 
