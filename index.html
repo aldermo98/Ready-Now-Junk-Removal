@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="hero-content">
-                                <h3 class="wow fadeInUp">Ready When You Are</h3>
+                                <h3 class="wow fadeInUp">Locally Owned, Locally Operated, Ready When You Are</h3>
                                 <h1 class="wow fadeInUp text-uppercase fw-bold" data-wow-delay=".3s">Fast, <span class="text-theme">Affordable Junk Removal</span></h1>
                                 <p class="wow fadeInUp" data-wow-delay=".5s">
                                     Tired of clutter taking over your space? At Ready Now Junk Removal, we offer same-day junk hauling for residential and commerical properties. We handle everything — so you don’t have to.
@@ -92,6 +92,48 @@
                 <div class="d-flex align-items-center justify-content-center h-100">
                     <img src="assets/img/hero/hero.webp" style="max-width: 100%;" class="floating" width="500" fetchpriority="high" alt="hero image of junk removal pile">
                 </div>  
+            </div>
+        </section>
+
+        <!-- Free Quote Section -->
+        <section class="cta-contact-section hide-before fix pt-0 z-1">
+            <div class="container">
+                <div class="cta-contact-wrapper contact-wrapper-12">
+                    <div class="row g-4 justify-content-between align-items-center">
+                        <div class="col">
+                            <div class="contact-content bg-transparent shadow-none ms-0">
+                                <div class="section-title">
+                                    <span class="text-white wow fadeInUp"><img src="assets/img/icon/08.svg" alt="img">Get A Free Quote </span>
+                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Ready to claim your space back?</h2>
+                                </div>
+                                <form method="GET" action="/free-quote" class="mt-4 mt-md-0">
+                                    <div class="row g-4">
+                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                                            <div class="form-clt">
+                                                <input type="text" name="first_name" id="firstName" placeholder="First Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                                            <div class="form-clt">
+                                                <input type="text" name="last_name" id="lastName" placeholder="Last Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                            <div class="form-clt">
+                                                <input type="email" name="email" id="email" placeholder="Email Address">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                            <button type="submit" class="theme-btn header-bg w-100">
+                                                GET MY ESTIMATE <i class="fa-regular fa-angles-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
        
@@ -182,9 +224,10 @@
             <div class="container">
                 <div class="row g-4 align-items-stretch">
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <div class="service-box-items">
+                        <div class="service-box-items border p-3 shadow">
                             <div class="content">
                                 <div>
+                                    <img src="/assets/img/header/garage-cleanouts-thumbnail.webp" alt="Garage cleanout junk removal thumbnail" class="img-fluid rounded w-100 mb-4">
                                     <h3><a href="/services/garage-cleanouts.html">Garage Cleanouts</a></h3>
                                     <p>Clear out years of junk and reclaim your garage. We handle all the heavy lifting and disposal.</p>
                                 </div>
@@ -196,9 +239,10 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                        <div class="service-box-items">
+                        <div class="service-box-items border p-3 shadow">
                             <div class="content">
                                 <div>
+                                    <img src="/assets/img/header/yard-waste-removal-thumbnail.webp" alt="yard waste junk removal thumbnail" class="img-fluid rounded w-100 mb-4">
                                     <h3><a href="/services/yard-waste-removal.html">Yard Waste Removal</a></h3>
                                     <p>From fences to old buckets and storm debris, we’ll make your yard spotless.</p>
                                 </div>
@@ -210,11 +254,14 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                        <div class="service-box-items">
+                        <div class="service-box-items border p-3 shadow">
                             <div class="content">
                                 <div>
-                                    <h3><a href="/services/estate-and-eviction-cleanouts.html">Estate & Eviction Cleanouts</a></h3>
-                                    <p>Sensitive, thorough, and discreet property cleanouts for landlords, realtors, and families.</p>
+                                    <img src="/assets/img/header/furniture-removal-thumbnail.webp" alt="furniture junk removal thumbnail" class="img-fluid rounded w-100 mb-4">
+                                    <h3><a href="/services/estate-and-eviction-cleanouts.html">Furniture & Appliance Removal</a></h3>
+                                    <p>
+                                        Effortless appliance and furniture removal and recycling.
+                                    </p>
                                 </div>
                                 <a href="/services/estate-and-eviction-cleanouts.html" class="link-btn">Read More <i class="fa-regular fa-angles-right"></i></a>
                             </div>
@@ -224,9 +271,10 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                        <div class="service-box-items">
+                        <div class="service-box-items border p-3 shadow">
                             <div class="content">
                                 <div>
+                                    <img src="/assets/img/header/construction-debris-removal-thumbnail.webp" alt="construction debris junk removal thumbnail" class="img-fluid rounded w-100 mb-4">
                                     <h3><a href="/services/construction-debris-removal.html">Construction Debris Removal</a></h3>
                                     <p>No need to rent a dumpster — we haul drywall, tile, lumber, and more.</p>
                                 </div>
@@ -253,7 +301,7 @@
                             <div class="cta-contact-content">
                                 <div class="section-title">
                                     <span class="text-white wow fadeInUp"><img src="assets/img/icon/08.svg" alt="img">Get A Free Quote </span>
-                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Ready to declutter your life? Send us your project</h2>
+                                    <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">Kick back and let us handle that mess</h2>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +310,7 @@
                                     <div class="row g-4">
                                         <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
                                             <a href="/free-quote" class="theme-btn">
-                                                Get In Touch <i class="fa-regular fa-angles-right"></i>
+                                                FREE ESTIMATE<i class="fa-regular fa-angles-right"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -341,7 +389,7 @@
                                 </div>
                                 <div class="content">
                                     <h3 class="wow fadeInUp">Submit A Contact Form</h3>
-                                    <h2 class="wow fadeInUp" data-wow-delay=".3s"><a href="/free-quote">GET IN TOUCH</a></h2>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s"><a href="/free-quote">GET MY ESTIMATE</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -413,9 +461,9 @@
                                 <img src="assets/img/project/04.webp" alt="project-img">
                                 <div class="project-content">
                                     <h3>
-                                        <a href="/services/donation-pickup-services.html">Donation Pickup</a>
+                                        <a href="/services/donation-pickup.html">Donation Pickup</a>
                                     </h3>
-                                    <a href="/services/donation-pickup-services.html" class="icon">
+                                    <a href="/services/donation-pickup.html" class="icon">
                                         <i class="fa-regular fa-arrow-right-long"></i>
                                     </a>
                                 </div>
@@ -649,46 +697,31 @@
                                     <span class="wow fadeInUp"><img src="assets/img/icon/07.svg" alt="img">Get in touch</span>
                                     <h2 class="wow fadeInUp" data-wow-delay=".3s">Looking for a quote or have questions?</h2>
                                 </div>
-                                <form name="contact" id="contact-form" method="POST" action="/success.html" class="mt-4 mt-md-0" data-netlify="true">
+                                <form method="GET" action="/free-quote" class="mt-4 mt-md-0">
                                     <div class="row g-4">
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
-                                                <input type="text" name="name" id="name" placeholder="Your Name" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                            <div class="form-clt">
-                                                <input type="email" name="email" id="email" placeholder="Email Address">
+                                                <input type="text" name="first_name" placeholder="First Name" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
-                                                <input type="text" name="phone" id="phone" placeholder="Phone number" required>
+                                                <input type="text" name="last_name" placeholder="Last Name" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                             <div class="form-clt">
-                                                <input type="text" name="subject" id="subject" placeholder="Subject">
+                                                <input type="email" name="email" placeholder="Email Address">
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
-                                                <input type="text" name="schedule" id="schedule" placeholder="How soon do you need service?">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
-                                            <div class="form-clt">
-                                                <input type="file" name="media[]" id="media" multiple accept="image/*,video/*" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
-                                            <div class="form-clt">
-                                                <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                                                <input type="phone" name="phone" placeholder="Phone number" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                             <button type="submit" class="theme-btn">
-                                                submit here <i class="far fa-long-arrow-right"></i>
+                                                get my quote <i class="far fa-long-arrow-right"></i>
                                             </button>
                                         </div>
                                     </div>

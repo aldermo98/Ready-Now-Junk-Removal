@@ -189,7 +189,7 @@ class CustomHeader2 extends HTMLElement {
                                                                   <div class="col-3 py-2"><a href="/services/light-demolition.html" class="fw-light">Light Demolition</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/storage-unit-cleanouts.html" class="fw-light">Storage Unit Cleanouts</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/office-and-commerical-cleanouts.html" class="fw-light">Office & Commerical Cleanouts</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/donation-pickup-services.html" class="fw-light">Donation Pickup Services</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/donation-pickup.html" class="fw-light">Donation Pickup</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/storm-debris-cleanup.html" class="fw-light">Storm Debris Cleanup</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/event-and-festival-cleanup.html" class="fw-light">Event & Festival Cleanup</a></div>
                                                               </div>
@@ -213,10 +213,20 @@ class CustomHeader2 extends HTMLElement {
                                                       <li><a href="/services/light-demolition.html">Light Demolition</a></li>
                                                       <li><a href="/services/storage-unit-cleanouts.html">Storage Unit Cleanouts</a></li>
                                                       <li><a href="/services/office-and-commerical-cleanouts.html">Office & Commerical Cleanouts</a></li>
-                                                      <li><a href="/services/donation-pickup-services.html">Donation Pickup Services</a></li>
+                                                      <li><a href="/services/donation-pickup.html">Donation Pickup</a></li>
                                                       <li><a href="/services/storm-debris-cleanup.html">Storm Debris Cleanup</a></li>
                                                       <li><a href="/services/event-and-festival-cleanup.html">Event & Festival Cleanup</a></li>
                                                   </ul>
+                                              </li>
+                                              <li>
+                                                  <a href="blog.html" class="border-none">
+                                                      Blog
+                                                  </a>
+                                              </li>
+                                              <li>
+                                                  <a href="promotions.html" class="border-none">
+                                                      Promotions
+                                                  </a>
                                               </li>
                                           </ul>
                                       </nav>

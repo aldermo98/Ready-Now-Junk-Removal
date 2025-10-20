@@ -204,7 +204,7 @@ class CustomHeader extends HTMLElement {
                                                                   <div class="col-3 py-2"><a href="services/light-demolition.html" class="fw-light">Light Demolition</a></div>
                                                                   <div class="col-3 py-2"><a href="services/storage-unit-cleanouts.html" class="fw-light">Storage Unit Cleanouts</a></div>
                                                                   <div class="col-3 py-2"><a href="services/office-and-commerical-cleanouts.html" class="fw-light">Office & Commerical Cleanouts</a></div>
-                                                                  <div class="col-3 py-2"><a href="services/donation-pickup-services.html" class="fw-light">Donation Pickup Services</a></div>
+                                                                  <div class="col-3 py-2"><a href="services/donation-pickup.html" class="fw-light">Donation Pickup</a></div>
                                                                   <div class="col-3 py-2"><a href="services/storm-debris-cleanup.html" class="fw-light">Storm Debris Cleanup</a></div>
                                                                   <div class="col-3 py-2"><a href="services/event-and-festival-cleanup.html" class="fw-light">Event & Festival Cleanup</a></div>
                                                               </div>
@@ -213,25 +213,35 @@ class CustomHeader extends HTMLElement {
                                                   </ul>
                                               </li>
                                               <li class="has-dropdown active d-xl-none">
-                                                  <a href="team.html" class="border-none">
+                                                  <a href="/services/furniture-removal.html" class="border-none">
                                                       Services
                                                   </a>
                                                   <ul class="submenu">
-                                                      <li><a href="services/furniture-removal.html">Furniture Removal</a></li>
-                                                      <li><a href="services/appliance-removal.html">Appliance Removal</a></li>
-                                                      <li><a href="services/garage-cleanouts.html">Garage Cleanouts</a></li>
-                                                      <li><a href="services/yard-waste-removal.html">Yard Waste Removal</a></li>
-                                                      <li><a href="services/construction-debris-removal.html">Construction Debris Removal</a></li>
-                                                      <li><a href="services/estate-and-eviction-cleanouts.html">Estate & Eviction Cleanouts</a></li>
-                                                      <li><a href="services/hot-tub-removal.html">Hot Tub Removal</a></li>
-                                                      <li><a href="services/hoarder-house-cleanouts.html">Hoarder House Cleanouts</a></li>
-                                                      <li><a href="services/light-demolition.html">Light Demolition</a></li>
-                                                      <li><a href="services/storage-unit-cleanouts.html">Storage Unit Cleanouts</a></li>
-                                                      <li><a href="services/office-and-commerical-cleanouts.html">Office & Commerical Cleanouts</a></li>
-                                                      <li><a href="services/donation-pickup-services.html">Donation Pickup Services</a></li>
-                                                      <li><a href="services/storm-debris-cleanup.html">Storm Debris Cleanup</a></li>
-                                                      <li><a href="services/event-and-festival-cleanup.html">Event & Festival Cleanup</a></li>
+                                                      <li><a href="/services/furniture-removal.html">Furniture Removal</a></li>
+                                                      <li><a href="/services/appliance-removal.html">Appliance Removal</a></li>
+                                                      <li><a href="/services/garage-cleanouts.html">Garage Cleanouts</a></li>
+                                                      <li><a href="/services/yard-waste-removal.html">Yard Waste Removal</a></li>
+                                                      <li><a href="/services/construction-debris-removal.html">Construction Debris Removal</a></li>
+                                                      <li><a href="/services/estate-and-eviction-cleanouts.html">Estate & Eviction Cleanouts</a></li>
+                                                      <li><a href="/services/hot-tub-removal.html">Hot Tub Removal</a></li>
+                                                      <li><a href="/services/hoarder-house-cleanouts.html">Hoarder House Cleanouts</a></li>
+                                                      <li><a href="/services/light-demolition.html">Light Demolition</a></li>
+                                                      <li><a href="/services/storage-unit-cleanouts.html">Storage Unit Cleanouts</a></li>
+                                                      <li><a href="/services/office-and-commerical-cleanouts.html">Office & Commerical Cleanouts</a></li>
+                                                      <li><a href="/services/donation-pickup.html">Donation Pickup</a></li>
+                                                      <li><a href="/services/storm-debris-cleanup.html">Storm Debris Cleanup</a></li>
+                                                      <li><a href="/services/event-and-festival-cleanup.html">Event & Festival Cleanup</a></li>
                                                   </ul>
+                                              </li>
+                                              <li>
+                                                  <a href="blog.html" class="border-none">
+                                                      Blog
+                                                  </a>
+                                              </li>
+                                              <li>
+                                                  <a href="promotions.html" class="border-none">
+                                                      Promotions
+                                                  </a>
                                               </li>
                                           </ul>
                                       </nav>

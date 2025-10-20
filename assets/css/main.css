@@ -5733,7 +5733,7 @@ input.main-search-input::placeholder {
   filter: drop-shadow(0 35px 20px rgba(0, 0, 0, 0.3));
 }
 
-span.text-theme{
+.text-theme{
   color: var(--theme);
 }
 
