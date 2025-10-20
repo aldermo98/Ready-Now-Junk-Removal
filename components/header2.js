@@ -224,7 +224,7 @@ class CustomHeader2 extends HTMLElement {
                                                   </a>
                                               </li>
                                               <li>
-                                                  <a href="promotions.html" class="border-none">
+                                                  <a href="ppc.html" class="border-none">
                                                       Promotions
                                                   </a>
                                               </li>
