@@ -31,7 +31,7 @@ class CustomFooter extends HTMLElement {
                                     <a href="tel:+19162491009" class="text-white">(916) 249-1009</a>
                                 </p>    
                                 <div class="social-icon d-flex align-items-center">
-                                    <a href="https://www.facebook.com/profile.php?id=61580363502616" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/readynowjunkremoval" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://instagram.com/readynowjunkremoval" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                                     <a href="https://www.tiktok.com/@ready.now.junk.removal"><i class="fab fa-tiktok"></i></a>
                                 </div>
