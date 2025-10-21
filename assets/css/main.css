@@ -260,7 +260,7 @@ span {
     margin-top: -55px;
   }
 }
-.about-wrapper::before {
+.about-wrapper:not(.services-wrapper)::before {
   position: absolute;
   top: 0;
   left: 50%;

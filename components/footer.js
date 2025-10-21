@@ -46,7 +46,7 @@ class CustomFooter extends HTMLElement {
                             <ul class="list-items">
                                 <li><a href="/free-quote"><i class="fa-regular fa-arrow-right-long"></i> Free Quote</a></li>
                                 <li><a href="/about.html"><i class="fa-regular fa-arrow-right-long"></i> About Us</a></li>
-                                <li><a href="/services/furniture-removal.html"><i class="fa-regular fa-arrow-right-long"></i> Services</a></li>
+                                <li><a href="/services.html"><i class="fa-regular fa-arrow-right-long"></i> Services</a></li>
                                 <li><a href="/service-areas/antelope.html"><i class="fa-regular fa-arrow-right-long"></i> Service Areas</a></li>
                                 <li><a href="/pricing.html"><i class="fa-regular fa-arrow-right-long"></i> Pricing</a></li>
                                 <li><a href="/faq.html"><i class="fa-regular fa-arrow-right-long"></i> FAQs</a></li>
@@ -60,7 +60,7 @@ class CustomFooter extends HTMLElement {
                                 <h3>Popular Services</h3>
                             </div>
                             <ul class="list-items">
-                                <li><a href="/services/furniture-removal.html"><i class="fa-regular fa-arrow-right-long"></i> All Services</a></li>
+                                <li><a href="/services.html"><i class="fa-regular fa-arrow-right-long"></i> All Services</a></li>
                                 <li><a href="/services/appliance-removal.html"><i class="fa-regular fa-arrow-right-long"></i> Appliance Removal</a></li>
                                 <li><a href="/services/furniture-removal.html"><i class="fa-regular fa-arrow-right-long"></i> Furniture Removal</a></li>
                                 <li><a href="/services/garage-cleanouts.html"><i class="fa-regular fa-arrow-right-long"></i> Garage Cleanouts</a></li>

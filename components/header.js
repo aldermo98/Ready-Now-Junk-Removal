@@ -109,7 +109,7 @@ class CustomHeader extends HTMLElement {
                                                   <a href="/pricing.html">Pricing</a>
                                               </li>
                                               <li class="has-dropdown active menu-thumb">
-                                                  <a href="/services/furniture-removal.html">
+                                                  <a href="/services.html">
                                                   Services
                                                   </a>
                                                   <ul class="submenu has-homemenu">
@@ -213,7 +213,7 @@ class CustomHeader extends HTMLElement {
                                                   </ul>
                                               </li>
                                               <li class="has-dropdown active d-xl-none">
-                                                  <a href="/services/furniture-removal.html" class="border-none">
+                                                  <a href="/services.html" class="border-none">
                                                       Services
                                                   </a>
                                                   <ul class="submenu">
