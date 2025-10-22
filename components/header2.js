@@ -219,7 +219,7 @@ class CustomHeader2 extends HTMLElement {
                                                   </ul>
                                               </li>
                                               <li>
-                                                  <a href="blog.html" class="border-none">
+                                                  <a href="/blog/" class="border-none">
                                                       Blog
                                                   </a>
                                               </li>

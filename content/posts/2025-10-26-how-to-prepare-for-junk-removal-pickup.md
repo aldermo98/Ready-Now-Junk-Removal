@@ -8,8 +8,6 @@ cover: /assets/img/breadcrumb/about-breadcrumb.webp
 slug: prepare-for-junk-removal-pickup
 ---
 
-# How to Prepare for a Junk Removal Pickup (Step-by-Step)
-
 So you booked your pickup — nice move. Here’s how to make sure your junk removal day goes perfectly (and fast).
 
 ---

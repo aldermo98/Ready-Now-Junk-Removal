@@ -73,7 +73,7 @@ const makeTagLinks = (tags = []) =>
     .map((t) => `<a href="/blog/tags/${slugify(t)}/">${escapeHtml(t)}</a>`)
     .join(", ");
 
-const renderPost = (tpl, post) =>
+const renderPost = (tpl, post, posts) =>
   tpl
     .replaceAll("{{TITLE}}", escapeHtml(post.title))
     .replaceAll("{{DESCRIPTION}}", escapeHtml(post.description || ""))
@@ -83,7 +83,8 @@ const renderPost = (tpl, post) =>
     .replaceAll("{{COVER}}", post.cover || `${BASE_URL}/images/og-default.jpg`)
     .replaceAll("{{TAG_LINKS}}", makeTagLinks(post.tags))
     .replaceAll("{{CANONICAL}}", `${BASE_URL}/blog/${post.slug}/`)
-    .replace("{{CONTENT}}", post.html);
+    .replace("{{CONTENT}}", post.html)
+    .replace("{{RECENT_POSTS}}", posts.slice(0, 3).map(recentPosts).join("\n"));
 
 const card = (p) => `
 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
@@ -102,8 +103,27 @@ const card = (p) => `
             <p>${escapeHtml(p.description || "")}</p>
         </div>
     </div>
-</div>
-<article class="card">`;
+</div>`;
+
+const recentPosts = (p) => `
+<div class="recent-items flex-column border-bottom mb-4 pb-3">
+  <div class="recent-thumb">
+      ${p.cover ? `<img src="${p.cover}" class="w-100" alt="${escapeHtml(p.title)}" />` : ""}
+  </div>
+  <div class="recent-content">
+      <ul>
+          <li>
+              <i class="fa-solid fa-calendar-days"></i>
+              ${formatDateHuman(p.date)}
+          </li>
+      </ul>
+      <h6>
+          <a href="/blog/${p.slug}/">
+              ${escapeHtml(p.title)}
+          </a>
+      </h6>
+  </div>
+</div>`;
 
 const renderIndex = (tpl, posts) =>
   tpl
@@ -167,7 +187,7 @@ const build = () => {
 
   // render posts
   for (const p of posts) {
-    const out = renderPost(postTpl, p);
+    const out = renderPost(postTpl, p, posts);
     writeFile(path.join(p.slug, "index.html"), out);
   }
 

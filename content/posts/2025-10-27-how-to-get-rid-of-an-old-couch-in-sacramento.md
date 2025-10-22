@@ -8,8 +8,6 @@ cover: /assets/img/breadcrumb/about-breadcrumb.webp
 slug: get-rid-of-old-couch-sacramento
 ---
 
-# How to Get Rid of an Old Couch in Sacramento (Without Paying a Fortune)
-
 You’ve stared at that sagging couch for months. Maybe it’s survived a few roommates, a spilled latte, and one too many game nights — but it’s time.  
 The only question is: *how do you get rid of it without spending a fortune or breaking your back?*
 

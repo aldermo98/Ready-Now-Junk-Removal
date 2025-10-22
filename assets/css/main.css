@@ -2709,6 +2709,22 @@ span {
 .page-heading .breadcrumb-items li a:hover {
   color: var(--white);
 }
+
+/* Mobile tweak */
+@media (max-width: 800px) {
+  .breadcrumb-items li {
+    white-space: nowrap;
+  }
+  .page-heading .breadcrumb-items li:last-child a {
+    display: inline-block;
+    max-width: 190px; /* adjust for mobile */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+}
+
 .page-heading .breadcrumb-items li i {
   color: var(--white);
 }
@@ -5761,4 +5777,15 @@ input.main-search-input::placeholder {
   50% {
     transform: translateY(-20px); /* adjust how high it moves */
   }
+}
+
+
+
+/* ======================================== Blog CSS ========================================== */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 2rem;
+}
+
+.post-content hr:first-child {
+  margin-bottom: 5rem;
 }

@@ -8,8 +8,6 @@ cover: /assets/img/breadcrumb/about-breadcrumb.webp
 slug: what-items-junk-removal-takes
 ---
 
-# What Items Junk Removal Companies Take — and What They Won’t
-
 Not sure what counts as “junk” vs “hazardous”? You’re not alone.  
 Let’s clear up what we *can* load in the truck — and what needs special disposal.
 

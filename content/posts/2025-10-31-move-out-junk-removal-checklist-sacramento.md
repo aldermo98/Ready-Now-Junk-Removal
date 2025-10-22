@@ -8,13 +8,15 @@ cover: /assets/img/breadcrumb/about-breadcrumb.webp
 slug: move-out-junk-removal-checklist-sacramento
 ---
 
-# Move-Out Junk Removal Checklist for Sacramento Tenants and Landlords
-
 Moving is already a workout—boxes, leases, cleaning, stress.  
 Don’t let leftover junk cost you your **security deposit** or a **tenant turnover delay**.  
 Here’s the ultimate checklist for smooth, fast, and landlord-approved move-outs around Sacramento.
 
 ---
+
+
+
+
 
 ## 🧹 1️⃣ Start 7 Days Before Moving
 

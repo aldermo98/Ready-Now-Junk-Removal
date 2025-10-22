@@ -8,8 +8,6 @@ cover: /assets/img/breadcrumb/about-breadcrumb.webp
 slug: yard-waste-green-debris-removal-sacramento
 ---
 
-# Yard Waste and Green Debris Removal in Sacramento — Fast, Clean, and Eco-Friendly
-
 You trimmed the trees, cleaned the gutters, and raked until your arms gave up—  
 now you’ve got a mountain of branches and bags staring at you.  
 

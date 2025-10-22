@@ -8,8 +8,6 @@ cover: /assets/img/breadcrumb/about-breadcrumb.webp
 slug: appliance-removal-guide-sacramento
 ---
 
-# Appliance Removal Guide for Sacramento Homeowners
-
 That old fridge humming in the garage? The washer that gave up mid-cycle?  
 Appliances are great—until they’re heavy, awkward, and full of sharp corners.  
 Here’s how Sacramento homeowners can ditch dead appliances **safely, legally, and without breaking the bank**.
