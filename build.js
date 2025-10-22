@@ -5,10 +5,12 @@ const fs = require("fs");
 const path = require("path");
 const { marked } = require("marked");
 
-const BASE_URL = "https://readynowjunkremoval.com"; // ← change this
+const BASE_URL = process.env.NODE_ENV === 'development'
+  ? "http://localhost:5501"
+  : "https://readynowjunkremoval.com";
 const SRC_DIR = path.join(__dirname, "content", "posts");
 const TPL_DIR = path.join(__dirname, "templates");
-const OUT_DIR = path.join(__dirname, "dist");
+const OUT_DIR = path.join(__dirname, "blog");
 
 // utils
 const ensure = (p) => fs.mkdirSync(p, { recursive: true });
@@ -166,12 +168,12 @@ const build = () => {
   // render posts
   for (const p of posts) {
     const out = renderPost(postTpl, p);
-    writeFile(path.join("blog", p.slug, "index.html"), out);
+    writeFile(path.join(p.slug, "index.html"), out);
   }
 
   // render index
   const indexHtml = renderIndex(indexTpl, posts);
-  writeFile(path.join("blog", "index.html"), indexHtml);
+  writeFile(path.join("index.html"), indexHtml);
 
   // tag pages
   const tagMap = {};
@@ -187,7 +189,7 @@ const build = () => {
       indexTpl.replace("<h1>Blog</h1>", `<h1>Tag: ${escapeHtml(tag.name)}</h1>`),
       tag.posts
     );
-    writeFile(path.join("blog", "tags", slug, "index.html"), html);
+    writeFile(path.join("tags", slug, "index.html"), html);
   }
 };
 
