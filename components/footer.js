@@ -66,6 +66,7 @@ class CustomFooter extends HTMLElement {
                                 <li><a href="/services/garage-cleanouts.html"><i class="fa-regular fa-arrow-right-long"></i> Garage Cleanouts</a></li>
                                 <li><a href="/services/storage-unit-cleanouts.html"><i class="fa-regular fa-arrow-right-long"></i> Storage Unit Cleanouts</a></li>
                                 <li><a href="/services/estate-and-eviction-cleanouts.html"><i class="fa-regular fa-arrow-right-long"></i> Estate & Eviction Cleanouts</a></li>
+                                <li><a href="/services/dump-trailer-rental.html"><i class="fa-regular fa-arrow-right-long"></i> Dump Trailer Rental</a></li>
                             </ul>
                         </div>
                     </div>

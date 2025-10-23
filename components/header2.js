@@ -111,22 +111,7 @@ class CustomHeader2 extends HTMLElement {
                                                                   </div>
                                                                   <div class="homemenu-content text-center">
                                                                       <h4 class="homemenu-title">
-                                                                          Furniture Removal
-                                                                      </h4>
-                                                                  </div>
-                                                              </div>
-                                                              <div class="homemenu">
-                                                                  <div class="homemenu-thumb mb-15">
-                                                                      <img src="/assets/img/header/appliance-removal-thumbnail.webp" alt="img">
-                                                                      <div class="demo-button">
-                                                                          <a href="/services/appliance-removal.html" class="theme-btn">
-                                                                              View
-                                                                          </a>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="homemenu-content text-center">
-                                                                      <h4 class="homemenu-title">
-                                                                          Appliance Removal
+                                                                          Furniture & Appliance Removal
                                                                       </h4>
                                                                   </div>
                                                               </div>
@@ -175,6 +160,21 @@ class CustomHeader2 extends HTMLElement {
                                                                       </h4>
                                                                   </div>
                                                               </div>
+                                                              <div class="homemenu">
+                                                                  <div class="homemenu-thumb mb-15">
+                                                                      <img src="/assets/img/header/dump-trailer-rental-thumbnail.webp" alt="dump trailer rental">
+                                                                      <div class="demo-button">
+                                                                          <a href="/services/dump-trailer-rental.html" class="theme-btn">
+                                                                              View
+                                                                          </a>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="homemenu-content text-center">
+                                                                      <h4 class="homemenu-title">
+                                                                          Dump Trailer Rental
+                                                                      </h4>
+                                                                  </div>
+                                                              </div>
                                                           </div>
                                                           <div>
                                                               <div class="d-flex align-items-center my-4">
@@ -205,6 +205,7 @@ class CustomHeader2 extends HTMLElement {
                                                       <li><a href="/services/furniture-removal.html">Furniture Removal</a></li>
                                                       <li><a href="/services/appliance-removal.html">Appliance Removal</a></li>
                                                       <li><a href="/services/garage-cleanouts.html">Garage Cleanouts</a></li>
+                                                      <li><a href="/services/dump-trailer-rental.html">Dump Trailer Rental</a></li>
                                                       <li><a href="/services/yard-waste-removal.html">Yard Waste Removal</a></li>
                                                       <li><a href="/services/construction-debris-removal.html">Construction Debris Removal</a></li>
                                                       <li><a href="/services/estate-and-eviction-cleanouts.html">Estate & Eviction Cleanouts</a></li>
