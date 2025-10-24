@@ -2723,6 +2723,10 @@ span {
     white-space: nowrap;
     vertical-align: bottom;
   }
+
+  .page-heading-promo{
+    padding: 0 0 100px !important;
+  }
 }
 
 .page-heading .breadcrumb-items li i {
