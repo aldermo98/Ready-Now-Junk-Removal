@@ -4600,9 +4600,14 @@ input.main-search-input::placeholder {
   transition: all 0.4s ease-in-out;
   display: block;
 }
+@media (max-width: 375px) {
+  .project-items .project-image {
+    height: 280px;
+  }
+}
 @media (max-width: 575px) {
   .project-items .project-image {
-    height: 450px;
+    height: 350px;
   }
 }
 .project-items .project-image img {
