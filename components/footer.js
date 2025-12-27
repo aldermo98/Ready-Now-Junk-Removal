@@ -15,7 +15,7 @@ class CustomFooter extends HTMLElement {
                         <div class="single-footer-widget">
                             <div class="widget-head">
                                 <a href="/index.html">
-                                    <img src="/assets/img/logo/logo.svg" alt="logo-img" class="logo__img">
+                                    <img src="/assets/img/logo/logo.png" alt="logo-img" class="logo__img">
                                 </a>
                             </div>
                             <div class="footer-content">

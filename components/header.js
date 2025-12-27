@@ -9,7 +9,7 @@ class CustomHeader extends HTMLElement {
                       <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                           <div class="offcanvas__logo">
                               <a href="/index.html">
-                                  <img src="assets/img/logo/logo.svg" alt="logo-img" class="logo__img">
+                                  <img src="assets/img/logo/logo.png" alt="logo-img" class="logo__img">
                               </a>
                           </div>
                           <div class="offcanvas__close">
@@ -70,28 +70,13 @@ class CustomHeader extends HTMLElement {
 
       <!-- Header Section Start -->
       <header class="header-section-2">
-          <div class="header-top-section fix">
-              <div class="container-fluid">
-                  <div class="header-top-wrapper">
-                      <h6><img src="assets/img/logo/location.webp" alt="">Need help?  Contact us <a href="/free-quote">here</a></h6>
-                      <div class="top-right">
-                          <div class="social-icon d-flex align-items-center">
-                              <span>Follow Us:</span>
-                              <a href="https://www.facebook.com/readynowjunkremoval"><i class="fab fa-facebook-f"></i></a>
-                              <a href="https://www.instagram.com/readynowjunkremoval"><i class="fa-brands fa-instagram"></i></a>
-                              <a href="https://www.tiktok.com/@ready.now.junk.removal"><i class="fab fa-tiktok"></i></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
           <div id="header-sticky" class="header-1">
               <div class="container-fluid">
                   <div class="mega-menu-wrapper">
                       <div class="header-main">
                           <div class="logo">
                               <a href="/index.html" class="header-logo">
-                                  <img src="assets/img/logo/logo.svg" alt="logo-img" class="logo__img">
+                                  <img src="assets/img/logo/logo.png" alt="logo-img" class="logo__img">
                               </a>
                           </div>
                           <div class="header-left">

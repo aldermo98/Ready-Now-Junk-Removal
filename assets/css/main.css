@@ -5754,7 +5754,7 @@ input.main-search-input::placeholder {
 }
 
 .text-theme{
-  color: var(--theme);
+  color: var(--theme) !important;
 }
 
 @keyframes scroll {
