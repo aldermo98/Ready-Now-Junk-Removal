@@ -58,6 +58,7 @@ async function ghlFetch(path, { method = "GET", query, body } = {}) {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
+      Version: "2021-07-28",
     },
     body: body ? JSON.stringify(body) : undefined,
   });
