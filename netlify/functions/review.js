@@ -136,7 +136,7 @@ function extractCustomFieldValue(opp, fieldId) {
 
 async function generateReview({ city, notes, photoUrls }) {
   const systemPrompt = [
-    "You write short, natural-sounding Google reviews for junk removal customers.",
+    "You write short, natural-sounding SEO-optimized Google reviews for junk removal customers.",
     "Rules:",
     "- Write like a real customer (1st person), not a company ad.",
     "- 70–130 words (roughly 4–7 sentences).",
@@ -151,6 +151,7 @@ async function generateReview({ city, notes, photoUrls }) {
 
   const payload = { city: city || "", opportunity_notes: notes || "", job_reference_photos: photoUrls || [] };
 
+  console.log("CHATGPT_PAYLOAD", JSON.stringify(payload, null, 2));
   const resp = await openai.responses.create({
     model: "gpt-4.1-mini",
     input: [
