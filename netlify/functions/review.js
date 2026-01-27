@@ -3,20 +3,28 @@
 // POST /.netlify/functions/review
 // Body: { contactId: "..." }
 //
-// Env Vars required:
+// What it does:
+// 1) Fetch contact -> city
+// 2) Search opportunities for that contact -> prefer latest WON (status==="won"), else latest overall
+// 3) Extract notes from a specific custom field (GHL_NOTES_FIELD_ID) OR fallback to joining all string fields
+// 4) Extract job_photos (single-line text field URL) via GHL_JOB_PHOTOS_FIELD_ID
+// 5) If job_photos contains one or more image URLs, send them to a vision model + generate a review
+// 6) Return { review, city, opportunityId, jobPhotosUrl }
+//
+// Required Netlify env vars:
 // - OPENAI_API_KEY
 // - GHL_PRIVATE_TOKEN
 // - GHL_LOCATION_ID
 //
-// Optional env vars:
-// - GHL_NOTES_FIELD_ID        (string custom field id to treat as notes; else joins all string fields)
-// - GHL_PIPELINE_ID           (filters opportunities)
-// - GHL_STAGE_ID              (filters opportunities)
-// - MAX_VISION_IMAGES         (default 5)
+// Recommended env vars:
+// - GHL_JOB_PHOTOS_FIELD_ID   (custom field id for your "job_photos" single-line text field)
+// - GHL_NOTES_FIELD_ID        (custom field id for your notes/service-type field)
+// - MAX_VISION_IMAGES         (default 3)
 
 import OpenAI from "openai";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
 const API_BASE = "https://services.leadconnectorhq.com";
 
 const CORS = {
@@ -26,7 +34,11 @@ const CORS = {
 };
 
 function json(statusCode, body) {
-  return { statusCode, headers: { ...CORS, "Content-Type": "application/json" }, body: JSON.stringify(body) };
+  return {
+    statusCode,
+    headers: { ...CORS, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  };
 }
 
 function safeString(v) {
@@ -43,13 +55,22 @@ function uniq(arr) {
   return [...new Set(arr)];
 }
 
+function parseCsvEnv(name) {
+  return (process.env[name] || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 function pickLatestOpportunity(opps) {
   if (!Array.isArray(opps) || opps.length === 0) return null;
+
   const score = (o) => {
     const u = Date.parse(o.updatedAt || o.updated_at || o.dateUpdated || "");
     const c = Date.parse(o.createdAt || o.created_at || o.dateAdded || "");
     return (isFinite(u) ? u : 0) || (isFinite(c) ? c : 0) || 0;
   };
+
   return opps.slice().sort((a, b) => score(b) - score(a))[0];
 }
 
@@ -58,9 +79,12 @@ async function ghlFetch(path, { method = "GET", query, body } = {}) {
   if (!token) throw new Error("Missing GHL_PRIVATE_TOKEN");
 
   const url = new URL(API_BASE + path);
+
   if (query) {
     for (const [k, v] of Object.entries(query)) {
-      if (v !== undefined && v !== null && String(v).length) url.searchParams.set(k, String(v));
+      if (v !== undefined && v !== null && String(v).length) {
+        url.searchParams.set(k, String(v));
+      }
     }
   }
 
@@ -69,7 +93,7 @@ async function ghlFetch(path, { method = "GET", query, body } = {}) {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      Version: "2021-07-28", // required by LeadConnector
+      Version: "2021-07-28", // ✅ required by LeadConnector
     },
     body: body ? JSON.stringify(body) : undefined,
   });
@@ -78,27 +102,22 @@ async function ghlFetch(path, { method = "GET", query, body } = {}) {
     const text = await res.text().catch(() => "");
     throw new Error(`GHL ${method} ${path} failed (${res.status}): ${text || "no body"}`);
   }
+
   return res.json();
 }
 
-// From your /opportunities/search response shape:
-function extractPhotoUrlsFromOpportunity(opp) {
-  const cf = opp?.customFields || opp?.custom_fields;
-  if (!Array.isArray(cf)) return [];
+function getCustomFieldString(opp, fieldId) {
+  const id = safeString(fieldId);
+  if (!id) return "";
 
-  const urls = [];
-  for (const f of cf) {
-    if (Array.isArray(f.fieldValueFiles)) {
-      for (const file of f.fieldValueFiles) {
-        const url = safeString(file?.url);
-        if (url) urls.push(url);
-      }
-    }
-  }
-  return uniq(urls);
+  const cf = opp?.customFields || opp?.custom_fields;
+  if (!Array.isArray(cf)) return "";
+
+  const hit = cf.find((x) => safeString(x?.id) === id);
+  // LeadConnector commonly uses fieldValueString for strings
+  return safeString(hit?.fieldValueString || hit?.value || "");
 }
 
-// Notes: in your sample, there's no opp.notes; it’s customFields.fieldValueString
 function extractNotesFromOpportunity(opp) {
   const preferredFieldId = safeString(process.env.GHL_NOTES_FIELD_ID);
   const cf = opp?.customFields || opp?.custom_fields;
@@ -109,6 +128,7 @@ function extractNotesFromOpportunity(opp) {
     return clampText(hit?.fieldValueString || "", 2500);
   }
 
+  // Fallback: join all string fields
   const parts = cf
     .map((x) => x?.fieldValueString)
     .filter(Boolean)
@@ -118,9 +138,43 @@ function extractNotesFromOpportunity(opp) {
   return clampText(parts.join(" | "), 2500);
 }
 
-// ---- Vision helpers ----
+// job_photos is a single-line text field, but you can paste multiple URLs separated by comma/newline.
+// We'll parse anything that looks like an http(s) URL.
+function parseUrlsFromText(text) {
+  const raw = safeString(text);
+  if (!raw) return [];
 
-// Very lightweight content-type sniffing
+  // Split on commas/newlines/pipes/spaces (keep it forgiving)
+  const parts = raw
+    .split(/[\n,|]+/g)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  // If they pasted one long URL with spaces, handle that too:
+  const urls = [];
+  for (const p of parts.length ? parts : [raw]) {
+    // Extract all http(s) urls in the string
+    const matches = p.match(/https?:\/\/[^\s]+/g);
+    if (matches) urls.push(...matches.map((u) => u.replace(/[)\].,]+$/g, "")));
+  }
+
+  return uniq(urls);
+}
+
+function isLikelyImageUrl(url) {
+  const u = url.toLowerCase();
+  return (
+    u.endsWith(".jpg") ||
+    u.endsWith(".jpeg") ||
+    u.endsWith(".png") ||
+    u.endsWith(".webp") ||
+    u.endsWith(".gif") ||
+    u.includes("googleusercontent.com") ||
+    u.includes("lh3.googleusercontent.com") ||
+    u.includes("storage.googleapis.com")
+  );
+}
+
 function guessMimeFromUrl(url) {
   const u = url.toLowerCase();
   if (u.endsWith(".png")) return "image/png";
@@ -129,9 +183,8 @@ function guessMimeFromUrl(url) {
   return "image/jpeg";
 }
 
-// Download image from URL and return a data URL (base64)
-// If the URL is not accessible (403), it will throw.
-async function fetchImageAsDataUrl(url, { timeoutMs = 8000, maxBytes = 2_500_000 } = {}) {
+// Fetch image and return as base64 data URL so the vision model can see it even if the URL is not accessible to OpenAI.
+async function fetchImageAsDataUrl(url, { timeoutMs = 9000, maxBytes = 2_500_000 } = {}) {
   const controller = new AbortController();
   const t = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -156,61 +209,64 @@ async function fetchImageAsDataUrl(url, { timeoutMs = 8000, maxBytes = 2_500_000
   }
 }
 
-async function generateReviewWithVision({ city, notes, photoUrls }) {
-  // Keep vision cost + latency controlled
-  const maxImages = Math.max(0, Math.min(6, Number(process.env.MAX_VISION_IMAGES || 5)));
-  const urlsToUse = Array.isArray(photoUrls) ? photoUrls.slice(0, maxImages) : [];
+async function generateReviewWithVision({ city, notes, jobPhotosUrl }) {
+  const maxImages = Math.max(0, Math.min(6, Number(process.env.MAX_VISION_IMAGES || 3)));
 
-  // Download images server-side (so OpenAI doesn't need access to the private URL)
+  const urls = parseUrlsFromText(jobPhotosUrl).slice(0, 12);
+  const candidateImageUrls = urls.filter(isLikelyImageUrl).slice(0, maxImages);
+
+  // Try to fetch and embed as base64. If any fail, we skip them.
   const imageDataUrls = [];
-  for (const url of urlsToUse) {
+  for (const u of candidateImageUrls) {
     try {
-      const dataUrl = await fetchImageAsDataUrl(url, {
-        timeoutMs: 8000,
-        maxBytes: 2_500_000, // ~2.5MB each
-      });
+      const dataUrl = await fetchImageAsDataUrl(u);
       imageDataUrls.push(dataUrl);
     } catch (e) {
-      console.log("VISION_IMAGE_SKIP", url, e?.message || e);
+      console.log("VISION_IMAGE_SKIP", u, e?.message || e);
     }
   }
 
+  console.log("VISION_IMAGE_COUNT", imageDataUrls.length);
+
   const systemPrompt = [
     "You write a short, natural-sounding 5-star SEO-optimized Google review for a junk removal company from the customer's perspective.",
-    "You will be given city, notes, and job photos.",
+    "You may receive job photos and brief notes.",
     "Rules:",
     "- Sound like a real customer (1st person).",
-    "- 70–140 words (about 4–8 sentences).",
+    "- 70–140 words (4–8 sentences).",
     "- Mention the CITY exactly once if provided.",
-    "- Identify the SERVICE TYPE using the notes and/or photos (garage cleanout, yard cleanout, appliance removal, furniture haul-away, etc.).",
-    "- If photos show specific items, you may mention 1–2 items briefly. Do not invent details not supported by notes/photos.",
+    "- Identify the SERVICE TYPE using notes and/or photos (yard cleanout, garage cleanout, furniture removal, appliance removal, etc.).",
+    "- If photos clearly show specific items, you may mention 1–2 items briefly. Do not invent details not supported by notes/photos.",
     "- No phone numbers, URLs, hashtags, emojis, pricing, or discounts.",
     "- No bullets. No quotes. No ALL CAPS.",
     "- End with a simple recommendation sentence.",
     "Output only the review text.",
   ].join("\n");
 
-  const content = [
-    {
-      type: "input_text",
-      text: JSON.stringify({
-        city: safeString(city),
-        opportunity_notes: safeString(notes),
-        photo_count: imageDataUrls.length,
-      }),
-    },
+  const textContext = {
+    city: safeString(city),
+    opportunity_notes: safeString(notes),
+    job_photos_url: safeString(jobPhotosUrl),
+    parsed_url_count: urls.length,
+    included_image_count: imageDataUrls.length,
+  };
+
+  console.log("CHATGPT_TEXT_CONTEXT", JSON.stringify(textContext, null, 2));
+
+  const userContent = [
+    { type: "input_text", text: JSON.stringify(textContext) },
     ...imageDataUrls.map((dataUrl) => ({
       type: "input_image",
-      image_url: dataUrl, // base64 data URL is allowed :contentReference[oaicite:1]{index=1}
+      image_url: dataUrl,
     })),
   ];
 
-  console.log("VISION_IMAGE_COUNT", imageDataUrls.length);
-
-  // Use a vision-capable model (gpt-4.1 is good)
   const resp = await openai.responses.create({
-    model: "gpt-4.1",
-    input: [{ role: "system", content: systemPrompt }, { role: "user", content }],
+    model: "gpt-4.1", // vision-capable
+    input: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userContent },
+    ],
     temperature: 0.7,
     max_output_tokens: 260,
   });
@@ -224,8 +280,14 @@ export async function handler(event) {
 
   try {
     if (!process.env.OPENAI_API_KEY) return json(500, { error: "Missing OPENAI_API_KEY" });
+
     const locationId = safeString(process.env.GHL_LOCATION_ID);
     if (!locationId) return json(500, { error: "Missing GHL_LOCATION_ID" });
+
+    const jobPhotosFieldId = safeString(process.env.GHL_JOB_PHOTOS_FIELD_ID);
+    if (!jobPhotosFieldId) {
+      return json(500, { error: "Missing GHL_JOB_PHOTOS_FIELD_ID (custom field id for job_photos)" });
+    }
 
     let body = {};
     try {
@@ -237,12 +299,14 @@ export async function handler(event) {
     const contactId = safeString(body.contactId);
     if (!contactId) return json(400, { error: "Missing contactId" });
 
-    // Contact -> city
+    console.log("INBOUND", { contactId });
+
+    // 1) Contact -> city
     const contactResp = await ghlFetch(`/contacts/${contactId}`);
     const contact = contactResp?.contact || contactResp;
     const city = safeString(contact?.city);
 
-    // Opportunities search
+    // 2) Opportunities search
     const oppSearch = await ghlFetch(`/opportunities/search`, {
       query: { location_id: locationId, contact_id: contactId, limit: 100 },
     });
@@ -250,39 +314,64 @@ export async function handler(event) {
     const opportunities = oppSearch?.opportunities || [];
     console.log("OPP_SEARCH_COUNT", opportunities.length);
 
-    // Optional filters for “correct” opportunity
-    const PIPELINE_ID = safeString(process.env.GHL_PIPELINE_ID);
-    const STAGE_ID = safeString(process.env.GHL_STAGE_ID);
+    // Prefer WON opportunities; else fallback to all
+    const wonOpps = opportunities.filter((o) => safeString(o?.status).toLowerCase() === "won");
+    console.log("OPP_WON_COUNT", wonOpps.length);
 
-    let filtered = opportunities;
-    if (PIPELINE_ID) filtered = filtered.filter((o) => safeString(o?.pipelineId) === PIPELINE_ID);
-    if (STAGE_ID) filtered = filtered.filter((o) => safeString(o?.pipelineStageId) === STAGE_ID);
+    const picked = pickLatestOpportunity(wonOpps.length ? wonOpps : opportunities);
+    if (!picked) {
+      return json(200, {
+        review: "",
+        error: "No opportunities found for this contact.",
+        city,
+        opportunityId: "",
+        jobPhotosUrl: "",
+      });
+    }
 
-    const latest = pickLatestOpportunity(filtered.length ? filtered : opportunities);
-    if (!latest) return json(200, { review: "", error: "No opportunities found for this contact.", city });
+    const opportunityId = safeString(picked.id || picked._id);
 
-    const opportunityId = latest.id || latest._id;
+    // 3) Notes (custom field strings)
+    const notes = extractNotesFromOpportunity(picked);
 
-    const notes = extractNotesFromOpportunity(latest);
-    const photoUrls = extractPhotoUrlsFromOpportunity(latest);
+    // 4) job_photos single-line text field URL
+    const jobPhotosUrl = getCustomFieldString(picked, jobPhotosFieldId);
 
-    console.log("EXTRACTED", {
+    console.log("PICKED_OPP", {
       opportunityId,
-      city,
-      notesPreview: notes.slice(0, 160),
-      photoCount: photoUrls.length,
+      status: picked.status,
+      pipelineId: picked.pipelineId,
+      pipelineStageId: picked.pipelineStageId,
+      updatedAt: picked.updatedAt,
+      createdAt: picked.createdAt,
+      notesPreview: (notes || "").slice(0, 120),
+      jobPhotosUrlPreview: (jobPhotosUrl || "").slice(0, 140),
     });
 
-    // This is what the model "sees" as non-image context
-    console.log("CHATGPT_TEXT_CONTEXT", JSON.stringify({ city, notes }, null, 2));
+    // 5) Generate review (vision-enabled if job_photos has image URLs)
+    const review = await generateReviewWithVision({ city, notes, jobPhotosUrl });
 
-    const review = await generateReviewWithVision({ city, notes, photoUrls });
+    if (!review) {
+      return json(502, {
+        error: "OpenAI returned an empty review.",
+        city,
+        opportunityId,
+        jobPhotosUrl,
+      });
+    }
 
-    if (!review) return json(502, { error: "OpenAI returned an empty review.", city, opportunityId });
-
-    return json(200, { review, city, opportunityId });
+    // 6) Return everything the HTML needs for your tip line
+    return json(200, {
+      review,
+      city,
+      opportunityId,
+      jobPhotosUrl, // ✅ your single-line text field URL
+    });
   } catch (err) {
     console.error("review function error:", err);
-    return json(500, { error: "Server error generating review.", debug: { message: err?.message || String(err) } });
+    return json(500, {
+      error: "Server error generating review.",
+      debug: { message: err?.message || String(err) },
+    });
   }
 }
