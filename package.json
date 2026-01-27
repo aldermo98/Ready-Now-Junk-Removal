@@ -19,6 +19,7 @@
   "homepage": "https://github.com/aldermo98/Ready-Now-Junk-Removal#readme",
   "dependencies": {
     "marked": "^16.4.1",
+    "openai": "^6.16.0",
     "sharp": "^0.34.4"
   }
 }
