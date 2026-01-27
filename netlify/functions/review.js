@@ -1,4 +1,28 @@
 // netlify/functions/review.js
+//
+// POST /.netlify/functions/review
+// Body: { contactId: "..." }
+//
+// What it does:
+// 1) Fetch contact -> city
+// 2) Search opportunities for that contact -> pick latest (updatedAt/createdAt)
+// 3) Extract "notes" from opportunity customFields (fieldValueString) OR a specific notes field id
+// 4) Extract photo URLs from customFields.fieldValueFiles[].url
+// 5) Call OpenAI -> return { review }
+//
+// Netlify Env Vars required:
+// - OPENAI_API_KEY
+// - GHL_PRIVATE_TOKEN
+// - GHL_LOCATION_ID
+//
+// Optional env vars (recommended):
+// - GHL_NOTES_FIELD_ID             (e.g. "CJKrhNSkPiMM1PeHc98Y")  // pick a specific string field to treat as notes
+// - GHL_PIPELINE_ID                (filter opps to a pipeline)
+// - GHL_STAGE_ID                   (filter opps to a stage)
+//
+// Notes:
+// - LeadConnector requires header: Version: 2021-07-28
+
 import OpenAI from "openai";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -12,45 +36,51 @@ const CORS = {
 };
 
 function json(statusCode, body) {
-  return { statusCode, headers: { ...CORS, "Content-Type": "application/json" }, body: JSON.stringify(body) };
+  return {
+    statusCode,
+    headers: { ...CORS, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  };
 }
 
 function safeString(v) {
-  if (v == null) return "";
+  if (v === null || v === undefined) return "";
   return String(v).trim();
 }
 
-function isProbablyUrl(s) {
-  try {
-    const u = new URL(s);
-    return u.protocol === "http:" || u.protocol === "https:";
-  } catch {
-    return false;
-  }
+function clampText(v, max = 2500) {
+  const s = safeString(v);
+  return s.length > max ? s.slice(0, max) + "…" : s;
 }
 
-function normalizePhotos(value) {
-  if (!value) return [];
-  if (Array.isArray(value)) return value.map(safeString).filter(Boolean).filter(isProbablyUrl);
+function uniq(arr) {
+  return [...new Set(arr)];
+}
 
-  const s = safeString(value);
-  if (!s) return [];
-  try {
-    const maybe = JSON.parse(s);
-    if (Array.isArray(maybe)) return normalizePhotos(maybe);
-  } catch {}
-  return s.split(/[\n,|]+/g).map(x => x.trim()).filter(Boolean).filter(isProbablyUrl);
+function pickLatestOpportunity(opps) {
+  if (!Array.isArray(opps) || opps.length === 0) return null;
+
+  const score = (o) => {
+    const u = Date.parse(o.updatedAt || o.updated_at || o.dateUpdated || "");
+    const c = Date.parse(o.createdAt || o.created_at || o.dateAdded || "");
+    return (isFinite(u) ? u : 0) || (isFinite(c) ? c : 0) || 0;
+  };
+
+  return opps.slice().sort((a, b) => score(b) - score(a))[0];
 }
 
 async function ghlFetch(path, { method = "GET", query, body } = {}) {
   const token = process.env.GHL_PRIVATE_TOKEN;
   if (!token) throw new Error("Missing GHL_PRIVATE_TOKEN");
+
   const url = new URL(API_BASE + path);
 
   if (query) {
-    Object.entries(query).forEach(([k, v]) => {
-      if (v !== undefined && v !== null && String(v).length) url.searchParams.set(k, String(v));
-    });
+    for (const [k, v] of Object.entries(query)) {
+      if (v !== undefined && v !== null && String(v).length) {
+        url.searchParams.set(k, String(v));
+      }
+    }
   }
 
   const res = await fetch(url.toString(), {
@@ -58,7 +88,7 @@ async function ghlFetch(path, { method = "GET", query, body } = {}) {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      Version: "2021-07-28",
+      Version: "2021-07-28", // ✅ required by LeadConnector
     },
     body: body ? JSON.stringify(body) : undefined,
   });
@@ -67,91 +97,105 @@ async function ghlFetch(path, { method = "GET", query, body } = {}) {
     const text = await res.text().catch(() => "");
     throw new Error(`GHL ${method} ${path} failed (${res.status}): ${text || "no body"}`);
   }
+
   return res.json();
 }
 
-// cache custom fields across warm invocations
-let oppFieldCache = null;
+// Extract URLs from LeadConnector opportunity search response:
+// customFields: [{ fieldValueFiles:[{url}], id, type:"array" }, ...]
+function extractPhotoUrlsFromOpportunity(opp) {
+  const cf = opp?.customFields || opp?.custom_fields;
+  if (!Array.isArray(cf)) return [];
 
-async function getOpportunityCustomFieldIdByName(fieldName, locationId) {
-  if (!fieldName) return null;
-  if (!locationId) throw new Error("Missing GHL_LOCATION_ID");
+  const urls = [];
 
-  if (!oppFieldCache) {
-    // Pull custom fields for the location and filter for opportunity fields
-    // Endpoint: GET /locations/:locationId/customFields :contentReference[oaicite:2]{index=2}
-    const data = await ghlFetch(`/locations/${locationId}/customFields`, { method: "GET" });
-    oppFieldCache = data?.customFields || data || [];
+  for (const f of cf) {
+    // Primary case from your sample response
+    if (Array.isArray(f.fieldValueFiles)) {
+      for (const file of f.fieldValueFiles) {
+        const url = safeString(file?.url);
+        if (url) urls.push(url);
+      }
+    }
+
+    // Extra robustness (other shapes you might encounter)
+    if (f.fieldValueFile?.url) {
+      const url = safeString(f.fieldValueFile.url);
+      if (url) urls.push(url);
+    }
+
+    if (Array.isArray(f.value)) {
+      for (const v of f.value) {
+        if (typeof v === "string") {
+          const s = safeString(v);
+          if (s.startsWith("http")) urls.push(s);
+        } else if (v?.url) {
+          const s = safeString(v.url);
+          if (s) urls.push(s);
+        }
+      }
+    }
+
+    // Sometimes it’s a comma-delimited string of URLs
+    if (typeof f.fieldValueString === "string" && f.fieldValueString.includes("http")) {
+      const maybeUrls = f.fieldValueString
+        .split(/[\n,|]+/g)
+        .map((x) => x.trim())
+        .filter(Boolean)
+        .filter((x) => x.startsWith("http"));
+      urls.push(...maybeUrls);
+    }
   }
 
-  const lower = fieldName.toLowerCase();
-  const match =
-    oppFieldCache.find(f => safeString(f.name).toLowerCase() === lower && safeString(f.model).toLowerCase() === "opportunity") ||
-    oppFieldCache.find(f => safeString(f.name).toLowerCase() === lower);
-
-  return match ? (match.id || match._id) : null;
+  return uniq(urls).slice(0, 12);
 }
 
-function pickLatestOpportunity(opps) {
-  if (!Array.isArray(opps) || opps.length === 0) return null;
+// Notes in your sample do NOT exist on opp.notes.
+// Instead, you have customFields with fieldValueString.
+// If GHL_NOTES_FIELD_ID is set, we use that exact field; otherwise we join all string fields.
+function extractNotesFromOpportunity(opp) {
+  const preferredFieldId = safeString(process.env.GHL_NOTES_FIELD_ID);
+  const cf = opp?.customFields || opp?.custom_fields;
+  if (!Array.isArray(cf)) return "";
 
-  // Prefer updatedAt, then createdAt (handle different casing)
-  const score = (o) => {
-    const u = Date.parse(o.updatedAt || o.updated_at || o.lastUpdatedAt || "");
-    const c = Date.parse(o.createdAt || o.created_at || "");
-    return (isFinite(u) ? u : 0) || (isFinite(c) ? c : 0) || 0;
-  };
-
-  return opps.slice().sort((a, b) => score(b) - score(a))[0];
-}
-
-function extractNotes(opp) {
-  // GHL schemas vary across endpoints; try common fields.
-  return (
-    safeString(opp.notes) ||
-    safeString(opp.note) ||
-    safeString(opp.description) ||
-    safeString(opp.additionalInfo) ||
-    ""
-  );
-}
-
-function extractCustomFieldValue(opp, fieldId) {
-  if (!fieldId) return null;
-
-  // Some APIs return { customFields: [{id,value}, ...] }
-  const arr = opp.customFields || opp.custom_fields;
-  if (Array.isArray(arr)) {
-    const found = arr.find(x => safeString(x.id) === fieldId || safeString(x.fieldId) === fieldId);
-    return found ? (found.value ?? found.fieldValue ?? found.field_value) : null;
+  if (preferredFieldId) {
+    const hit = cf.find((x) => safeString(x?.id) === preferredFieldId);
+    return clampText(hit?.fieldValueString || "", 2500);
   }
 
-  // Some APIs return object map: { [fieldId]: value }
-  if (arr && typeof arr === "object") {
-    if (arr[fieldId] !== undefined) return arr[fieldId];
-  }
+  const parts = cf
+    .map((x) => x?.fieldValueString)
+    .filter(Boolean)
+    .map((s) => safeString(s))
+    .filter(Boolean);
 
-  return null;
+  return clampText(parts.join(" | "), 2500);
 }
 
 async function generateReview({ city, notes, photoUrls }) {
   const systemPrompt = [
-    "You write short, natural-sounding SEO-optimized Google reviews for junk removal customers.",
+    "You write short, natural-sounding Google reviews for a junk removal company from a customer's perspective.",
     "Rules:",
     "- Write like a real customer (1st person), not a company ad.",
-    "- 70–130 words (roughly 4–7 sentences).",
+    "- 70–130 words (about 4–7 sentences).",
     "- Mention the CITY exactly once if provided.",
     "- Mention the SERVICE TYPE once (garage cleanout, yard cleanout, appliance removal, furniture haul-away, etc.) inferred from notes.",
-    "- Mention 1–2 specific items if available from notes.",
+    "- Mention 1–2 specific items only if notes implies them (do not hallucinate).",
     "- Do NOT include phone numbers, URLs, hashtags, emojis, pricing, or discounts.",
     "- No bullet points. No quotes. No ALL CAPS.",
     "- End with a simple recommendation sentence.",
     "Output only the review text.",
   ].join("\n");
 
-  const payload = { city: city || "", opportunity_notes: notes || "", job_reference_photos: photoUrls || [] };
+  const payload = {
+    city: safeString(city),
+    opportunity_notes: safeString(notes),
+    job_reference_photos: Array.isArray(photoUrls) ? photoUrls : [],
+  };
 
+  // Debug: see exactly what you're sending to ChatGPT
   console.log("CHATGPT_PAYLOAD", JSON.stringify(payload, null, 2));
+
   const resp = await openai.responses.create({
     model: "gpt-4.1-mini",
     input: [
@@ -171,19 +215,25 @@ export async function handler(event) {
 
   try {
     if (!process.env.OPENAI_API_KEY) return json(500, { error: "Missing OPENAI_API_KEY" });
-    const locationId = process.env.GHL_LOCATION_ID;
+    const locationId = safeString(process.env.GHL_LOCATION_ID);
     if (!locationId) return json(500, { error: "Missing GHL_LOCATION_ID" });
 
-    const body = JSON.parse(event.body || "{}");
+    let body = {};
+    try {
+      body = JSON.parse(event.body || "{}");
+    } catch {
+      return json(400, { error: "Invalid JSON body." });
+    }
+
     const contactId = safeString(body.contactId);
     if (!contactId) return json(400, { error: "Missing contactId" });
 
-    // 1) Contact -> city  (GET /contacts/:contactId) :contentReference[oaicite:3]{index=3}
-    const contact = await ghlFetch(`/contacts/${contactId}`);
-    const city = safeString(contact?.contact?.city || contact?.city || "");
+    // 1) Contact -> city
+    const contactResp = await ghlFetch(`/contacts/${contactId}`);
+    const contact = contactResp?.contact || contactResp;
+    const city = safeString(contact?.city);
 
-    // 2) Find latest opportunity for this contact
-    // GET /opportunities/search with location_id required + contact_id filter :contentReference[oaicite:4]{index=4}
+    // 2) Opportunities search -> filter -> pick latest
     const oppSearch = await ghlFetch(`/opportunities/search`, {
       query: {
         location_id: locationId,
@@ -192,42 +242,60 @@ export async function handler(event) {
       },
     });
 
-    const opportunities =
-      oppSearch?.opportunities ||
-      oppSearch?.data?.opportunities ||
-      oppSearch?.data ||
-      [];
+    const opportunities = oppSearch?.opportunities || [];
+    console.log("OPP_SEARCH_COUNT", opportunities.length);
 
-    const latest = pickLatestOpportunity(opportunities);
+    // Optional filtering if you want to ensure the “right” opportunity is used
+    const PIPELINE_ID = safeString(process.env.GHL_PIPELINE_ID);
+    const STAGE_ID = safeString(process.env.GHL_STAGE_ID);
+
+    let filtered = opportunities;
+    if (PIPELINE_ID) {
+      filtered = filtered.filter((o) => safeString(o?.pipelineId) === PIPELINE_ID);
+      console.log("OPP_FILTER_PIPELINE_COUNT", filtered.length);
+    }
+    if (STAGE_ID) {
+      filtered = filtered.filter((o) => safeString(o?.pipelineStageId) === STAGE_ID);
+      console.log("OPP_FILTER_STAGE_COUNT", filtered.length);
+    }
+
+    const latest = pickLatestOpportunity(filtered.length ? filtered : opportunities);
     if (!latest) {
-      // No opps: still return something based on city only (or force manual)
       return json(200, {
         review: "",
-        fallback_city: city,
         error: "No opportunities found for this contact.",
+        city,
       });
     }
 
-    // 3) Get the full opportunity (helps ensure custom fields are present)
-    // GET /opportunities/:id :contentReference[oaicite:5]{index=5}
-    const oppId = latest.id || latest._id;
-    const oppFull = oppId ? await ghlFetch(`/opportunities/${oppId}`) : latest;
-    const opp = oppFull?.opportunity || oppFull;
+    const opportunityId = latest.id || latest._id;
 
-    // 4) Notes + photos custom field
-    const notes = extractNotes(opp);
+    // 3) Extract notes + photos from the opportunity record returned by /search (it contains customFields)
+    const notes = extractNotesFromOpportunity(latest);
+    const photoUrls = extractPhotoUrlsFromOpportunity(latest);
 
-    const photosFieldName = safeString(process.env.GHL_OPP_PHOTOS_FIELD_NAME || "job_reference_photos");
-    const photosFieldId = await getOpportunityCustomFieldIdByName(photosFieldName, locationId);
+    console.log("EXTRACTED", {
+      opportunityId,
+      city,
+      notesPreview: notes.slice(0, 160),
+      photoCount: photoUrls.length,
+    });
 
-    const rawPhotosValue = extractCustomFieldValue(opp, photosFieldId);
-    const photoUrls = normalizePhotos(rawPhotosValue);
+    // If notes are empty and you want to force manual fallback:
+    // if (!notes && photoUrls.length === 0) return json(200, { review: "", city, opportunityId });
 
     const review = await generateReview({ city, notes, photoUrls });
 
-    return json(200, { review, city, opportunityId: oppId });
+    if (!review) {
+      return json(502, { error: "OpenAI returned an empty review.", city, opportunityId });
+    }
+
+    return json(200, { review, city, opportunityId });
   } catch (err) {
     console.error("review function error:", err);
-    return json(500, { error: "Server error generating review." });
+    return json(500, {
+      error: "Server error generating review.",
+      debug: { message: err?.message || String(err) },
+    });
   }
 }
