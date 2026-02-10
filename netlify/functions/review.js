@@ -3,34 +3,25 @@
 // POST /.netlify/functions/review
 // Body: { contactId: "..." }
 //
-// What it does:
-// 1) Fetch contact -> city
-// 2) Search opportunities for that contact -> prefer latest WON (status==="won"), else latest overall
-// 3) Extract notes from a specific custom field (GHL_NOTES_FIELD_ID) OR fallback to joining all string fields
-// 4) Extract job_photos (single-line text field URL) via GHL_JOB_PHOTOS_FIELD_ID
-// 5) If job_photos contains one or more image URLs, send them to a vision model + generate a review
-// 6) Return { review, city, opportunityId, jobPhotosUrl }
-//
-// Required Netlify env vars:
+// Env vars:
 // - OPENAI_API_KEY
 // - GHL_PRIVATE_TOKEN
 // - GHL_LOCATION_ID
-//
-// Recommended env vars:
-// - GHL_JOB_PHOTOS_FIELD_ID   (custom field id for your "job_photos" single-line text field)
-// - GHL_NOTES_FIELD_ID        (custom field id for your notes/service-type field)
+// - GHL_JOB_PHOTOS_FIELD_ID   (custom field id for your "job_reference_photos" single-line text field)
+// - GHL_NOTES_FIELD_ID        (optional)
 // - MAX_VISION_IMAGES         (default 3)
-
-import OpenAI from "openai";
-
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const API_BASE = "https://services.leadconnectorhq.com";
 
+// If your widget lives at https://app.readynowjunkremoval.com, set this to that origin.
+// You can also keep "*" while developing, but explicit origin is safer.
+const ALLOWED_ORIGIN = process.env.CORS_ALLOW_ORIGIN || "*";
+
 const CORS = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Max-Age": "86400",
 };
 
 function json(statusCode, body) {
@@ -53,13 +44,6 @@ function clampText(v, max = 2500) {
 
 function uniq(arr) {
   return [...new Set(arr)];
-}
-
-function parseCsvEnv(name) {
-  return (process.env[name] || "")
-    .split(",")
-    .map((s) => s.trim())
-    .filter(Boolean);
 }
 
 function pickLatestOpportunity(opps) {
@@ -93,7 +77,7 @@ async function ghlFetch(path, { method = "GET", query, body } = {}) {
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      Version: "2021-07-28", // ✅ required by LeadConnector
+      Version: "2021-07-28",
     },
     body: body ? JSON.stringify(body) : undefined,
   });
@@ -114,7 +98,6 @@ function getCustomFieldString(opp, fieldId) {
   if (!Array.isArray(cf)) return "";
 
   const hit = cf.find((x) => safeString(x?.id) === id);
-  // LeadConnector commonly uses fieldValueString for strings
   return safeString(hit?.fieldValueString || hit?.value || "");
 }
 
@@ -128,7 +111,6 @@ function extractNotesFromOpportunity(opp) {
     return clampText(hit?.fieldValueString || "", 2500);
   }
 
-  // Fallback: join all string fields
   const parts = cf
     .map((x) => x?.fieldValueString)
     .filter(Boolean)
@@ -138,157 +120,46 @@ function extractNotesFromOpportunity(opp) {
   return clampText(parts.join(" | "), 2500);
 }
 
-// job_photos is a single-line text field, but you can paste multiple URLs separated by comma/newline.
-// We'll parse anything that looks like an http(s) URL.
-function uniq(arr) {
-  var out = [];
-  var seen = {};
-  for (var i = 0; i < arr.length; i++) {
-    var v = String(arr[i] || "").trim();
-    if (!v) continue;
-    if (seen[v]) continue;
-    seen[v] = true;
-    out.push(v);
-  }
-  return out;
-}
-
 function parseUrlsFromText(text) {
-  var raw = safeString(text);
+  const raw = safeString(text);
   if (!raw) return [];
 
-  // split on commas/newlines/pipes
-  var parts = raw.split(/[\n,|]+/g);
-  var urls = [];
+  const parts = raw
+    .split(/[\n,|]+/g)
+    .map((s) => s.trim())
+    .filter(Boolean);
 
-  for (var i = 0; i < parts.length; i++) {
-    var p = safeString(parts[i]);
-    if (!p) continue;
-    var matches = p.match(/https?:\/\/[^\s]+/g);
-    if (matches && matches.length) {
-      for (var j = 0; j < matches.length; j++) {
-        var u = matches[j].replace(/[)\].,]+$/g, "");
-        urls.push(u);
-      }
-    }
+  const urls = [];
+  for (const p of parts.length ? parts : [raw]) {
+    const matches = p.match(/https?:\/\/[^\s]+/g);
+    if (matches) urls.push(...matches.map((u) => u.replace(/[)\].,]+$/g, "")));
   }
+
   return uniq(urls);
 }
 
 function isLikelyImageUrl(url) {
-  var u = String(url || "").toLowerCase();
+  const u = String(url || "").toLowerCase();
   return (
-    u.indexOf(".jpg") > -1 ||
-    u.indexOf(".jpeg") > -1 ||
-    u.indexOf(".png") > -1 ||
-    u.indexOf(".webp") > -1 ||
-    u.indexOf(".gif") > -1 ||
-    u.indexOf("googleusercontent.com") > -1 ||
-    u.indexOf("lh3.googleusercontent.com") > -1 ||
-    u.indexOf("storage.googleapis.com") > -1
+    u.endsWith(".jpg") ||
+    u.endsWith(".jpeg") ||
+    u.endsWith(".png") ||
+    u.endsWith(".webp") ||
+    u.endsWith(".gif") ||
+    u.includes("googleusercontent.com") ||
+    u.includes("lh3.googleusercontent.com") ||
+    u.includes("storage.googleapis.com")
   );
 }
 
-function filenameFromUrl(url) {
-  try {
-    var u = new URL(url);
-    var last = (u.pathname || "").split("/").pop() || "photo";
-    if (!/\.(jpg|jpeg|png|webp|gif)$/i.test(last)) last += ".jpg";
-    return last;
-  } catch (e) {
-    return "photo.jpg";
-  }
-}
-
-function downloadImage(url) {
-  // This works best if the image URL allows CORS. For Googleusercontent links, it often works.
-  // If it fails, we fallback to opening in a new tab so they can long-press save on mobile.
-  fetch(url)
-    .then(function (res) {
-      if (!res.ok) throw new Error("fetch failed");
-      return res.blob();
-    })
-    .then(function (blob) {
-      var a = document.createElement("a");
-      var objUrl = URL.createObjectURL(blob);
-      a.href = objUrl;
-      a.download = filenameFromUrl(url);
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(objUrl);
-    })
-    .catch(function () {
-      window.open(url, "_blank", "noopener,noreferrer");
-    });
-}
-
-function renderPhotoStrip(jobPhotosUrl) {
-  var wrap = document.getElementById("pml-photos");
-  var row = document.getElementById("pml-photos-row");
-  var count = document.getElementById("pml-photos-count");
-  if (!wrap || !row) return;
-
-  row.innerHTML = "";
-  var urls = parseUrlsFromText(jobPhotosUrl).filter(isLikelyImageUrl);
-
-  if (!urls.length) {
-    wrap.style.display = "none";
-    return;
-  }
-
-  wrap.style.display = "grid";
-  if (count) count.textContent = urls.length + " photo" + (urls.length === 1 ? "" : "s");
-
-  for (var i = 0; i < urls.length; i++) {
-    (function (url, idx) {
-      var tile = document.createElement("div");
-      tile.className = "pml-photo-tile";
-
-      var img = document.createElement("img");
-      img.className = "pml-photo-img";
-      img.src = url;
-      img.alt = "Job photo " + (idx + 1);
-      img.loading = "lazy";
-
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "pml-photo-save";
-      btn.setAttribute("aria-label", "Save photo " + (idx + 1));
-      btn.innerHTML =
-        '<svg viewBox="0 0 24 24" aria-hidden="true">' +
-        '<path d="M12 3v10m0 0 4-4m-4 4-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' +
-        '<path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' +
-        "</svg>";
-
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        downloadImage(url);
-      });
-
-      tile.appendChild(img);
-      tile.appendChild(btn);
-
-      // Optional: tap image opens full size
-      tile.addEventListener("click", function () {
-        window.open(url, "_blank", "noopener,noreferrer");
-      });
-
-      row.appendChild(tile);
-    })(urls[i], i);
-  }
-}
-
 function guessMimeFromUrl(url) {
-  const u = url.toLowerCase();
+  const u = String(url || "").toLowerCase();
   if (u.endsWith(".png")) return "image/png";
   if (u.endsWith(".webp")) return "image/webp";
   if (u.endsWith(".gif")) return "image/gif";
   return "image/jpeg";
 }
 
-// Fetch image and return as base64 data URL so the vision model can see it even if the URL is not accessible to OpenAI.
 async function fetchImageAsDataUrl(url, { timeoutMs = 9000, maxBytes = 2_500_000 } = {}) {
   const controller = new AbortController();
   const t = setTimeout(() => controller.abort(), timeoutMs);
@@ -314,13 +185,32 @@ async function fetchImageAsDataUrl(url, { timeoutMs = 9000, maxBytes = 2_500_000
   }
 }
 
+async function openaiResponsesCreate(payload) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error("Missing OPENAI_API_KEY");
+
+  const res = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`OpenAI responses failed (${res.status}): ${text || "no body"}`);
+  }
+  return res.json();
+}
+
 async function generateReviewWithVision({ city, notes, jobPhotosUrl }) {
   const maxImages = Math.max(0, Math.min(6, Number(process.env.MAX_VISION_IMAGES || 3)));
 
   const urls = parseUrlsFromText(jobPhotosUrl).slice(0, 12);
   const candidateImageUrls = urls.filter(isLikelyImageUrl).slice(0, maxImages);
 
-  // Try to fetch and embed as base64. If any fail, we skip them.
   const imageDataUrls = [];
   for (const u of candidateImageUrls) {
     try {
@@ -330,8 +220,6 @@ async function generateReviewWithVision({ city, notes, jobPhotosUrl }) {
       console.log("VISION_IMAGE_SKIP", u, e?.message || e);
     }
   }
-
-  console.log("VISION_IMAGE_COUNT", imageDataUrls.length);
 
   const systemPrompt = [
     "You write a short, natural-sounding 5-star SEO-optimized Google review for a junk removal company from the customer's perspective.",
@@ -356,18 +244,13 @@ async function generateReviewWithVision({ city, notes, jobPhotosUrl }) {
     included_image_count: imageDataUrls.length,
   };
 
-  console.log("CHATGPT_TEXT_CONTEXT", JSON.stringify(textContext, null, 2));
-
   const userContent = [
     { type: "input_text", text: JSON.stringify(textContext) },
-    ...imageDataUrls.map((dataUrl) => ({
-      type: "input_image",
-      image_url: dataUrl,
-    })),
+    ...imageDataUrls.map((dataUrl) => ({ type: "input_image", image_url: dataUrl })),
   ];
 
-  const resp = await openai.responses.create({
-    model: "gpt-4.1", // vision-capable
+  const resp = await openaiResponsesCreate({
+    model: "gpt-4.1",
     input: [
       { role: "system", content: systemPrompt },
       { role: "user", content: userContent },
@@ -379,19 +262,26 @@ async function generateReviewWithVision({ city, notes, jobPhotosUrl }) {
   return safeString(resp.output_text || "");
 }
 
-export async function handler(event) {
-  if (event.httpMethod === "OPTIONS") return { statusCode: 204, headers: CORS, body: "" };
-  if (event.httpMethod !== "POST") return json(405, { error: "Method not allowed. Use POST." });
+exports.handler = async (event) => {
+  // ✅ Preflight
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 204, headers: CORS, body: "" };
+  }
+
+  // Only allow POST
+  if (event.httpMethod !== "POST") {
+    return json(405, { error: "Method not allowed. Use POST." });
+  }
 
   try {
-    if (!process.env.OPENAI_API_KEY) return json(500, { error: "Missing OPENAI_API_KEY" });
-
     const locationId = safeString(process.env.GHL_LOCATION_ID);
     if (!locationId) return json(500, { error: "Missing GHL_LOCATION_ID" });
 
+    // This should be the custom field ID for your opportunity field
+    // (even if the field is named job_reference_photos)
     const jobPhotosFieldId = safeString(process.env.GHL_JOB_PHOTOS_FIELD_ID);
     if (!jobPhotosFieldId) {
-      return json(500, { error: "Missing GHL_JOB_PHOTOS_FIELD_ID (custom field id for job_photos)" });
+      return json(500, { error: "Missing GHL_JOB_PHOTOS_FIELD_ID (custom field id for job_reference_photos)" });
     }
 
     let body = {};
@@ -419,7 +309,6 @@ export async function handler(event) {
     const opportunities = oppSearch?.opportunities || [];
     console.log("OPP_SEARCH_COUNT", opportunities.length);
 
-    // Prefer WON opportunities; else fallback to all
     const wonOpps = opportunities.filter((o) => safeString(o?.status).toLowerCase() === "won");
     console.log("OPP_WON_COUNT", wonOpps.length);
 
@@ -436,10 +325,10 @@ export async function handler(event) {
 
     const opportunityId = safeString(picked.id || picked._id);
 
-    // 3) Notes (custom field strings)
+    // 3) Notes
     const notes = extractNotesFromOpportunity(picked);
 
-    // 4) job_photos single-line text field URL
+    // 4) job_reference_photos text field (by ID)
     const jobPhotosUrl = getCustomFieldString(picked, jobPhotosFieldId);
 
     console.log("PICKED_OPP", {
@@ -453,25 +342,15 @@ export async function handler(event) {
       jobPhotosUrlPreview: (jobPhotosUrl || "").slice(0, 140),
     });
 
-    // 5) Generate review (vision-enabled if job_photos has image URLs)
+    // 5) Generate review
     const review = await generateReviewWithVision({ city, notes, jobPhotosUrl });
 
     if (!review) {
-      return json(502, {
-        error: "OpenAI returned an empty review.",
-        city,
-        opportunityId,
-        jobPhotosUrl,
-      });
+      return json(502, { error: "OpenAI returned an empty review.", city, opportunityId, jobPhotosUrl });
     }
 
-    // 6) Return everything the HTML needs for your tip line
-    return json(200, {
-      review,
-      city,
-      opportunityId,
-      jobPhotosUrl, // ✅ your single-line text field URL
-    });
+    // 6) Return
+    return json(200, { review, city, opportunityId, jobPhotosUrl });
   } catch (err) {
     console.error("review function error:", err);
     return json(500, {
@@ -479,4 +358,4 @@ export async function handler(event) {
       debug: { message: err?.message || String(err) },
     });
   }
-}
+};

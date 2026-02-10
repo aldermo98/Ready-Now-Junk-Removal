@@ -1,5 +1,5 @@
 (function () {
-  var WEBHOOK_URL = "https://readynowjunkremoval.com/.netlify/functions/review";
+  var WEBHOOK_URL = "/.netlify/functions/review";
 
   var START_DELAY_MS = 250;
   var SLOW_NOTICE_MS = 6500;     // show "taking longer" after 6.5s
@@ -63,7 +63,7 @@
 
     if (manualTa && !manualTa.value) manualTa.value = starter;
 
-    // reset button label if we changed it to "Copied"
+    // reset manual copy button
     if (manualCopyBtn) {
       var icon = manualCopyBtn.querySelector(".pml-copy-icon");
       var text = manualCopyBtn.querySelector(".pml-copy-text");
@@ -77,7 +77,6 @@
       var t = safeString(text);
       if (!t) return reject(new Error("Nothing to copy."));
 
-      // Try modern clipboard
       try {
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(t).then(function(){ resolve(true); }).catch(function(){ fallback(); });
@@ -146,10 +145,158 @@
     });
   }
 
+  // ----------------------------
+  // Photos: parse + render strip
+  // ----------------------------
+  function uniq(arr) {
+    var out = [];
+    var seen = {};
+    for (var i = 0; i < arr.length; i++) {
+      var v = String(arr[i] || "").trim();
+      if (!v) continue;
+      if (seen[v]) continue;
+      seen[v] = true;
+      out.push(v);
+    }
+    return out;
+  }
+
+  function parseUrlsFromText(text) {
+    var raw = safeString(text);
+    if (!raw) return [];
+
+    var parts = raw.split(/[\n,|]+/g);
+    var urls = [];
+
+    for (var i = 0; i < parts.length; i++) {
+      var p = safeString(parts[i]);
+      if (!p) continue;
+      var matches = p.match(/https?:\/\/[^\s]+/g);
+      if (matches && matches.length) {
+        for (var j = 0; j < matches.length; j++) {
+          var u = matches[j].replace(/[)\].,]+$/g, "");
+          urls.push(u);
+        }
+      }
+    }
+    return uniq(urls);
+  }
+
+  function isLikelyImageUrl(url) {
+    var u = String(url || "").toLowerCase();
+    return (
+      u.indexOf(".jpg") > -1 ||
+      u.indexOf(".jpeg") > -1 ||
+      u.indexOf(".png") > -1 ||
+      u.indexOf(".webp") > -1 ||
+      u.indexOf(".gif") > -1 ||
+      u.indexOf("googleusercontent.com") > -1 ||
+      u.indexOf("lh3.googleusercontent.com") > -1 ||
+      u.indexOf("storage.googleapis.com") > -1
+    );
+  }
+
+  function filenameFromUrl(url) {
+    try {
+      var u = new URL(url);
+      var last = (u.pathname || "").split("/").pop() || "photo";
+      if (!/\.(jpg|jpeg|png|webp|gif)$/i.test(last)) last += ".jpg";
+      return last;
+    } catch (e) {
+      return "photo.jpg";
+    }
+  }
+
+  function downloadImage(url) {
+    // Try download via blob; if blocked by CORS, open image in new tab
+    fetch(url)
+      .then(function (res) {
+        if (!res.ok) throw new Error("fetch failed");
+        return res.blob();
+      })
+      .then(function (blob) {
+        var a = document.createElement("a");
+        var objUrl = URL.createObjectURL(blob);
+        a.href = objUrl;
+        a.download = filenameFromUrl(url);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(objUrl);
+      })
+      .catch(function () {
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+  }
+
+  function renderPhotoStrip(jobPhotosUrl) {
+    var wrap = document.getElementById("pml-photos");
+    var row = document.getElementById("pml-photos-row");
+    var count = document.getElementById("pml-photos-count");
+    if (!wrap || !row) return;
+
+    row.innerHTML = "";
+    var urls = parseUrlsFromText(jobPhotosUrl).filter(isLikelyImageUrl);
+
+    if (!urls.length) {
+      wrap.style.display = "none";
+      return;
+    }
+
+    wrap.style.display = "grid";
+    if (count) count.textContent = urls.length + " photo" + (urls.length === 1 ? "" : "s");
+
+    for (var i = 0; i < urls.length; i++) {
+      (function (url, idx) {
+        var tile = document.createElement("div");
+        tile.className = "pml-photo-tile";
+
+        var img = document.createElement("img");
+        img.className = "pml-photo-img";
+        img.src = url;
+        img.alt = "Job photo " + (idx + 1);
+        img.loading = "lazy";
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pml-photo-save";
+        btn.setAttribute("aria-label", "Save photo " + (idx + 1));
+        btn.innerHTML =
+          '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M12 3v10m0 0 4-4m-4 4-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' +
+          '<path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' +
+          "</svg>";
+
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          downloadImage(url);
+        });
+
+        tile.appendChild(img);
+        tile.appendChild(btn);
+
+        tile.addEventListener("click", function () {
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+
+        row.appendChild(tile);
+      })(urls[i], i);
+    }
+  }
+
+  function resetPhotoStrip() {
+    var wrap = document.getElementById("pml-photos");
+    var row = document.getElementById("pml-photos-row");
+    var count = document.getElementById("pml-photos-count");
+    if (row) row.innerHTML = "";
+    if (count) count.textContent = "";
+    if (wrap) wrap.style.display = "none";
+  }
+
   function generateReviewAuto() {
-    var photosWrap = document.getElementById("pml-photos");
-    if (photosWrap) photosWrap.style.display = "none";
-    
+    resetPhotoStrip();
+
     clearError();
     if (out) out.style.display = "none";
     if (manualWrap) manualWrap.style.display = "none";
@@ -199,15 +346,15 @@
       var review = safeString(data && data.review);
       if (!review) throw new Error("Missing review in response.");
 
-      // ✅ show photos if available
-      renderPhotoStrip(data.jobPhotosUrl || "");
+      renderPhotoStrip((data && data.jobPhotosUrl) ? data.jobPhotosUrl : "");
 
       if (ta) ta.value = review;
       if (out) out.style.display = "block";
       if (slowBox) slowBox.style.display = "none";
       setLoading(false, "");
     })
-    .catch(function(){
+    .catch(function(e){
+      console.error(e);
       if (slowBox) slowBox.style.display = "block";
       openManual("");
     })
