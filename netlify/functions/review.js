@@ -328,6 +328,15 @@ exports.handler = async (event) => {
     // 3) Notes
     const notes = extractNotesFromOpportunity(picked);
 
+    console.log(
+  "CUSTOM_FIELDS_IDS",
+  (picked.customFields || picked.custom_fields || []).map(f => ({
+    id: f.id,
+    v: f.fieldValueString || f.value || ""
+  }))
+);
+
+
     // 4) job_reference_photos text field (by ID)
     const jobPhotosUrl = getCustomFieldString(picked, jobPhotosFieldId);
 
