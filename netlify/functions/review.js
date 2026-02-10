@@ -140,39 +140,144 @@ function extractNotesFromOpportunity(opp) {
 
 // job_photos is a single-line text field, but you can paste multiple URLs separated by comma/newline.
 // We'll parse anything that looks like an http(s) URL.
+function uniq(arr) {
+  var out = [];
+  var seen = {};
+  for (var i = 0; i < arr.length; i++) {
+    var v = String(arr[i] || "").trim();
+    if (!v) continue;
+    if (seen[v]) continue;
+    seen[v] = true;
+    out.push(v);
+  }
+  return out;
+}
+
 function parseUrlsFromText(text) {
-  const raw = safeString(text);
+  var raw = safeString(text);
   if (!raw) return [];
 
-  // Split on commas/newlines/pipes/spaces (keep it forgiving)
-  const parts = raw
-    .split(/[\n,|]+/g)
-    .map((s) => s.trim())
-    .filter(Boolean);
+  // split on commas/newlines/pipes
+  var parts = raw.split(/[\n,|]+/g);
+  var urls = [];
 
-  // If they pasted one long URL with spaces, handle that too:
-  const urls = [];
-  for (const p of parts.length ? parts : [raw]) {
-    // Extract all http(s) urls in the string
-    const matches = p.match(/https?:\/\/[^\s]+/g);
-    if (matches) urls.push(...matches.map((u) => u.replace(/[)\].,]+$/g, "")));
+  for (var i = 0; i < parts.length; i++) {
+    var p = safeString(parts[i]);
+    if (!p) continue;
+    var matches = p.match(/https?:\/\/[^\s]+/g);
+    if (matches && matches.length) {
+      for (var j = 0; j < matches.length; j++) {
+        var u = matches[j].replace(/[)\].,]+$/g, "");
+        urls.push(u);
+      }
+    }
   }
-
   return uniq(urls);
 }
 
 function isLikelyImageUrl(url) {
-  const u = url.toLowerCase();
+  var u = String(url || "").toLowerCase();
   return (
-    u.endsWith(".jpg") ||
-    u.endsWith(".jpeg") ||
-    u.endsWith(".png") ||
-    u.endsWith(".webp") ||
-    u.endsWith(".gif") ||
-    u.includes("googleusercontent.com") ||
-    u.includes("lh3.googleusercontent.com") ||
-    u.includes("storage.googleapis.com")
+    u.indexOf(".jpg") > -1 ||
+    u.indexOf(".jpeg") > -1 ||
+    u.indexOf(".png") > -1 ||
+    u.indexOf(".webp") > -1 ||
+    u.indexOf(".gif") > -1 ||
+    u.indexOf("googleusercontent.com") > -1 ||
+    u.indexOf("lh3.googleusercontent.com") > -1 ||
+    u.indexOf("storage.googleapis.com") > -1
   );
+}
+
+function filenameFromUrl(url) {
+  try {
+    var u = new URL(url);
+    var last = (u.pathname || "").split("/").pop() || "photo";
+    if (!/\.(jpg|jpeg|png|webp|gif)$/i.test(last)) last += ".jpg";
+    return last;
+  } catch (e) {
+    return "photo.jpg";
+  }
+}
+
+function downloadImage(url) {
+  // This works best if the image URL allows CORS. For Googleusercontent links, it often works.
+  // If it fails, we fallback to opening in a new tab so they can long-press save on mobile.
+  fetch(url)
+    .then(function (res) {
+      if (!res.ok) throw new Error("fetch failed");
+      return res.blob();
+    })
+    .then(function (blob) {
+      var a = document.createElement("a");
+      var objUrl = URL.createObjectURL(blob);
+      a.href = objUrl;
+      a.download = filenameFromUrl(url);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(objUrl);
+    })
+    .catch(function () {
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+}
+
+function renderPhotoStrip(jobPhotosUrl) {
+  var wrap = document.getElementById("pml-photos");
+  var row = document.getElementById("pml-photos-row");
+  var count = document.getElementById("pml-photos-count");
+  if (!wrap || !row) return;
+
+  row.innerHTML = "";
+  var urls = parseUrlsFromText(jobPhotosUrl).filter(isLikelyImageUrl);
+
+  if (!urls.length) {
+    wrap.style.display = "none";
+    return;
+  }
+
+  wrap.style.display = "grid";
+  if (count) count.textContent = urls.length + " photo" + (urls.length === 1 ? "" : "s");
+
+  for (var i = 0; i < urls.length; i++) {
+    (function (url, idx) {
+      var tile = document.createElement("div");
+      tile.className = "pml-photo-tile";
+
+      var img = document.createElement("img");
+      img.className = "pml-photo-img";
+      img.src = url;
+      img.alt = "Job photo " + (idx + 1);
+      img.loading = "lazy";
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pml-photo-save";
+      btn.setAttribute("aria-label", "Save photo " + (idx + 1));
+      btn.innerHTML =
+        '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+        '<path d="M12 3v10m0 0 4-4m-4 4-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' +
+        '<path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' +
+        "</svg>";
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        downloadImage(url);
+      });
+
+      tile.appendChild(img);
+      tile.appendChild(btn);
+
+      // Optional: tap image opens full size
+      tile.addEventListener("click", function () {
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+
+      row.appendChild(tile);
+    })(urls[i], i);
+  }
 }
 
 function guessMimeFromUrl(url) {

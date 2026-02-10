@@ -147,6 +147,9 @@
   }
 
   function generateReviewAuto() {
+    var photosWrap = document.getElementById("pml-photos");
+    if (photosWrap) photosWrap.style.display = "none";
+    
     clearError();
     if (out) out.style.display = "none";
     if (manualWrap) manualWrap.style.display = "none";
@@ -195,6 +198,9 @@
     .then(function(data){
       var review = safeString(data && data.review);
       if (!review) throw new Error("Missing review in response.");
+
+      // ✅ show photos if available
+      renderPhotoStrip(data.jobPhotosUrl || "");
 
       if (ta) ta.value = review;
       if (out) out.style.display = "block";
