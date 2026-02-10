@@ -1,5 +1,5 @@
 (function () {
-  var WEBHOOK_URL = "/.netlify/functions/review";
+  var WEBHOOK_URL = "https://readynowjunkremoval.com/.netlify/functions/review";
 
   var START_DELAY_MS = 250;
   var SLOW_NOTICE_MS = 6500;     // show "taking longer" after 6.5s
