@@ -90,9 +90,6 @@ class CustomHeader2 extends HTMLElement {
                                               <li>
                                                   <a href="/about.html">About Us</a>
                                               </li>
-                                              <li>
-                                                  <a href="/pricing.html">Pricing</a>
-                                              </li>
                                               <li class="has-dropdown active menu-thumb">
                                                   <a href="/services.html">
                                                   Services

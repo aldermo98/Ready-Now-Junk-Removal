@@ -48,7 +48,6 @@ class CustomFooter extends HTMLElement {
                                 <li><a href="/about.html"><i class="fa-regular fa-arrow-right-long"></i> About Us</a></li>
                                 <li><a href="/services.html"><i class="fa-regular fa-arrow-right-long"></i> Services</a></li>
                                 <li><a href="/service-areas/antelope.html"><i class="fa-regular fa-arrow-right-long"></i> Service Areas</a></li>
-                                <li><a href="/pricing.html"><i class="fa-regular fa-arrow-right-long"></i> Pricing</a></li>
                                 <li><a href="/faq.html"><i class="fa-regular fa-arrow-right-long"></i> FAQs</a></li>
                                 <li><a href="//blog/"><i class="fa-regular fa-arrow-right-long"></i> Blog</a></li>
                             </ul>
