@@ -9,7 +9,7 @@ class CustomHeader2 extends HTMLElement {
                       <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                           <div class="offcanvas__logo">
                               <a href="/index.html">
-                                  <img src="/assets/img/logo/logo.png" alt="logo-img">
+                                  <img src="/assets/img/logo/logo.png" alt="logo-img" width="150">
                               </a>
                           </div>
                           <div class="offcanvas__close">
