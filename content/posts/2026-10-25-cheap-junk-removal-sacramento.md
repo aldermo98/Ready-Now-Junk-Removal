@@ -8,27 +8,26 @@ cover: /assets/img/breadcrumb/garage-cleanout.webp
 slug: cheap-junk-removal-sacramento
 ---
 
-**Quick answer:** The cheapest way to get rid of junk in Sacramento is your city's **free bulky item pickup**, if you can wait and carry everything to the curb. When you need someone to haul it for you, junk removal usually costs:
+**Quick answer:** The cheapest way to get rid of junk in Sacramento is your city's **free bulky item pickup**, if you can wait and carry everything to the curb. When you need someone to haul it for you, Ready Now Junk Removal charges:
 
-- **$99–$150** for a single item or small load
-- **$200–$300** for about half a truck
-- **$450–$650+** for a full truckload
+- **$99** for a single item (first floor or curbside)
+- **$169** for a full, heaping pickup truck load
+- **$140** for each additional truck load
 
 To pay less, **group everything into one pickup, stage items where they're easy to reach, sell or donate the valuable pieces first, and get an upfront quote from photos.** Avoid the cheapest cash-only haulers: if your junk gets dumped illegally, you can be held responsible.
 
 ## How junk removal pricing works
 
-Most professional junk removal companies in Sacramento price by **volume**, meaning how much of the truck or trailer your stuff fills. Typical ranges:
+Most professional junk removal companies price by **volume**, meaning how much of the truck your stuff fills. Here's how our pricing at Ready Now works:
 
-| Load size | Typical price | Example |
+| Load | Price | Example |
 |---|---|---|
-| Single item / minimum | $99–$150 | One couch, one mattress, one appliance |
-| 1/4 load | $100–$150 | A few pieces of furniture |
-| 1/2 load | $200–$300 | Apartment move-out, small garage cleanout |
-| 3/4 load | $350–$450 | Multiple rooms, yard debris |
-| Full load | $450–$650+ | Whole-home cleanout, remodel debris |
+| Single item | $99 | One couch, mattress or recliner (first floor or curbside) |
+| 1 pickup truck load | $169 | Garage pile, move-out, several furniture pieces |
+| 2 truck loads | $309 | Bigger garage cleanout, a few rooms |
+| 3 truck loads | $449 | Whole-home, estate or hoarder cleanout |
 
-A few things push the price up: **heavy materials** (dirt, concrete, roofing), **special items** (mattresses, tires, appliances with refrigerant), and **hard access** (stairs, long carries).
+Every load after the first is **$140**, and loads can be heaping. A few things cost extra: **tires, appliances, grills and hazardous waste**. **Stairs, long carries, difficult access or hazardous conditions** may also add a fee. See our full [pricing page](/pricing).
 
 ## 9 ways to pay less for junk removal
 
@@ -42,7 +41,7 @@ Most companies have a minimum charge. Two half-loads booked separately can cost 
 
 ### 3. Stage items where they're easy to reach
 
-If you can do it safely, move items to the garage, driveway or a ground-floor room. Less carrying means less labor, and many companies (including us) offer a lower price for curbside or garage pickups.
+If you can do it safely, move items to the garage, driveway or a ground-floor room. Less carrying means less labor. Most prices, including ours, assume first-floor or curbside access, while stairs and long carries can add a fee.
 
 ### 4. Sell or donate the good stuff first
 
@@ -81,7 +80,7 @@ A low price only helps if the job actually gets done right. Look for:
 
 **Ready Now Junk Removal** is a locally owned, 5-star rated junk removal company based in West Sacramento. We serve Sacramento, Davis, Woodland, Natomas, Elk Grove, Roseville and nearby cities with:
 
-- **A $99 minimum** and volume-based pricing
+- **$99 single items**, **$169** per full pickup truck load and **$140** for each extra load
 - **Upfront quotes from photos,** confirmed before we lift anything
 - **We carry items out** of bedrooms, garages, backyards and upstairs units
 - **Bundle 'N Save** discounts when neighbors book together
@@ -93,11 +92,11 @@ A low price only helps if the job actually gets done right. Look for:
 
 ### What is the cheapest way to get rid of junk in Sacramento?
 
-Your city's free bulky item pickup is the cheapest option. City of Sacramento residents get up to two free household junk pickups a year by calling 3-1-1. If you need items carried out or removed quickly, a junk removal company starting around $99 is the next most affordable option.
+Your city's free bulky item pickup is the cheapest option. City of Sacramento residents get up to two free household junk pickups a year by calling 3-1-1. If you need items carried out or removed quickly, a junk removal company like Ready Now ($99 for a single item, $169 for a full truck load) is the next most affordable option.
 
 ### How much does junk removal cost for one item?
 
-Most companies charge a minimum of around $99 to $150 for a single item such as a couch, mattress or appliance. Ready Now Junk Removal's minimum is $99.
+Many companies charge $99 or more for a single item. At Ready Now Junk Removal a single item is $99 when it's on the first floor or curbside, and appliances, tires and grills have an additional fee.
 
 ### Is it cheaper to rent a dumpster or hire junk removal?
 
@@ -109,4 +108,4 @@ Very low cash-only quotes sometimes come from unlicensed haulers who dump illega
 
 ### Do you offer discounts?
 
-Ready Now Junk Removal offers lower prices for curbside or garage pickups and a Bundle 'N Save discount when neighbors book together. Text photos to (916) 249-1009 for a quote.
+Ready Now Junk Removal offers a Bundle 'N Save discount when neighbors book together, and every truck load after the first is only $140. Text photos to (916) 249-1009 for a quote.

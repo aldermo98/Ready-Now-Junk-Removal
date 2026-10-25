@@ -235,6 +235,9 @@ class CustomHeader extends HTMLElement {
                                                   </ul>
                                               </li>
                                               <li>
+                                                  <a href="/pricing" class="border-none">Pricing</a>
+                                              </li>
+                                              <li>
                                                   <a href="/blog/" class="border-none">
                                                       Blog
                                                   </a>

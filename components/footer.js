@@ -47,6 +47,7 @@ class CustomFooter extends HTMLElement {
                                 <li><a href="/free-quote"><i class="fa-regular fa-arrow-right-long"></i> Free Quote</a></li>
                                 <li><a href="/about"><i class="fa-regular fa-arrow-right-long"></i> About Us</a></li>
                                 <li><a href="/services"><i class="fa-regular fa-arrow-right-long"></i> Services</a></li>
+                                <li><a href="/pricing"><i class="fa-regular fa-arrow-right-long"></i> Pricing</a></li>
                                 <li><a href="/service-areas/"><i class="fa-regular fa-arrow-right-long"></i> Service Areas</a></li>
                                 <li><a href="/faq"><i class="fa-regular fa-arrow-right-long"></i> FAQs</a></li>
                                 <li><a href="/blog/"><i class="fa-regular fa-arrow-right-long"></i> Blog</a></li>

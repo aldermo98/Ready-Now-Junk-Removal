@@ -20,7 +20,7 @@ Here’s the honest breakdown — no upsell, no nonsense.
 | **Speed** | Same-day pickup | Requires delivery & pickup |
 | **Labor** | We load it | You load it |
 | **Space** | Fits in any driveway | May need city permit |
-| **Cost Range** | $150–$600 | $350–$700 |
+| **Cost** | $99 single item, $169 per truck load (Ready Now) | $350–$700 |
 | **Best For** | Quick cleanouts | Multi-day projects |
 
 ---

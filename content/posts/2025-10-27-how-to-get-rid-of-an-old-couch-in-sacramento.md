@@ -50,7 +50,7 @@ This is the stress-free route.
 At **Ready Now Junk Removal**, we pick up couches **same-day**, haul them, recycle what we can, and donate if it’s still usable.  
 You point, we lift.
 
-Average cost? **$100–$150** for a single couch — less than the chiropractor bill after trying to do it yourself.
+Our price? **$99** for a single couch on the first floor or curbside — less than the chiropractor bill after trying to do it yourself.
 
 ---
 
@@ -90,7 +90,7 @@ A: Not usually. Sacramento County limits bulky-item curb pickups, and they book 
 A: Yes — if it’s still usable, we donate it. If not, we recycle the wood and metal frame.  
 
 **Q: How much does couch removal cost?**  
-A: Most single-item pickups run **$100–$150** depending on access and distance.  
+A: At Ready Now, a single item is **$99** from a first-floor or curbside spot. Stairs or difficult access may add a fee.  
 
 **Q: Do you offer same-day service?**  
 A: Yep. Text **916-249-1009** with a photo and we’ll quote you instantly.
@@ -123,7 +123,7 @@ A: Yep. Text **916-249-1009** with a photo and we’ll quote you instantly.
       "name": "How much does couch removal cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most single-item pickups run $100–$150 depending on access and distance."
+        "text": "At Ready Now, a single item is $99 from a first-floor or curbside spot. Stairs or difficult access may add a fee."
       }
     },
     {

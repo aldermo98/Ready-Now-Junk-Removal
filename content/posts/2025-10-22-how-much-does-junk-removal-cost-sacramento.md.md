@@ -15,12 +15,14 @@ What’s the deal? Let’s break down the *real* numbers, no fluff, no fine prin
 
 ## 💰 The Average Junk Removal Prices in Sacramento
 
-| Load Size | Average Price | Example |
+| Load | Ready Now Price | Example |
 |------------|----------------|----------|
-| 1/4 Truck | $100–$150 | Small piles, old furniture, or a single-room cleanup |
-| 1/2 Truck | $200–$300 | Apartment move-outs or garage decluttering |
-| 3/4 Truck | $350–$450 | Yard debris or multiple furniture pieces |
-| Full Truck | $450–$650 | Whole-home cleanouts or remodel waste |
+| Single item | $99 | One couch, mattress or recliner (first floor or curbside) |
+| 1 pickup truck load | $169 | Garage piles, move-outs, several furniture pieces |
+| 2 truck loads | $309 | Bigger cleanouts, a few rooms |
+| 3 truck loads | $449 | Whole-home or estate cleanouts |
+
+Every additional truck load is **$140**, and loads can be heaping. Tires, appliances, grills and hazardous waste have an additional fee, and stairs or difficult access may add a fee. See our full [pricing page](/pricing).
 
 Each job is unique, but at **Ready Now Junk Removal**, we always charge by:
 - **Truck capacity** (how much space your junk takes),
