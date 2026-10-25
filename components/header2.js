@@ -47,7 +47,7 @@ class CustomHeader2 extends HTMLElement {
                                       <i class="far fa-phone"></i>
                                   </div>
                                   <div class="offcanvas__contact-text">
-                                      <a href="tel:+19162491009">+19162491009</a>
+                                      <a href="tel:+19162491009">(916) 249-1009</a>
                                   </div>
                               </li>
                           </ul>
@@ -185,10 +185,10 @@ class CustomHeader2 extends HTMLElement {
                                                                   <div class="col-3 py-2"><a href="/services/hoarder-house-cleanouts.html" class="fw-light">Hoarder House Cleanouts</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/light-demolition.html" class="fw-light">Light Demolition</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/storage-unit-cleanouts.html" class="fw-light">Storage Unit Cleanouts</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/office-and-commerical-cleanouts.html" class="fw-light">Office & Commerical Cleanouts</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/office-and-commerical-cleanouts.html" class="fw-light">Office & Commercial Cleanouts</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/donation-pickup.html" class="fw-light">Donation Pickup</a></div>
                                                                   <div class="col-3 py-2"><a href="/services/storm-debris-cleanup.html" class="fw-light">Storm Debris Cleanup</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/event-and-festival-cleanup.html" class="fw-light">Event & Festival Cleanup</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/event-and-festival-cleanup.html" class="fw-light">Event & Festival Cleanup</a></div><div class="col-3 py-2"><a href="/services/couch-removal.html" class="fw-light">Couch Removal</a></div><div class="col-3 py-2"><a href="/services/mattress-removal.html" class="fw-light">Mattress Removal</a></div><div class="col-3 py-2"><a href="/services/shed-removal.html" class="fw-light">Shed Removal</a></div><div class="col-3 py-2"><a href="/services/electronics-recycling.html" class="fw-light">E-Waste & TV Removal</a></div>
                                                               </div>
                                                           </div>
                                                       </li>
@@ -210,10 +210,28 @@ class CustomHeader2 extends HTMLElement {
                                                       <li><a href="/services/hoarder-house-cleanouts.html">Hoarder House Cleanouts</a></li>
                                                       <li><a href="/services/light-demolition.html">Light Demolition</a></li>
                                                       <li><a href="/services/storage-unit-cleanouts.html">Storage Unit Cleanouts</a></li>
-                                                      <li><a href="/services/office-and-commerical-cleanouts.html">Office & Commerical Cleanouts</a></li>
+                                                      <li><a href="/services/office-and-commerical-cleanouts.html">Office & Commercial Cleanouts</a></li>
                                                       <li><a href="/services/donation-pickup.html">Donation Pickup</a></li>
                                                       <li><a href="/services/storm-debris-cleanup.html">Storm Debris Cleanup</a></li>
                                                       <li><a href="/services/event-and-festival-cleanup.html">Event & Festival Cleanup</a></li>
+                                                      <li><a href="/services/couch-removal.html">Couch Removal</a></li>
+                                                      <li><a href="/services/mattress-removal.html">Mattress Removal</a></li>
+                                                      <li><a href="/services/shed-removal.html">Shed Removal</a></li>
+                                                      <li><a href="/services/electronics-recycling.html">E-Waste & TV Removal</a></li>
+                                                  </ul>
+                                              </li>
+                                              <li class="has-dropdown">
+                                                  <a href="/service-areas/">Service Areas</a>
+                                                  <ul class="submenu">
+                                                      <li><a href="/service-areas/west-sacramento.html">West Sacramento</a></li>
+                                                      <li><a href="/service-areas/sacramento.html">Sacramento</a></li>
+                                                      <li><a href="/service-areas/davis.html">Davis</a></li>
+                                                      <li><a href="/service-areas/woodland.html">Woodland</a></li>
+                                                      <li><a href="/service-areas/elk-grove.html">Elk Grove</a></li>
+                                                      <li><a href="/service-areas/roseville.html">Roseville</a></li>
+                                                      <li><a href="/service-areas/folsom.html">Folsom</a></li>
+                                                      <li><a href="/service-areas/citrus-heights.html">Citrus Heights</a></li>
+                                                      <li><a href="/service-areas/">All Service Areas</a></li>
                                                   </ul>
                                               </li>
                                               <li>
@@ -222,7 +240,7 @@ class CustomHeader2 extends HTMLElement {
                                                   </a>
                                               </li>
                                               <li>
-                                                  <a href="ppc.html" class="border-none">
+                                                  <a href="/ppc.html" class="border-none">
                                                       Promotions
                                                   </a>
                                               </li>

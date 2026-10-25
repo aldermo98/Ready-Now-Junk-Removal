@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /content/
+Disallow: /templates/
+
+Sitemap: https://readynowjunkremoval.com/sitemap.xml

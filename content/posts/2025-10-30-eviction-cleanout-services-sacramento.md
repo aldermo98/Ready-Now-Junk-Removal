@@ -31,8 +31,8 @@ We provide eviction cleanout services throughout the greater Sacramento region, 
 
 [West Sacramento](/service-areas/west-sacramento.html), 
 [Sacramento](/service-areas/sacramento.html), 
-[Midtown Sacramento](/service-areas/midtown-sacramento.html), 
-[Downtown Sacramento](/service-areas/downtown-sacramento.html), 
+[Midtown Sacramento](/service-areas/sacramento.html), 
+[Downtown Sacramento](/service-areas/sacramento.html), 
 [North Natomas](/service-areas/north-natomas.html), 
 [South Natomas](/service-areas/south-natomas.html), 
 [Elk Grove](/service-areas/elk-grove.html), 
@@ -42,7 +42,7 @@ We provide eviction cleanout services throughout the greater Sacramento region, 
 [Rocklin](/service-areas/rocklin.html), 
 [Davis](/service-areas/davis.html), 
 [Woodland](/service-areas/woodland.html), 
-[Vacaville](/service-areas/vacaville.html), 
+Vacaville, 
 [Folsom](/service-areas/folsom.html), 
 [Carmichael](/service-areas/carmichael.html), 
 [Arden-Arcade](/service-areas/arden-arcade.html), 
@@ -59,8 +59,8 @@ We provide eviction cleanout services throughout the greater Sacramento region, 
 [Foothill Farms](/service-areas/foothill-farms.html), 
 [Rio Linda](/service-areas/rio-linda.html), 
 [Vineyard](/service-areas/vineyard.html), 
-[Winters](/service-areas/winters.html), 
-and [Wilton](/service-areas/wilton.html).
+Winters, 
+and Wilton.
 
 ---
 

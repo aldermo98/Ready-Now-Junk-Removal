@@ -15,14 +15,14 @@ class CustomFooter extends HTMLElement {
                         <div class="single-footer-widget">
                             <div class="widget-head">
                                 <a href="/index.html">
-                                    <img src="/assets/img/logo/logo.png" alt="logo-img" class="logo__img">
+                                    <img src="/assets/img/logo/logo.png" alt="Ready Now Junk Removal logo" class="logo__img">
                                 </a>
                             </div>
                             <div class="footer-content">
                                 <p>Clearing space, reducing stress — one load at a time.</p>
                                 <p>
                                     <a href="https://maps.apple/p/aihwI8kLI5eS7g" class="text-white">
-                                        998 Riverfront St
+                                        998 Riverfront St Apt 309
                                         <br>
                                         West Sacramento, CA 95691
                                     </a>
@@ -47,9 +47,9 @@ class CustomFooter extends HTMLElement {
                                 <li><a href="/free-quote"><i class="fa-regular fa-arrow-right-long"></i> Free Quote</a></li>
                                 <li><a href="/about.html"><i class="fa-regular fa-arrow-right-long"></i> About Us</a></li>
                                 <li><a href="/services.html"><i class="fa-regular fa-arrow-right-long"></i> Services</a></li>
-                                <li><a href="/service-areas/antelope.html"><i class="fa-regular fa-arrow-right-long"></i> Service Areas</a></li>
+                                <li><a href="/service-areas/"><i class="fa-regular fa-arrow-right-long"></i> Service Areas</a></li>
                                 <li><a href="/faq.html"><i class="fa-regular fa-arrow-right-long"></i> FAQs</a></li>
-                                <li><a href="//blog/"><i class="fa-regular fa-arrow-right-long"></i> Blog</a></li>
+                                <li><a href="/blog/"><i class="fa-regular fa-arrow-right-long"></i> Blog</a></li>
                             </ul>
                         </div>
                     </div>
@@ -78,6 +78,9 @@ class CustomFooter extends HTMLElement {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="footer-areas text-center py-3" style="border-top:1px solid rgba(255,255,255,.12);">
+                <p class="text-white mb-0" style="font-size:14px;line-height:2;">Junk removal in: <a href="/service-areas/west-sacramento.html" class="text-white">West Sacramento</a> &middot; <a href="/service-areas/davis.html" class="text-white">Davis</a> &middot; <a href="/service-areas/woodland.html" class="text-white">Woodland</a> &middot; <a href="/service-areas/sacramento.html" class="text-white">Sacramento</a> &middot; <a href="/service-areas/land-park.html" class="text-white">Land Park</a> &middot; <a href="/service-areas/pocket.html" class="text-white">Pocket</a> &middot; <a href="/service-areas/south-natomas.html" class="text-white">South Natomas</a> &middot; <a href="/service-areas/north-natomas.html" class="text-white">North Natomas</a> &middot; <a href="/service-areas/arden-arcade.html" class="text-white">Arden-Arcade</a> &middot; <a href="/service-areas/carmichael.html" class="text-white">Carmichael</a> &middot; <a href="/service-areas/fair-oaks.html" class="text-white">Fair Oaks</a> &middot; <a href="/service-areas/citrus-heights.html" class="text-white">Citrus Heights</a> &middot; <a href="/service-areas/orangevale.html" class="text-white">Orangevale</a> &middot; <a href="/service-areas/antelope.html" class="text-white">Antelope</a> &middot; <a href="/service-areas/north-highlands.html" class="text-white">North Highlands</a> &middot; <a href="/service-areas/foothill-farms.html" class="text-white">Foothill Farms</a> &middot; <a href="/service-areas/rio-linda.html" class="text-white">Rio Linda</a> &middot; <a href="/service-areas/rancho-cordova.html" class="text-white">Rancho Cordova</a> &middot; <a href="/service-areas/rosemont.html" class="text-white">Rosemont</a> &middot; <a href="/service-areas/elk-grove.html" class="text-white">Elk Grove</a> &middot; <a href="/service-areas/vineyard.html" class="text-white">Vineyard</a> &middot; <a href="/service-areas/folsom.html" class="text-white">Folsom</a> &middot; <a href="/service-areas/roseville.html" class="text-white">Roseville</a> &middot; <a href="/service-areas/rocklin.html" class="text-white">Rocklin</a> &middot; <a href="/service-areas/lincoln.html" class="text-white">Lincoln</a> &middot; <a href="/service-areas/granite-bay.html" class="text-white">Granite Bay</a> &middot; <a href="/service-areas/el-dorado-hills.html" class="text-white">El Dorado Hills</a></p>
             </div>
             <div class="footer-bottom">
                 <div class="container">

@@ -80,7 +80,7 @@ const renderPost = (tpl, post, posts) =>
     .replaceAll("{{DATE}}", post.date)
     .replaceAll("{{HUMAN_DATE}}", formatDateHuman(post.date))
     .replaceAll("{{AUTHOR}}", escapeHtml(post.author || ""))
-    .replaceAll("{{COVER}}", post.cover || `${BASE_URL}/images/og-default.jpg`)
+    .replaceAll("{{COVER}}", post.cover ? (post.cover.startsWith("http") ? post.cover : `${BASE_URL}${post.cover}`) : `${BASE_URL}/assets/img/meta-img.webp`)
     .replaceAll("{{TAG_LINKS}}", makeTagLinks(post.tags))
     .replaceAll("{{CANONICAL}}", `${BASE_URL}/blog/${post.slug}/`)
     .replace("{{CONTENT}}", post.html)
@@ -206,7 +206,9 @@ const build = () => {
   );
   for (const [slug, tag] of Object.entries(tagMap)) {
     const html = renderIndex(
-      indexTpl.replace("<h1>Blog</h1>", `<h1>Tag: ${escapeHtml(tag.name)}</h1>`),
+      indexTpl
+        .replace("<h1>Blog</h1>", `<h1>Tag: ${escapeHtml(tag.name)}</h1>`)
+        .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${BASE_URL}/blog/tags/${slug}/" />\n        <meta name="robots" content="noindex, follow" />`),
       tag.posts
     );
     writeFile(path.join("tags", slug, "index.html"), html);
