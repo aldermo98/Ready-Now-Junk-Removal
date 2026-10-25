@@ -8,7 +8,7 @@ class CustomHeader extends HTMLElement {
                   <div class="offcanvas__content">
                       <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                           <div class="offcanvas__logo">
-                              <a href="/index.html">
+                              <a href="/">
                                   <img src="/assets/img/logo/logo.png" alt="logo-img" class="logo__img" width="150">
                               </a>
                           </div>
@@ -75,7 +75,7 @@ class CustomHeader extends HTMLElement {
                   <div class="mega-menu-wrapper">
                       <div class="header-main">
                           <div class="logo">
-                              <a href="/index.html" class="header-logo">
+                              <a href="/" class="header-logo">
                                   <img src="/assets/img/logo/logo.png" alt="logo-img" class="logo__img">
                               </a>
                           </div>
@@ -85,13 +85,13 @@ class CustomHeader extends HTMLElement {
                                       <nav id="mobile-menu">
                                           <ul>
                                               <li>
-                                                  <a href="/index.html">Home</a>
+                                                  <a href="/">Home</a>
                                               </li>
                                               <li>
-                                                  <a href="/about.html">About Us</a>
+                                                  <a href="/about">About Us</a>
                                               </li>
                                               <li class="has-dropdown active menu-thumb">
-                                                  <a href="/services.html">
+                                                  <a href="/services">
                                                   Services
                                                   </a>
                                                   <ul class="submenu has-homemenu">
@@ -101,7 +101,7 @@ class CustomHeader extends HTMLElement {
                                                                   <div class="homemenu-thumb">
                                                                       <img src="/assets/img/header/furniture-removal-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
-                                                                          <a href="/services/furniture-removal.html" class="theme-btn">
+                                                                          <a href="/services/furniture-removal" class="theme-btn">
                                                                               View
                                                                           </a>
                                                                       </div>
@@ -116,7 +116,7 @@ class CustomHeader extends HTMLElement {
                                                                   <div class="homemenu-thumb mb-15">
                                                                       <img src="/assets/img/header/garage-cleanouts-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
-                                                                          <a href="/services/garage-cleanouts.html" class="theme-btn">
+                                                                          <a href="/services/garage-cleanouts" class="theme-btn">
                                                                               View
                                                                           </a>
                                                                       </div>
@@ -131,7 +131,7 @@ class CustomHeader extends HTMLElement {
                                                                   <div class="homemenu-thumb mb-15">
                                                                       <img src="/assets/img/header/yard-waste-removal-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
-                                                                          <a href="/services/yard-waste-removal.html" class="theme-btn">
+                                                                          <a href="/services/yard-waste-removal" class="theme-btn">
                                                                               View
                                                                           </a>
                                                                       </div>
@@ -146,7 +146,7 @@ class CustomHeader extends HTMLElement {
                                                                   <div class="homemenu-thumb mb-15">
                                                                       <img src="/assets/img/header/construction-debris-removal-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
-                                                                          <a href="/services/construction-debris-removal.html" class="theme-btn">
+                                                                          <a href="/services/construction-debris-removal" class="theme-btn">
                                                                               View
                                                                           </a>
                                                                       </div>
@@ -161,7 +161,7 @@ class CustomHeader extends HTMLElement {
                                                                   <div class="homemenu-thumb mb-15">
                                                                       <img src="/assets/img/header/dump-trailer-rental-thumbnail.webp" alt="img">
                                                                       <div class="demo-button">
-                                                                          <a href="/services/dump-trailer-rental.html" class="theme-btn">
+                                                                          <a href="/services/dump-trailer-rental" class="theme-btn">
                                                                               View
                                                                           </a>
                                                                       </div>
@@ -180,57 +180,57 @@ class CustomHeader extends HTMLElement {
                                                                   <hr class="flex-grow-1 ms-3" style="border-top: 2px solid #ccc;">
                                                               </div>
                                                               <div class="row">
-                                                                  <div class="col-3 py-2"><a href="/services/estate-and-eviction-cleanouts.html" class="fw-light">Estate & Eviction Cleanouts</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/hot-tub-removal.html" class="fw-light">Hot Tub Removal</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/hoarder-house-cleanouts.html" class="fw-light">Hoarder House Cleanouts</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/light-demolition.html" class="fw-light">Light Demolition</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/storage-unit-cleanouts.html" class="fw-light">Storage Unit Cleanouts</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/office-and-commerical-cleanouts.html" class="fw-light">Office & Commercial Cleanouts</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/donation-pickup.html" class="fw-light">Donation Pickup</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/storm-debris-cleanup.html" class="fw-light">Storm Debris Cleanup</a></div>
-                                                                  <div class="col-3 py-2"><a href="/services/event-and-festival-cleanup.html" class="fw-light">Event & Festival Cleanup</a></div><div class="col-3 py-2"><a href="/services/couch-removal.html" class="fw-light">Couch Removal</a></div><div class="col-3 py-2"><a href="/services/mattress-removal.html" class="fw-light">Mattress Removal</a></div><div class="col-3 py-2"><a href="/services/shed-removal.html" class="fw-light">Shed Removal</a></div><div class="col-3 py-2"><a href="/services/electronics-recycling.html" class="fw-light">E-Waste & TV Removal</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/estate-and-eviction-cleanouts" class="fw-light">Estate & Eviction Cleanouts</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/hot-tub-removal" class="fw-light">Hot Tub Removal</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/hoarder-house-cleanouts" class="fw-light">Hoarder House Cleanouts</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/light-demolition" class="fw-light">Light Demolition</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/storage-unit-cleanouts" class="fw-light">Storage Unit Cleanouts</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/office-and-commerical-cleanouts" class="fw-light">Office & Commercial Cleanouts</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/donation-pickup" class="fw-light">Donation Pickup</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/storm-debris-cleanup" class="fw-light">Storm Debris Cleanup</a></div>
+                                                                  <div class="col-3 py-2"><a href="/services/event-and-festival-cleanup" class="fw-light">Event & Festival Cleanup</a></div><div class="col-3 py-2"><a href="/services/couch-removal" class="fw-light">Couch Removal</a></div><div class="col-3 py-2"><a href="/services/mattress-removal" class="fw-light">Mattress Removal</a></div><div class="col-3 py-2"><a href="/services/shed-removal" class="fw-light">Shed Removal</a></div><div class="col-3 py-2"><a href="/services/electronics-recycling" class="fw-light">E-Waste & TV Removal</a></div>
                                                               </div>
                                                           </div>
                                                       </li>
                                                   </ul>
                                               </li>
                                               <li class="has-dropdown active d-xl-none">
-                                                  <a href="/services.html" class="border-none">
+                                                  <a href="/services" class="border-none">
                                                       Services
                                                   </a>
                                                   <ul class="submenu">
-                                                      <li><a href="/services/furniture-removal.html">Furniture Removal</a></li>
-                                                      <li><a href="/services/appliance-removal.html">Appliance Removal</a></li>
-                                                      <li><a href="/services/garage-cleanouts.html">Garage Cleanouts</a></li>
-                                                      <li><a href="/services/dump-trailer-rental.html">Dump Trailer Rental</a></li>
-                                                      <li><a href="/services/yard-waste-removal.html">Yard Waste Removal</a></li>
-                                                      <li><a href="/services/construction-debris-removal.html">Construction Debris Removal</a></li>
-                                                      <li><a href="/services/estate-and-eviction-cleanouts.html">Estate & Eviction Cleanouts</a></li>
-                                                      <li><a href="/services/hot-tub-removal.html">Hot Tub Removal</a></li>
-                                                      <li><a href="/services/hoarder-house-cleanouts.html">Hoarder House Cleanouts</a></li>
-                                                      <li><a href="/services/light-demolition.html">Light Demolition</a></li>
-                                                      <li><a href="/services/storage-unit-cleanouts.html">Storage Unit Cleanouts</a></li>
-                                                      <li><a href="/services/office-and-commerical-cleanouts.html">Office & Commercial Cleanouts</a></li>
-                                                      <li><a href="/services/donation-pickup.html">Donation Pickup</a></li>
-                                                      <li><a href="/services/storm-debris-cleanup.html">Storm Debris Cleanup</a></li>
-                                                      <li><a href="/services/event-and-festival-cleanup.html">Event & Festival Cleanup</a></li>
-                                                      <li><a href="/services/couch-removal.html">Couch Removal</a></li>
-                                                      <li><a href="/services/mattress-removal.html">Mattress Removal</a></li>
-                                                      <li><a href="/services/shed-removal.html">Shed Removal</a></li>
-                                                      <li><a href="/services/electronics-recycling.html">E-Waste & TV Removal</a></li>
+                                                      <li><a href="/services/furniture-removal">Furniture Removal</a></li>
+                                                      <li><a href="/services/appliance-removal">Appliance Removal</a></li>
+                                                      <li><a href="/services/garage-cleanouts">Garage Cleanouts</a></li>
+                                                      <li><a href="/services/dump-trailer-rental">Dump Trailer Rental</a></li>
+                                                      <li><a href="/services/yard-waste-removal">Yard Waste Removal</a></li>
+                                                      <li><a href="/services/construction-debris-removal">Construction Debris Removal</a></li>
+                                                      <li><a href="/services/estate-and-eviction-cleanouts">Estate & Eviction Cleanouts</a></li>
+                                                      <li><a href="/services/hot-tub-removal">Hot Tub Removal</a></li>
+                                                      <li><a href="/services/hoarder-house-cleanouts">Hoarder House Cleanouts</a></li>
+                                                      <li><a href="/services/light-demolition">Light Demolition</a></li>
+                                                      <li><a href="/services/storage-unit-cleanouts">Storage Unit Cleanouts</a></li>
+                                                      <li><a href="/services/office-and-commerical-cleanouts">Office & Commercial Cleanouts</a></li>
+                                                      <li><a href="/services/donation-pickup">Donation Pickup</a></li>
+                                                      <li><a href="/services/storm-debris-cleanup">Storm Debris Cleanup</a></li>
+                                                      <li><a href="/services/event-and-festival-cleanup">Event & Festival Cleanup</a></li>
+                                                      <li><a href="/services/couch-removal">Couch Removal</a></li>
+                                                      <li><a href="/services/mattress-removal">Mattress Removal</a></li>
+                                                      <li><a href="/services/shed-removal">Shed Removal</a></li>
+                                                      <li><a href="/services/electronics-recycling">E-Waste & TV Removal</a></li>
                                                   </ul>
                                               </li>
                                               <li class="has-dropdown">
                                                   <a href="/service-areas/">Service Areas</a>
                                                   <ul class="submenu">
-                                                      <li><a href="/service-areas/west-sacramento.html">West Sacramento</a></li>
-                                                      <li><a href="/service-areas/sacramento.html">Sacramento</a></li>
-                                                      <li><a href="/service-areas/davis.html">Davis</a></li>
-                                                      <li><a href="/service-areas/woodland.html">Woodland</a></li>
-                                                      <li><a href="/service-areas/elk-grove.html">Elk Grove</a></li>
-                                                      <li><a href="/service-areas/roseville.html">Roseville</a></li>
-                                                      <li><a href="/service-areas/folsom.html">Folsom</a></li>
-                                                      <li><a href="/service-areas/citrus-heights.html">Citrus Heights</a></li>
+                                                      <li><a href="/service-areas/west-sacramento">West Sacramento</a></li>
+                                                      <li><a href="/service-areas/sacramento">Sacramento</a></li>
+                                                      <li><a href="/service-areas/davis">Davis</a></li>
+                                                      <li><a href="/service-areas/woodland">Woodland</a></li>
+                                                      <li><a href="/service-areas/elk-grove">Elk Grove</a></li>
+                                                      <li><a href="/service-areas/roseville">Roseville</a></li>
+                                                      <li><a href="/service-areas/folsom">Folsom</a></li>
+                                                      <li><a href="/service-areas/citrus-heights">Citrus Heights</a></li>
                                                       <li><a href="/service-areas/">All Service Areas</a></li>
                                                   </ul>
                                               </li>
@@ -240,7 +240,7 @@ class CustomHeader extends HTMLElement {
                                                   </a>
                                               </li>
                                               <li>
-                                                  <a href="/ppc.html" class="border-none">
+                                                  <a href="/ppc" class="border-none">
                                                       Promotions
                                                   </a>
                                               </li>

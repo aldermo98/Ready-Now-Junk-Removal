@@ -14,7 +14,7 @@ class CustomFooter extends HTMLElement {
                     <div class="col-xl-3 col-12 wow fadeInUp" data-wow-delay=".2s">
                         <div class="single-footer-widget">
                             <div class="widget-head">
-                                <a href="/index.html">
+                                <a href="/">
                                     <img src="/assets/img/logo/logo.png" alt="Ready Now Junk Removal logo" class="logo__img">
                                 </a>
                             </div>
@@ -45,10 +45,10 @@ class CustomFooter extends HTMLElement {
                             </div>
                             <ul class="list-items">
                                 <li><a href="/free-quote"><i class="fa-regular fa-arrow-right-long"></i> Free Quote</a></li>
-                                <li><a href="/about.html"><i class="fa-regular fa-arrow-right-long"></i> About Us</a></li>
-                                <li><a href="/services.html"><i class="fa-regular fa-arrow-right-long"></i> Services</a></li>
+                                <li><a href="/about"><i class="fa-regular fa-arrow-right-long"></i> About Us</a></li>
+                                <li><a href="/services"><i class="fa-regular fa-arrow-right-long"></i> Services</a></li>
                                 <li><a href="/service-areas/"><i class="fa-regular fa-arrow-right-long"></i> Service Areas</a></li>
-                                <li><a href="/faq.html"><i class="fa-regular fa-arrow-right-long"></i> FAQs</a></li>
+                                <li><a href="/faq"><i class="fa-regular fa-arrow-right-long"></i> FAQs</a></li>
                                 <li><a href="/blog/"><i class="fa-regular fa-arrow-right-long"></i> Blog</a></li>
                             </ul>
                         </div>
@@ -59,13 +59,13 @@ class CustomFooter extends HTMLElement {
                                 <h3>Popular Services</h3>
                             </div>
                             <ul class="list-items">
-                                <li><a href="/services.html"><i class="fa-regular fa-arrow-right-long"></i> All Services</a></li>
-                                <li><a href="/services/appliance-removal.html"><i class="fa-regular fa-arrow-right-long"></i> Appliance Removal</a></li>
-                                <li><a href="/services/furniture-removal.html"><i class="fa-regular fa-arrow-right-long"></i> Furniture Removal</a></li>
-                                <li><a href="/services/garage-cleanouts.html"><i class="fa-regular fa-arrow-right-long"></i> Garage Cleanouts</a></li>
-                                <li><a href="/services/storage-unit-cleanouts.html"><i class="fa-regular fa-arrow-right-long"></i> Storage Unit Cleanouts</a></li>
-                                <li><a href="/services/estate-and-eviction-cleanouts.html"><i class="fa-regular fa-arrow-right-long"></i> Estate & Eviction Cleanouts</a></li>
-                                <li><a href="/services/dump-trailer-rental.html"><i class="fa-regular fa-arrow-right-long"></i> Dump Trailer Rental</a></li>
+                                <li><a href="/services"><i class="fa-regular fa-arrow-right-long"></i> All Services</a></li>
+                                <li><a href="/services/appliance-removal"><i class="fa-regular fa-arrow-right-long"></i> Appliance Removal</a></li>
+                                <li><a href="/services/furniture-removal"><i class="fa-regular fa-arrow-right-long"></i> Furniture Removal</a></li>
+                                <li><a href="/services/garage-cleanouts"><i class="fa-regular fa-arrow-right-long"></i> Garage Cleanouts</a></li>
+                                <li><a href="/services/storage-unit-cleanouts"><i class="fa-regular fa-arrow-right-long"></i> Storage Unit Cleanouts</a></li>
+                                <li><a href="/services/estate-and-eviction-cleanouts"><i class="fa-regular fa-arrow-right-long"></i> Estate & Eviction Cleanouts</a></li>
+                                <li><a href="/services/dump-trailer-rental"><i class="fa-regular fa-arrow-right-long"></i> Dump Trailer Rental</a></li>
                             </ul>
                         </div>
                     </div>
@@ -80,13 +80,13 @@ class CustomFooter extends HTMLElement {
                 </div>
             </div>
             <div class="footer-areas text-center py-3" style="border-top:1px solid rgba(255,255,255,.12);">
-                <p class="text-white mb-0" style="font-size:14px;line-height:2;">Junk removal in: <a href="/service-areas/west-sacramento.html" class="text-white">West Sacramento</a> &middot; <a href="/service-areas/davis.html" class="text-white">Davis</a> &middot; <a href="/service-areas/woodland.html" class="text-white">Woodland</a> &middot; <a href="/service-areas/sacramento.html" class="text-white">Sacramento</a> &middot; <a href="/service-areas/land-park.html" class="text-white">Land Park</a> &middot; <a href="/service-areas/pocket.html" class="text-white">Pocket</a> &middot; <a href="/service-areas/south-natomas.html" class="text-white">South Natomas</a> &middot; <a href="/service-areas/north-natomas.html" class="text-white">North Natomas</a> &middot; <a href="/service-areas/arden-arcade.html" class="text-white">Arden-Arcade</a> &middot; <a href="/service-areas/carmichael.html" class="text-white">Carmichael</a> &middot; <a href="/service-areas/fair-oaks.html" class="text-white">Fair Oaks</a> &middot; <a href="/service-areas/citrus-heights.html" class="text-white">Citrus Heights</a> &middot; <a href="/service-areas/orangevale.html" class="text-white">Orangevale</a> &middot; <a href="/service-areas/antelope.html" class="text-white">Antelope</a> &middot; <a href="/service-areas/north-highlands.html" class="text-white">North Highlands</a> &middot; <a href="/service-areas/foothill-farms.html" class="text-white">Foothill Farms</a> &middot; <a href="/service-areas/rio-linda.html" class="text-white">Rio Linda</a> &middot; <a href="/service-areas/rancho-cordova.html" class="text-white">Rancho Cordova</a> &middot; <a href="/service-areas/rosemont.html" class="text-white">Rosemont</a> &middot; <a href="/service-areas/elk-grove.html" class="text-white">Elk Grove</a> &middot; <a href="/service-areas/vineyard.html" class="text-white">Vineyard</a> &middot; <a href="/service-areas/folsom.html" class="text-white">Folsom</a> &middot; <a href="/service-areas/roseville.html" class="text-white">Roseville</a> &middot; <a href="/service-areas/rocklin.html" class="text-white">Rocklin</a> &middot; <a href="/service-areas/lincoln.html" class="text-white">Lincoln</a> &middot; <a href="/service-areas/granite-bay.html" class="text-white">Granite Bay</a> &middot; <a href="/service-areas/el-dorado-hills.html" class="text-white">El Dorado Hills</a></p>
+                <p class="text-white mb-0" style="font-size:14px;line-height:2;">Junk removal in: <a href="/service-areas/west-sacramento" class="text-white">West Sacramento</a> &middot; <a href="/service-areas/davis" class="text-white">Davis</a> &middot; <a href="/service-areas/woodland" class="text-white">Woodland</a> &middot; <a href="/service-areas/sacramento" class="text-white">Sacramento</a> &middot; <a href="/service-areas/natomas" class="text-white">Natomas</a> &middot; <a href="/service-areas/land-park" class="text-white">Land Park</a> &middot; <a href="/service-areas/pocket" class="text-white">Pocket</a> &middot; <a href="/service-areas/south-natomas" class="text-white">South Natomas</a> &middot; <a href="/service-areas/north-natomas" class="text-white">North Natomas</a> &middot; <a href="/service-areas/arden-arcade" class="text-white">Arden-Arcade</a> &middot; <a href="/service-areas/carmichael" class="text-white">Carmichael</a> &middot; <a href="/service-areas/fair-oaks" class="text-white">Fair Oaks</a> &middot; <a href="/service-areas/citrus-heights" class="text-white">Citrus Heights</a> &middot; <a href="/service-areas/orangevale" class="text-white">Orangevale</a> &middot; <a href="/service-areas/antelope" class="text-white">Antelope</a> &middot; <a href="/service-areas/north-highlands" class="text-white">North Highlands</a> &middot; <a href="/service-areas/foothill-farms" class="text-white">Foothill Farms</a> &middot; <a href="/service-areas/rio-linda" class="text-white">Rio Linda</a> &middot; <a href="/service-areas/rancho-cordova" class="text-white">Rancho Cordova</a> &middot; <a href="/service-areas/rosemont" class="text-white">Rosemont</a> &middot; <a href="/service-areas/elk-grove" class="text-white">Elk Grove</a> &middot; <a href="/service-areas/vineyard" class="text-white">Vineyard</a> &middot; <a href="/service-areas/folsom" class="text-white">Folsom</a> &middot; <a href="/service-areas/roseville" class="text-white">Roseville</a> &middot; <a href="/service-areas/rocklin" class="text-white">Rocklin</a> &middot; <a href="/service-areas/lincoln" class="text-white">Lincoln</a> &middot; <a href="/service-areas/granite-bay" class="text-white">Granite Bay</a> &middot; <a href="/service-areas/el-dorado-hills" class="text-white">El Dorado Hills</a></p>
             </div>
             <div class="footer-bottom">
                 <div class="container">
                     <div class="footer-bottom-wrapper">
                         <p>
-                            &copy; <span id="ready-footer-year"></span> by <a href="/index.html">Ready Now Junk Removal</a>. All rights reserved.
+                            &copy; <span id="ready-footer-year"></span> by <a href="/">Ready Now Junk Removal</a>. All rights reserved.
                         </p>
                     </div>
                 </div>

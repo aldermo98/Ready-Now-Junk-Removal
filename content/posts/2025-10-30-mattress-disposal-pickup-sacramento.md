@@ -43,11 +43,11 @@ From homes, apartments, and move-outs — **same day available**.
 
 We provide mattress pickup in:
 
-- [Mattress Removal in Sacramento](/service-areas/sacramento.html)
-- [Mattress Removal in West Sacramento](/service-areas/west-sacramento.html)
-- [Mattress Removal in Elk Grove](/service-areas/elk-grove.html)
-- [Mattress Removal in Citrus Heights](/service-areas/citrus-heights.html)
-- [Mattress Removal in Rancho Cordova](/service-areas/rancho-cordova.html)
+- [Mattress Removal in Sacramento](/service-areas/sacramento)
+- [Mattress Removal in West Sacramento](/service-areas/west-sacramento)
+- [Mattress Removal in Elk Grove](/service-areas/elk-grove)
+- [Mattress Removal in Citrus Heights](/service-areas/citrus-heights)
+- [Mattress Removal in Rancho Cordova](/service-areas/rancho-cordova)
 
 ---
 

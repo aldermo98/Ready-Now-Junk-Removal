@@ -73,6 +73,24 @@ const makeTagLinks = (tags = []) =>
     .map((t) => `<a href="/blog/tags/${slugify(t)}/">${escapeHtml(t)}</a>`)
     .join(", ");
 
+
+// Build FAQPage JSON-LD from a "## ...FAQ..." section: each "### Question" + following paragraphs
+const faqJsonLd = (html) => {
+  const sec = html.split(/<h2[^>]*>[^<]*(?:FAQ|Frequently Asked)[^<]*<\/h2>/i)[1];
+  if (!sec) return "";
+  const body = sec.split(/<h2[^>]*>/i)[0];
+  const items = [];
+  const re = /<h3[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3|$)/gi;
+  let m;
+  while ((m = re.exec(body))) {
+    const strip = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    const q = strip(m[1]), a = strip(m[2]);
+    if (q && a) items.push({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } });
+  }
+  if (!items.length) return "";
+  return `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: items })}</script>`;
+};
+
 const renderPost = (tpl, post, posts) =>
   tpl
     .replaceAll("{{TITLE}}", escapeHtml(post.title))
@@ -83,7 +101,8 @@ const renderPost = (tpl, post, posts) =>
     .replaceAll("{{COVER}}", post.cover ? (post.cover.startsWith("http") ? post.cover : `${BASE_URL}${post.cover}`) : `${BASE_URL}/assets/img/meta-img.webp`)
     .replaceAll("{{TAG_LINKS}}", makeTagLinks(post.tags))
     .replaceAll("{{CANONICAL}}", `${BASE_URL}/blog/${post.slug}/`)
-    .replace("{{CONTENT}}", post.html)
+    .replace("{{FAQ_LD}}", () => faqJsonLd(post.html))
+    .replace("{{CONTENT}}", () => post.html)
     .replace("{{RECENT_POSTS}}", posts.slice(0, 3).map(recentPosts).join("\n"));
 
 const card = (p) => `
