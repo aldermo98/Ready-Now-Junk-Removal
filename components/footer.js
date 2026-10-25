@@ -101,3 +101,51 @@ class CustomFooter extends HTMLElement {
 }
 
 customElements.define('custom-footer', CustomFooter);
+
+// ---- Lead tracking + mobile action bar (runs once per page) ----
+(function () {
+  if (window.__rnLeadInit) return;
+  window.__rnLeadInit = true;
+
+  // Send an event to Google Analytics (gtag is added by the host; fall back to dataLayer)
+  function track(name, params) {
+    params = Object.assign({ page_path: location.pathname }, params || {});
+    try {
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, params)); }
+    } catch (e) {}
+  }
+
+  // Track taps on phone, text and quote links anywhere on the site
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var where = a.closest('.rn-mobile-bar') ? 'mobile_bar' : (a.closest('header, custom-header, custom-header-2') ? 'header' : (a.closest('footer, custom-footer') ? 'footer' : 'page'));
+    if (href.indexOf('tel:') === 0) track('phone_call_click', { link_location: where });
+    else if (href.indexOf('sms:') === 0) track('text_message_click', { link_location: where });
+    else if (/\/free-quote|\/book|app\.readynowjunkremoval\.com/.test(href)) track('quote_click', { link_location: where });
+  }, true);
+
+  // Sticky Call / Text / Free Quote bar on phones
+  function addBar() {
+    if (document.querySelector('.rn-mobile-bar')) return;
+    var css = document.createElement('style');
+    css.textContent =
+      '.rn-mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:none;background:#0f1d3a;box-shadow:0 -2px 10px rgba(0,0,0,.25);padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:8px}' +
+      '.rn-mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;height:46px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.35)}' +
+      '.rn-mobile-bar a.rn-primary{background:#60AC45;border-color:#60AC45}' +
+      '@media (max-width:767px){.rn-mobile-bar{display:flex}body{padding-bottom:70px}#back-top{bottom:80px!important}}';
+    document.head.appendChild(css);
+    var bar = document.createElement('div');
+    bar.className = 'rn-mobile-bar';
+    bar.setAttribute('role', 'navigation');
+    bar.setAttribute('aria-label', 'Contact Ready Now Junk Removal');
+    bar.innerHTML =
+      '<a href="tel:+19162491009"><i class="fa-solid fa-phone"></i> Call</a>' +
+      '<a href="sms:+19162491009"><i class="fa-solid fa-comment"></i> Text</a>' +
+      '<a href="/free-quote" class="rn-primary">Free Quote</a>';
+    document.body.appendChild(bar);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addBar); else addBar();
+})();
