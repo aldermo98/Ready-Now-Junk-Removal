@@ -125,7 +125,7 @@ customElements.define('custom-footer', CustomFooter);
     var where = a.closest('.rn-mobile-bar') ? 'mobile_bar' : (a.closest('header, custom-header, custom-header-2') ? 'header' : (a.closest('footer, custom-footer') ? 'footer' : 'page'));
     if (href.indexOf('tel:') === 0) track('phone_call_click', { link_location: where });
     else if (href.indexOf('sms:') === 0) track('text_message_click', { link_location: where });
-    else if (/\/free-quote|\/book|app\.readynowjunkremoval\.com/.test(href)) track('quote_click', { link_location: where });
+    else if (/\/free-quote|\/book|app\.readynowjunkremoval\.com|^#quote$/.test(href)) track('quote_click', { link_location: where });
   }, true);
 
   // Sticky Call / Text / Free Quote bar on phones
